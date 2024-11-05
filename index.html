@@ -12,8 +12,15 @@
         }
 
         header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             background-color: #f2f2f2;
             padding: 20px;
+        }
+
+        header a img {
+            width: 150px; /* Adjust the width as needed */
         }
 
         nav ul {
@@ -76,12 +83,20 @@
             height: auto;
             display: none;
         }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f2f2f2;
+        }
     </style>
 </head>
 <body>
     <header>
+        <a href="#">
+            <img src="logo.png" alt="Sonia Wadhwani Logo">
+        </a>
         <nav>
-            <a href="#">Sonia Wadhwani</a>
             <ul>
                 <li class="dropdown">
                     <a href="#">About Me</a>
@@ -117,18 +132,17 @@
         </section>
         <section class="right-section">
             <div class="image-slider">
-                <img src="images/image1.jpg" alt="Image 1">
-                <img src="images/image2.jpg" alt="Image 2">
-                <img src="images/image3.jpg" alt="Image 3">
-                <img src="images/image4.jpg" alt="Image 4">
-                <img src="images/image5.jpg" alt="Image 5">
+                <img src="image1.jpg" alt="Image 1">
+                <img src="image2.jpg" alt="Image 2">
+                <img src="image3.jpg" alt="Image 3">
+                <img src="image4.jpg" alt="Image 4">
+                <img src="image5.jpg" alt="Image 5">
             </div>
         </section>
     </main>
 
     <footer>
-        <a href="#">Home</a>
-        <a href="#">Contact Me</a>
+        <p>&copy; Sonia Wadhwani 2023</p>
     </footer>
 
     <script>
