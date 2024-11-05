@@ -105,7 +105,7 @@
         .right-section {
             flex: 1;
             text-align: center;
-            padding: 20px;
+            padding: 10px;
             box-sizing: border-box;
         }
 
@@ -122,7 +122,7 @@
 
         footer {
             text-align: center;
-            padding: 20px;
+            padding: 10px;
             background-color: #f2f2f2;
         }
 
@@ -206,6 +206,19 @@
             currentIndex = (currentIndex + 1) % images.length;
             showImage(currentIndex);
         }, 3000);
+        
+    // Device orientation check script
+    function checkOrientation() {
+      const isLandscape = screen.orientation.type === 'landscape-primary' || screen.orientation.type === 'landscape-secondary';
+      if (!isLandscape) {
+        alert('This page is best viewed in landscape mode!');
+      }
+    }
+
+    window.addEventListener('orientationchange', checkOrientation);
+
+    checkOrientation(); // Check initial orientation on page load
+
     </script>
 </body>
 </html>
