@@ -11,6 +11,59 @@
             padding: 0;
         }
 
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        header a img {
+            width: 150px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        main {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
         .left-section {
             flex: 1;
             display: flex;
@@ -24,6 +77,7 @@
             width: 100%;
         }
 
+        /* Typewriter animation */
         .dynamic-text p {
             margin: 0;
             font-family: 'Times New Roman', Times, serif;
@@ -36,14 +90,40 @@
             animation: typing 3s steps(30, end), blink-caret 0.75s step-end 3s;
         }
 
+        /* Typing animation */
         @keyframes typing {
             from { width: 0; }
             to { width: 100%; }
         }
 
+        /* Blinking caret animation, stops after typing completes */
         @keyframes blink-caret {
             from, to { border-color: transparent; }
             50% { border-color: black; }
+        }
+
+        .right-section {
+            flex: 1;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .image-slider {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .image-slider img {
+            width: 100%;
+            height: auto;
+            display: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f2f2f2;
         }
 
         @media (max-width: 768px) {
@@ -54,11 +134,78 @@
     </style>
 </head>
 <body>
-    <section class="left-section">
-        <div class="dynamic-text">
-            <p>Hi,</p>
-            <p>I am Sonia.</p>
-        </div>
-    </section>
+    <header>
+        <a href="#">
+            <img src="logo.png" alt="Sonia Wadhwani Logo">
+        </a>
+        <nav>
+            <ul>
+                <li class="dropdown">
+                    <a href="#">About Me</a>
+                    <ul class="dropdown-content">
+                        <li><a href="#">Personal Profile</a></li>
+                        <li><a href="#">Academics</a></li>
+                        <li><a href="#">Achievements</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">My Art</a>
+                    <ul class="dropdown-content">
+                        <li><a href="#">My Sketches</a></li>
+                        <li><a href="#">My Designs</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">My Projects</a>
+                    <ul class="dropdown-content">
+                        <li><a href="#">Academic Projects</a></li>
+                        <li><a href="#">Other Projects</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Contact Me</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="left-section">
+            <div class="dynamic-text">
+                <p>Hi,</p>
+                <p>I am Sonia.</p>
+            </div>
+        </section>
+        <section class="right-section">
+            <div class="image-slider">
+                <img src="image1.jpg" alt="Image 1">
+                <img src="image2.jpg" alt="Image 2">
+                <img src="image3.jpg" alt="Image 3">
+                <img src="image4.jpg" alt="Image 4">
+                <img src="image5.jpg" alt="Image 5">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; Sonia Wadhwani 2023</p>
+    </footer>
+
+    <script>
+        // Image slider script
+        const images = document.querySelectorAll('.image-slider img');
+        let currentIndex = 0;
+
+        function showImage(index) {
+            images.forEach((image, i) => {
+                image.style.display = i === index ? 'block' : 'none';
+            });
+        }
+
+        showImage(currentIndex);
+
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % images.length;
+            showImage(currentIndex);
+        }, 3000);
+    </script>
 </body>
 </html>
