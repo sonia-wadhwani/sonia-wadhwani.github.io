@@ -20,7 +20,7 @@
         }
 
         header a img {
-            width: 150px; /* Adjust the width as needed */
+            width: 150px;
         }
 
         nav ul {
@@ -61,17 +61,33 @@
 
         main {
             display: flex;
-            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            flex-wrap: wrap;
         }
 
-        .left-section, .right-section {
+        .left-section {
             flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             padding: 20px;
-            box-sizing: border-box; /* Include padding in the width */
+            text-align: left;
+        }
+
+        .dynamic-text {
+            width: 100%;
+        }
+
+        .dynamic-text p {
+            margin: 0;
+            font-size: 5vw;
+            line-height: 1.2;
         }
 
         .right-section {
+            flex: 1;
             text-align: center;
+            padding: 20px; /* Added padding to right section */
+            box-sizing: border-box; /* Ensures padding doesn’t affect width */
         }
 
         .image-slider {
@@ -91,15 +107,9 @@
             background-color: #f2f2f2;
         }
 
-        /* Responsive styles */
         @media (max-width: 768px) {
-            nav li {
-                display: block; /* Stack nav items vertically */
-                margin-right: 0;
-                margin-bottom: 10px;
-            }
-            .left-section, .right-section {
-                flex: 100%; /* Make sections full width on small screens */
+            .dynamic-text p {
+                font-size: 8vw;
             }
         }
     </style>
@@ -107,7 +117,7 @@
 <body>
     <header>
         <a href="#">
-            <img src="images/logo.png" alt="Sonia Wadhwani Logo">
+            <img src="logo.png" alt="Sonia Wadhwani Logo">
         </a>
         <nav>
             <ul>
@@ -140,16 +150,18 @@
 
     <main>
         <section class="left-section">
-            <h2>About Me</h2>
-            <p>Some text Some text Some text Some text Some text Some text Some text Some text Some text</p>
+            <div class="dynamic-text">
+                <p>Hi,</p>
+                <p>I am Sonia.</p>
+            </div>
         </section>
         <section class="right-section">
             <div class="image-slider">
-                <img src="images/image1.jpg" alt="Image 1">
-                <img src="images/image2.jpg" alt="Image 2">
-                <img src="images/image3.jpg" alt="Image 3">
-                <img src="images/image4.jpg" alt="Image 4">
-                <img src="images/image5.jpg" alt="Image 5">
+                <img src="image1.jpg" alt="Image 1">
+                <img src="image2.jpg" alt="Image 2">
+                <img src="image3.jpg" alt="Image 3">
+                <img src="image4.jpg" alt="Image 4">
+                <img src="image5.jpg" alt="Image 5">
             </div>
         </section>
     </main>
