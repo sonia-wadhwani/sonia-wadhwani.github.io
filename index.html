@@ -12,26 +12,33 @@
         }
 
         header {
+            background-color: #f2f2f2;
+            padding: 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #f2f2f2;
-            padding: 20px;
+            box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2); /* Added shadow effect */
         }
 
         header a img {
             width: 150px;
         }
 
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
+        nav {
+            display: flex;
         }
 
         nav li {
             display: inline-block;
             margin-right: 20px;
+        }
+
+        nav a {
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: bold;
+            color: black;
+            text-decoration: none;
+            padding: 5px 5px;
         }
 
         .dropdown {
@@ -44,7 +51,7 @@
             position: absolute;
             background-color: #f9f9f9;
             min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
             z-index: 1;
         }
 
@@ -124,11 +131,20 @@
             text-align: center;
             padding: 10px;
             background-color: #f2f2f2;
+            box-shadow: 3px 0 0 3px rgba(0, 0, 0, 0.1); /* Added shadow effect */
         }
 
         @media (max-width: 768px) {
             .dynamic-text p {
                 font-size: 10vw;
+            }
+
+            main {
+                flex-direction: column;
+            }
+
+            .image-slider {
+                height: auto;
             }
         }
     </style>
@@ -140,29 +156,29 @@
         </a>
         <nav>
             <ul>
-                <li class="dropdown">
-                    <a href="#">About Me</a>
-                    <ul class="dropdown-content">
-                        <li><a href="#">Personal Profile</a></li>
-                        <li><a href="#">Academics</a></li>
-                        <li><a href="#">Achievements</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#">My Art</a>
-                    <ul class="dropdown-content">
-                        <li><a href="#">My Sketches</a></li>
-                        <li><a href="#">My Designs</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#">My Projects</a>
-                    <ul class="dropdown-content">
-                        <li><a href="#">Academic Projects</a></li>
-                        <li><a href="#">Other Projects</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Contact Me</a></li>
+              <li class="dropdown">
+                <a href="#">About Me</a>
+                <ul class="dropdown-content">
+                    <li><a href="#">Personal </a></li>
+                    <li><a href="#">Academics</a></li>
+                    <li><a href="#">Achievements</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#">My Art</a>
+                <ul class="dropdown-content">
+                    <li><a href="#">My Sketches</a></li>
+                    <li><a href="#">My Designs</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#">My Projects</a>
+                <ul class="dropdown-content">
+                    <li><a href="#">Academic </a></li>
+                    <li><a href="#">Others</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Contact Me</a></li>
             </ul>
         </nav>
     </header>
@@ -206,19 +222,18 @@
             currentIndex = (currentIndex + 1) % images.length;
             showImage(currentIndex);
         }, 3000);
-        
-    // Device orientation check script
-    function checkOrientation() {
-      const isLandscape = screen.orientation.type === 'landscape-primary' || screen.orientation.type === 'landscape-secondary';
-      if (!isLandscape) {
-        alert('This page is best viewed in landscape mode!');
-      }
-    }
 
-    window.addEventListener('orientationchange', checkOrientation);
+        // Device orientation check script
+        function checkOrientation() {
+            const isLandscape = screen.orientation.type === 'landscape-primary' || screen.orientation.type === 'landscape-secondary';
+            if (!isLandscape) {
+                alert('This page is best viewed in landscape mode!');
+            }
+        }
 
-    checkOrientation(); // Check initial orientation on page load
+        window.addEventListener('orientationchange', checkOrientation);
 
+        checkOrientation(); // Check initial orientation on page load
     </script>
 </body>
 </html>
