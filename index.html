@@ -12,6 +12,7 @@
             display: flex;
             flex-direction: column;
             height: 100vh;
+            min-height: 100vh
         }
 
         header {
@@ -37,6 +38,7 @@
         main {
             flex: 1;
             display: flex;
+            overflow: hidden;
         }
 
         .left-section {
@@ -93,6 +95,7 @@
             object-fit: cover;
             border-top-left-radius: 50%;
             border-top-right-radius: 50%;
+            max-height: 100vh;
         }
 
         footer {
@@ -122,11 +125,10 @@
     <main>
         <section class="left-section">
             <p class="large-text-l1" id="typewriterLine1"> </p><br>
-            <p class="large-text-l2" id="typewriterLine2"> </p><br>
+            <p class="large-text-l2" id="typewriterLine2"> </p><br><br>
             <p class="body-text-l3" id="typewriterLine3"> </p><br>
             <p class="body-text-l3" id="typewriterLine4"> </p><br>
             <p class="body-text-l3" id="typewriterLine5"> </p><br>
-            <p class="body-text-l3" id="typewriterLine6"> </p><br>
 
         </section>
         <section class="right-section">
@@ -135,7 +137,7 @@
     </main>
 
     <footer>
-        <p>&copy; Sonia Wadhwani 2023</p>
+        <p>&copy; Sonia Wadhwani 2024</p>
     </footer>
 
     <script>
@@ -150,7 +152,6 @@
         const typewriterElement3 = document.getElementById('typewriterLine3');
         const typewriterElement4 = document.getElementById('typewriterLine4');
         const typewriterElement5 = document.getElementById('typewriterLine5');
-        const typewriterElement6 = document.getElementById('typewriterLine6'); 
              
         let index1 = 0;
         let index2 = 0;
@@ -210,22 +211,12 @@
             }
         } 
         
-        function typeWriter6() {
-            if (index6 < textLine6.length) {
-                typewriterElement6.innerHTML += textLine6[index6];
-                index6++;
-                setTimeout(typeWriter6, 40);
-            } else {
-                typewriterElement6.style.borderRight = "none";
-            }
-        } 
 
         typeWriter1();
         setTimeout(typeWriter2, 1000);
         setTimeout(typeWriter3, 2000);
         setTimeout(typeWriter4, 4600);
         setTimeout(typeWriter5, 7000);
-        setTimeout(typeWriter6, 10000);
 
     </script>
 </body>
