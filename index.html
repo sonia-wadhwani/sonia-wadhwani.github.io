@@ -31,8 +31,7 @@
         .logo {
             width: 120px;
             height: 60px;
-            padding-left: 30px; 
-
+            padding-left: 30px;
         }
 
         main {
@@ -43,7 +42,7 @@
         .left-section {
             flex: 0 0 50%;
             padding: 20px;
-            padding-left: 40px; /* Increased left padding */
+            padding-left: 40px;
         }
 
         .right-section {
@@ -53,11 +52,27 @@
             justify-content: center;
         }
 
-        .large-text {
+        .large-text-l1 {
             font-family: 'DM Serif Display', serif;
             font-size: calc(3vw + 2vh);
             line-height: 1.2;
-            margin-bottom: 20px;
+            margin-bottom: 5px; /* Reduces gap between lines */
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid black;
+            display: inline-block;
+        }
+
+        .large-text-l2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: calc(3vw + 2vh);
+            line-height: 1.2;
+            margin-bottom: 5px; /* Reduces gap between lines */
+            margin-top: 5px; /* Reduces gap between lines */
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid black;
+            display: inline-block;
         }
 
         .right-section img {
@@ -71,7 +86,7 @@
         footer {
             background-color: #F5F5F5;
             text-align: center;
-            margin-top: auto; /* Ensures footer stays at the bottom */
+            margin-top: auto;
         }
 
         footer a {
@@ -94,7 +109,8 @@
 
     <main>
         <section class="left-section">
-            <p class="large-text">Hello,<br>I am Sonia.</p>
+            <p class="large-text-l1" id="typewriterLine1"> </p> <br>
+            <p class="large-text-l2" id="typewriterLine2"> </p>
             <p>I am a compassionate, creative design enthusiast, blending artistry with user-focused innovation. I value diverse experiences, from supporting the underprivileged to exploring cultures, driven by positivity and a love for discovery.</p>
         </section>
         <section class="right-section">
@@ -105,5 +121,37 @@
     <footer>
         <p>&copy; Sonia Wadhwani 2023</p>
     </footer>
+
+    <script>
+        const textLine1 = "Hello,";
+        const textLine2 = "I am Sonia.";
+        const typewriterElement1 = document.getElementById('typewriterLine1');
+        const typewriterElement2 = document.getElementById('typewriterLine2');
+        let index1 = 0;
+        let index2 = 0;
+
+        function typeWriter1() {
+            if (index1 < textLine1.length) {
+                typewriterElement1.innerHTML += textLine1[index1];
+                index1++;
+                setTimeout(typeWriter1, 100);
+            } else {
+                typewriterElement1.style.borderRight = "none";
+            }
+        }
+
+        function typeWriter2() {
+            if (index2 < textLine2.length) {
+                typewriterElement2.innerHTML += textLine2[index2];
+                index2++;
+                setTimeout(typeWriter2, 100);
+            } else {
+                typewriterElement2.style.borderRight = "none";
+            }
+        }
+        
+        typeWriter1();
+        setTimeout(typeWriter2, 1000);
+    </script>
 </body>
 </html>
