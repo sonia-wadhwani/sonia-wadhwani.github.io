@@ -107,6 +107,11 @@
             margin: 0 10px;
         }
     </style>
+    <script>
+        function openPopup() {
+          window.open("p5js.html", "popupWindow", "width=800,height=600,menubar=no,toolbar=no,location=no,status=no,scrollbars=no");
+        }
+        </script>
 </head>
 <body>
     <header>
@@ -122,8 +127,7 @@
     </header>
 
     <main>
-        <a href="p5js.html" target="_new">My P5JS Project </a>
-        <a href="p5js.html" target="_new">My Design </a>
+        <a href="#" onclick="openPopup()">My P5JS Project</a>
     </main>
 
     <footer>
