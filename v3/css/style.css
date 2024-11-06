@@ -1,97 +1,63 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Sonia's Portfolio</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
 
-        header {
-            text-align: center;
-        }
+header {
+    text-align: center;
+}
 
-        main {
-            display: flex;
-            flex-direction: column;
-        }
+main {
+    display: flex;
+}
 
-        .left {
-            flex: 1;
-            padding: 20px;
-            text-align: center;
-        }
+.left {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+}
 
-        .right {
-            flex: 2; /* Adjust the flex-grow value as needed */
-            padding: 20px;
-            text-align: center;
-        }
+.right {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+}
 
-        h1 {
-            font-size: 5rem; /* Adjust font size as needed */
-        }
+h1 {
+    font-size: 5rem; /* Adjust font size as needed */
+}
 
-        .fade-in {
-            opacity: 0;
-            animation: fadeIn 1s;
-        }
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s;
+}
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #f0f0f0;
-        }
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
 
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
+ul {
+    list-style-type: none;
+    padding: 0;
+}
 
-        li {
-            display: inline-block;
-            margin: 0 10px;
-        }
+li {
+    display: inline-block;
+    margin: 0 10px;
+}
 
-        a {
-            text-decoration: none;
-            color: #333;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <img src="logo.png" alt="Logo" width="200" height="60">
-    </header>
-
-    <main>
-        <div class="left">
-            <h1>Hi, I am Sonia</h1>
-        </div>
-        <div class="right">
-            <img src="sonia.jpg" alt="Sonia's Picture" class="fade-in">
-        </div>
-    </main>
-
-    <footer>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="aboutme.html">About Me</a></li>
-            <li><a href="mydesigns.html">My Designs</a></li>
-            <li><a href="learningprojects.html">Learning Projects</a></li>
-            <li><a href="programmingexperiences.html">Programming Experiences</a></li>
-            <li><a href="contactme.html">Contact Me</a></li>
-        </ul>
-    </footer>
-</body>
-</html>
+a {
+    text-decoration: none;
+    color: #333;
+}
