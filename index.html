@@ -12,7 +12,6 @@
             display: flex;
             flex-direction: column;
             height: 100vh;
-            min-height: 100vh;
         }
 
         header {
@@ -38,19 +37,20 @@
         main {
             flex: 1;
             display: flex;
+            flex-direction: row;
             overflow: hidden;
         }
 
         .left-section {
-            flex: 0 0 50%;
+            flex: 1;
             padding: 20px;
             padding-left: 40px;
         }
 
         .right-section {
-            flex: 0 0 50%;
+            flex: 1;
             display: flex;
-            align-items: stretch; /* Makes the section fill full height */
+            align-items: center;
             justify-content: center;
         }
 
@@ -76,7 +76,8 @@
 
         .right-section img {
             width: auto;
-            height: 100%; /* Stretches the image to full height of right-section */
+            max-width: 100%;
+            height: 100%; /* Ensures the image stretches to fill height */
             object-fit: cover;
         }
 
@@ -84,12 +85,62 @@
             background-color: #F5F5F5;
             text-align: center;
             margin-top: auto;
+            padding: 10px;
         }
 
         footer a {
             text-decoration: none;
             color: black;
             margin: 0 10px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            main {
+                flex-direction: column;
+            }
+
+            .right-section, .left-section {
+                flex: none;
+                width: 100%;
+                padding: 10px;
+            }
+
+            .right-section img {
+                width: 100%;
+                height: auto;
+            }
+
+            .large-text-l1, .large-text-l2 {
+                font-size: calc(4vw + 2vh);
+            }
+
+            .body-text-l3 {
+                font-size: calc(3vw);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                width: 90px;
+                height: 45px;
+            }
+
+            header {
+                flex-direction: column;
+            }
+
+            header nav {
+                margin-top: 10px;
+            }
+
+            .large-text-l1, .large-text-l2 {
+                font-size: calc(5vw + 2vh);
+            }
+
+            .body-text-l3 {
+                font-size: calc(3.5vw);
+            }
         }
     </style>
 </head>
@@ -127,7 +178,7 @@
         const textLine1 = "Hello,";
         const textLine2 = "I am Sonia.";
         const textLine3 = "I am a compassionate, creative design enthusiast blending";
-        const textLine4 = "artistry with user-focused innovation. I value diverse "; 
+        const textLine4 = "artistry with user-focused innovation. I value diverse ";
         const textLine5 = "experiences & am driven by positivity & love for discovery.";
 
         const typewriterElement1 = document.getElementById('typewriterLine1');
@@ -135,7 +186,7 @@
         const typewriterElement3 = document.getElementById('typewriterLine3');
         const typewriterElement4 = document.getElementById('typewriterLine4');
         const typewriterElement5 = document.getElementById('typewriterLine5');
-             
+
         let index1 = 0, index2 = 0, index3 = 0, index4 = 0, index5 = 0;
 
         function typeWriter1() {
@@ -167,7 +218,7 @@
                 typewriterElement3.style.borderRight = "none";
             }
         }
-        
+
         function typeWriter4() {
             if (index4 < textLine4.length) {
                 typewriterElement4.innerHTML += textLine4[index4];
@@ -186,8 +237,8 @@
             } else {
                 typewriterElement5.style.borderRight = "none";
             }
-        } 
-        
+        }
+
         typeWriter1();
         setTimeout(typeWriter2, 1000);
         setTimeout(typeWriter3, 2000);

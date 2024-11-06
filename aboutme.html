@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sonia Wadhwani</title>
+    <title>Sonia Wadhwani - Interactive Images</title>
     <style>
         body {
-            background-color: #EFD5C3;
+            background-color: #839791;
             margin: 0;
             font-family: 'Binate', sans-serif;
             display: flex;
@@ -16,7 +16,6 @@
         }
 
         header {
-
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -43,19 +42,21 @@
         }
 
         .left-section {
-            flex: 0 0 50%;
+            flex: 0 0 60%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
             padding: 20px;
-            padding-left: 40px;
+            gap: 15px; /* Increased space between images */
+            cursor: pointer;
         }
 
         .right-section {
-            flex: 0 0 50%;
+            flex: 0 0 40%;
             display: flex;
-            align-items: flex-start; /* Aligns image to the top */
+            align-items: flex-start;
             justify-content: center;
         }
-
-
 
         .right-section img {
             max-width: 80%;
@@ -63,6 +64,33 @@
             object-fit: cover;
             border-bottom-left-radius: 50%;
             border-bottom-right-radius: 50%;
+        }
+
+        /* Initial Image Styles with Increased Size */
+        .left-image {
+            width: 45%; /* Increased default width */
+            max-width: 300px; /* Increased max size */
+            height: auto;
+            transition: transform 0.3s, opacity 0.3s;
+            cursor: pointer;
+        }
+
+        .left-image:hover {
+            transform: scale(1.1); /* Zoom effect on hover */
+        }
+
+        /* Enlarged Image */
+        .left-image.enlarged {
+            width: 65%; /* Larger size when enlarged */
+            max-width: 350px; /* Increased max size for enlarged */
+            z-index: 1;
+        }
+
+        /* Shrinked, Unclickable Images */
+        .left-image.shrinked {
+            width: 30%; /* Smaller size for shrinked images */
+            opacity: 0.5;
+            pointer-events: none;
         }
 
         footer {
@@ -92,9 +120,12 @@
     </header>
 
     <main>
-        <section class="left-section">
-            <!-- Content for the left section goes here -->
+        <section class="left-section" onclick="resetImages(event)">
+            <img src="images/educationnormal.png" alt="Education" id="education" class="left-image" onclick="showDetails('education', event)">
+            <img src="images/personalitynormal.png" alt="Personality" id="personality" class="left-image" onclick="showDetails('personality', event)">
+            <img src="images/passionnormal.png" alt="Passion" id="passion" class="left-image" onclick="showDetails('passion', event)">
         </section>
+
         <section class="right-section">
             <img src="images/aboutme.png" alt="Sonia Wadhwani">
         </section>
@@ -104,6 +135,50 @@
         <p>&copy; Sonia Wadhwani 2024</p>
     </footer>
 
-  
+    <script>
+        const imagesData = {
+            education: [
+                { id: "education", src: "images/educationdetail.png" },
+                { id: "personality", src: "images/personalitysmall.png" },
+                { id: "passion", src: "images/passionsmall.png" }
+            ],
+            personality: [
+                { id: "education", src: "images/educationsmall.png" },
+                { id: "personality", src: "images/personalitydetail.png" },
+                { id: "passion", src: "images/passionsmall.png" }
+            ],
+            passion: [
+                { id: "education", src: "images/educationsmall.png" },
+                { id: "personality", src: "images/personalitysmall.png" },
+                { id: "passion", src: "images/passiondetail.png" }
+            ]
+        };
+
+        function showDetails(selectedImage, event) {
+            event.stopPropagation();
+            resetImages(event, selectedImage);
+
+            const images = document.querySelectorAll('.left-image');
+            images.forEach(img => {
+                if (img.id === selectedImage) {
+                    img.src = imagesData[selectedImage].find(data => data.id === selectedImage).src;
+                    img.classList.add('enlarged');
+                } else {
+                    img.src = imagesData[selectedImage].find(data => data.id === img.id).src;
+                    img.classList.add('shrinked');
+                }
+            });
+        }
+
+        function resetImages(event, selectedImage = null) {
+            if (selectedImage) return; // Only reset on left-section click
+
+            const images = document.querySelectorAll('.left-image');
+            images.forEach((img, index) => {
+                img.src = `images/${img.id}normal.png`;
+                img.classList.remove('enlarged', 'shrinked');
+            });
+        }
+    </script>
 </body>
 </html>
