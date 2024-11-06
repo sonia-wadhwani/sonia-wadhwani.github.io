@@ -6,46 +6,36 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            display: flex;
-            min-height: 100vh;
-            flex-direction: column;
         }
 
         header {
             text-align: center;
-            padding: 0px;
         }
 
         main {
             display: flex;
+            flex-direction: column;
         }
 
         .left {
             flex: 1;
-            padding: 50px;
-            text-align: left;
-            display: flex;
-            justify-content: flex-start;
-        }
-
-        .left h1 {
-            font-size: 5rem;
-            line-height: 1.2;
-            white-space: pre-line;
+            padding: 20px;
+            text-align: center;
         }
 
         .right {
-            flex: 1;
-            padding: 0;
+            flex: 2; /* Adjust the flex-grow value as needed */
+            padding: 20px;
             text-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        }
+
+        h1 {
+            font-size: 5rem; /* Adjust font size as needed */
         }
 
         .fade-in {
             opacity: 0;
-            animation: fadeIn 2s;
+            animation: fadeIn 1s;
         }
 
         @keyframes fadeIn {
@@ -77,51 +67,19 @@
             text-decoration: none;
             color: #333;
         }
-
-        header img {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-        }
-
-        .right img {
-            animation-fill-mode: forwards;
-            width: 100%;
-            height: auto;
-        }
     </style>
-    <script>
-        function typeWriter(text, element) {
-            let i = 0;
-            let txt = text.split("");
-
-            function type() {
-                if (i < txt.length) {
-                    element.innerHTML += txt[i];
-                    i++;
-                    setTimeout(type, 100); // Adjust typing speed here
-                }
-            }
-
-            type();
-        }
-
-        window.onload = function() {
-            typeWriter("Hi,\nI am Sonia", document.querySelector(".left h1"));
-        };
-    </script>
 </head>
 <body>
     <header>
-        <img src="images/logo.png" alt="Logo" width="200" height="60">
+        <img src="logo.png" alt="Logo" width="200" height="60">
     </header>
 
     <main>
         <div class="left">
-            <h1 class="typed"></h1>
+            <h1>Hi, I am Sonia</h1>
         </div>
         <div class="right">
-            <img src="images/sonia.jpg" alt="Sonia's Picture" class="fade-in">
+            <img src="sonia.jpg" alt="Sonia's Picture" class="fade-in">
         </div>
     </main>
 
