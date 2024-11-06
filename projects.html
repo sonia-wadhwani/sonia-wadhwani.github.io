@@ -43,56 +43,47 @@
             overflow: hidden;
         }
 
-        .left-section {
-            flex: 0 0 60%;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            padding: 20px;
-            gap: 10px; /* Reduced space between images */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 900px; /* Adjust the maximum width as needed */
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .grid-item {
+            position: relative;
+            height: 250px; /* Adjust the height as needed */
+            overflow: hidden;
+            border-radius: 10px;
             cursor: pointer;
+            transition: transform 0.3s ease-in-out;
         }
 
-        .right-section {
-            flex: 0 0 40%;
-            display: flex;
-            align-items: flex-start;
-            justify-content: center;
+        /* Zoom effect on the whole box (grid-item) */
+        .grid-item:hover {
+            transform: scale(1.1);
         }
 
-        .right-section img {
-            max-width: 80%;
-            max-height: 80vh;
+        /* Overlay style - small rectangle on bottom right */
+        .overlay {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 1em;
+            display: block;
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            border-bottom-left-radius: 50%;
-            border-bottom-right-radius: 50%;
-        }
-
-        /* Initial Image Styles with Increased Size */
-        .left-image {
-            width: 40%; /* Increased default width */
-            max-width: 250px; /* Increased max size */
-            height: auto;
-            transition: transform 0.3s, opacity 0.3s;
-            cursor: pointer;
-        }
-
-        .left-image:hover {
-            transform: scale(1.1); /* Zoom effect on hover */
-        }
-
-        /* Enlarged Image */
-        .left-image.enlarged {
-            width: 60%; /* Larger size when enlarged */
-            max-width: 300px; /* Increased max size for enlarged */
-            z-index: 1;
-        }
-
-        /* Shrinked, Unclickable Images */
-        .left-image.shrinked {
-            width: 30%; /* Smaller size for shrinked images */
-            opacity: 0.5;
-            pointer-events: none;
+            border-radius: 10px;
         }
 
         footer {
@@ -108,10 +99,18 @@
         }
     </style>
     <script>
-        function openPopup() {
-          window.open("p5js.html", "popupWindow", "width=800,height=600,menubar=no,toolbar=no,location=no,status=no,scrollbars=no");
+        function openPopup(htmlName, width, height) {
+            const screenX = window.screenX;
+            const screenY = window.screenY;
+            const screenWidth = window.screen.width;
+            const screenHeight = window.screen.height;
+
+            const left = (screenWidth / 2) - (width / 2) + screenX;
+            const top = (screenHeight / 2) - (height / 2) + screenY;
+
+            window.open(htmlName, "popupWindow", `width=${width},height=${height},left=${left},top=${top},menubar=no,toolbar=no,location=no,status=no,scrollbars=no`);
         }
-        </script>
+    </script>
 </head>
 <body>
     <header>
@@ -127,15 +126,47 @@
     </header>
 
     <main>
-        <a href="#" onclick="openPopup()">My P5JS Project</a>
+        <div class="grid-container">
+            <!-- Image 1 with overlay text -->
+            <div class="grid-item" onclick="openPopup('p5js.html', 800, 600)">
+                <img src="images/gridimage1.png" alt="About Me">
+                <div class="overlay">P5JS Project</div>
+            </div>
+
+            <!-- Image 2 with overlay text -->
+            <div class="grid-item" onclick="openPopup('aboutme.html', 800, 600)">
+                <img src="images/image2.jpg" alt="About Me">
+                <div class="overlay">About Me</div>
+            </div>
+
+            <!-- Image 3 with overlay text -->
+            <div class="grid-item" onclick="openPopup('myart.html', 800, 600)">
+                <img src="images/image3.jpg" alt="My Designs">
+                <div class="overlay">My Designs</div>
+            </div>
+
+            <!-- Image 4 with overlay text -->
+            <div class="grid-item" onclick="openPopup('learningprojects.html', 800, 600)">
+                <img src="images/image4.jpg" alt="Learning Projects">
+                <div class="overlay">Learning Projects</div>
+            </div>
+
+            <!-- Image 5 with overlay text -->
+            <div class="grid-item" onclick="openPopup('programmingexperiences.html', 800, 600)">
+                <img src="images/image5.jpg" alt="Programming Experiences">
+                <div class="overlay">Programming Experiences</div>
+            </div>
+
+            <!-- Image 6 with overlay text -->
+            <div class="grid-item" onclick="openPopup('contact.html', 800, 600)">
+                <img src="images/image6.jpg" alt="Contact Me">
+                <div class="overlay">Contact Me</div>
+            </div>
+        </div>
     </main>
 
     <footer>
         <p>&copy; Sonia Wadhwani 2024</p>
     </footer>
-
- 
-    
-    
 </body>
 </html>
