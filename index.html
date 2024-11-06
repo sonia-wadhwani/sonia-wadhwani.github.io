@@ -141,10 +141,10 @@
     <script>
         const textLine1 = "Hello,";
         const textLine2 = "I am Sonia.";
-        const textLine3 = "I am a compassionate, creative design enthusiast";
-        const textLine4 = "blending artistry with user-focused innovation."; 
-        const textLine5 = "I value diverse experiences and am driven by positivity and";
-        const textLine6 = "a love for discovery.";
+        const textLine3 = "I am a compassionate, creative design enthusiast blending";
+        const textLine4 = "artistry with user-focused innovation. I value diverse "; 
+        const textLine5 = "experiences & am driven by positivity & love for discovery.";
+        const textLine6 = "";
         const typewriterElement1 = document.getElementById('typewriterLine1');
         const typewriterElement2 = document.getElementById('typewriterLine2');
         const typewriterElement3 = document.getElementById('typewriterLine3');
@@ -184,7 +184,7 @@
             if (index3 < textLine3.length) {
                 typewriterElement3.innerHTML += textLine3[index3];
                 index3++;
-                setTimeout(typeWriter3, 50);
+                setTimeout(typeWriter3, 40);
             } else {
                 typewriterElement3.style.borderRight = "none";
             }
@@ -194,7 +194,7 @@
             if (index4 < textLine4.length) {
                 typewriterElement4.innerHTML += textLine4[index4];
                 index4++;
-                setTimeout(typeWriter4, 50);
+                setTimeout(typeWriter4, 40);
             } else {
                 typewriterElement4.style.borderRight = "none";
             }
@@ -204,7 +204,7 @@
             if (index5 < textLine5.length) {
                 typewriterElement5.innerHTML += textLine5[index5];
                 index5++;
-                setTimeout(typeWriter5, 50);
+                setTimeout(typeWriter5, 40);
             } else {
                 typewriterElement5.style.borderRight = "none";
             }
@@ -214,7 +214,7 @@
             if (index6 < textLine6.length) {
                 typewriterElement6.innerHTML += textLine6[index6];
                 index6++;
-                setTimeout(typeWriter6, 50);
+                setTimeout(typeWriter6, 40);
             } else {
                 typewriterElement6.style.borderRight = "none";
             }
@@ -223,9 +223,9 @@
         typeWriter1();
         setTimeout(typeWriter2, 1000);
         setTimeout(typeWriter3, 2000);
-        setTimeout(typeWriter4, 5500);
-        setTimeout(typeWriter5, 9000);
-        setTimeout(typeWriter6, 12500);
+        setTimeout(typeWriter4, 4600);
+        setTimeout(typeWriter5, 7000);
+        setTimeout(typeWriter6, 10000);
 
     </script>
 </body>
