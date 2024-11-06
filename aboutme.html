@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonia Wadhwani</title>
+    <style>
+        body {
+            background-color: #EFD5C3;
+            margin: 0;
+            font-family: 'Binate', sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            min-height: 100vh;
+        }
+
+        header {
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: black;
+            font-family: 'Droid Serif', serif;
+            margin: 0 15px;
+        }
+
+        .logo {
+            width: 120px;
+            height: 60px;
+            padding-left: 20px;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            overflow: hidden;
+        }
+
+        .left-section {
+            flex: 0 0 50%;
+            padding: 20px;
+            padding-left: 40px;
+        }
+
+        .right-section {
+            flex: 0 0 50%;
+            display: flex;
+            align-items: flex-start; /* Aligns image to the top */
+            justify-content: center;
+        }
+
+
+
+        .right-section img {
+            max-width: 80%;
+            max-height: 80vh;
+            object-fit: cover;
+            border-bottom-left-radius: 50%;
+            border-bottom-right-radius: 50%;
+        }
+
+        footer {
+            background-color: #F5F5F5;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: black;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html">
+            <img src="images/logo.png" alt="Logo" class="logo">
+        </a>
+        <nav>
+            <a href="aboutme.html">About Me</a>
+            <a href="myart.html">My Art</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Let's Talk</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="left-section">
+            <!-- Content for the left section goes here -->
+        </section>
+        <section class="right-section">
+            <img src="images/aboutme.png" alt="Sonia Wadhwani">
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; Sonia Wadhwani 2024</p>
+    </footer>
+
+  
+</body>
+</html>

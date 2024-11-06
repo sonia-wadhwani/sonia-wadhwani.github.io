@@ -12,14 +12,14 @@
             display: flex;
             flex-direction: column;
             height: 100vh;
-            min-height: 100vh
+            min-height: 100vh;
         }
 
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px;
+            padding: 10px;
         }
 
         header a {
@@ -50,15 +50,15 @@
         .right-section {
             flex: 0 0 50%;
             display: flex;
-            align-items: center;
+            align-items: stretch; /* Makes the section fill full height */
             justify-content: center;
         }
 
-        .large-text-l1 {
+        .large-text-l1, .large-text-l2, .body-text-l3 {
             font-family: 'DM Serif Display', serif;
             font-size: calc(3vw + 2vh);
             line-height: 1.2;
-            margin-bottom: 5px; /* Reduces gap between lines */
+            margin-bottom: 5px;
             white-space: nowrap;
             overflow: hidden;
             border-right: 3px solid black;
@@ -66,36 +66,18 @@
         }
 
         .large-text-l2 {
-            font-family: 'DM Serif Display', serif;
-            font-size: calc(3vw + 2vh);
-            line-height: 1.2;
-            margin-bottom: 5px; /* Reduces gap between lines */
-            margin-top: 5px; /* Reduces gap between lines */
-            white-space: nowrap;
-            overflow: hidden;
-            border-right: 3px solid black;
-            display: inline-block;
+            margin-top: 5px;
         }
 
         .body-text-l3 {
-            font-family: 'DM Serif Display', serif;
             font-size: calc(2vw);
-            line-height: 1.2;
-            margin-bottom: 5px; /* Reduces gap between lines */
-            margin-top: 5px; /* Reduces gap between lines */
-            white-space: nowrap;
-            overflow: hidden;
-            border-right: 3px solid black;
-            display: inline-block;
+            margin-top: 5px;
         }
 
         .right-section img {
-            max-width: 80%;
-            max-height: 80vh;
+            width: auto;
+            height: 100%; /* Stretches the image to full height of right-section */
             object-fit: cover;
-            border-top-left-radius: 50%;
-            border-top-right-radius: 50%;
-            max-height: 100vh;
         }
 
         footer {
@@ -113,7 +95,9 @@
 </head>
 <body>
     <header>
-        <img src="images/logo.png" alt="Logo" class="logo">
+        <a href="index.html">
+            <img src="images/logo.png" alt="Logo" class="logo">
+        </a>
         <nav>
             <a href="aboutme.html">About Me</a>
             <a href="myart.html">My Art</a>
@@ -129,7 +113,6 @@
             <p class="body-text-l3" id="typewriterLine3"> </p><br>
             <p class="body-text-l3" id="typewriterLine4"> </p><br>
             <p class="body-text-l3" id="typewriterLine5"> </p><br>
-
         </section>
         <section class="right-section">
             <img src="images/sonia.png" alt="Sonia Wadhwani">
@@ -146,20 +129,14 @@
         const textLine3 = "I am a compassionate, creative design enthusiast blending";
         const textLine4 = "artistry with user-focused innovation. I value diverse "; 
         const textLine5 = "experiences & am driven by positivity & love for discovery.";
-        const textLine6 = "";
+
         const typewriterElement1 = document.getElementById('typewriterLine1');
         const typewriterElement2 = document.getElementById('typewriterLine2');
         const typewriterElement3 = document.getElementById('typewriterLine3');
         const typewriterElement4 = document.getElementById('typewriterLine4');
         const typewriterElement5 = document.getElementById('typewriterLine5');
              
-        let index1 = 0;
-        let index2 = 0;
-        let index3 = 0;
-        let index4 = 0;
-        let index5 = 0;
-        let index6 = 0;
-
+        let index1 = 0, index2 = 0, index3 = 0, index4 = 0, index5 = 0;
 
         function typeWriter1() {
             if (index1 < textLine1.length) {
@@ -211,13 +188,11 @@
             }
         } 
         
-
         typeWriter1();
         setTimeout(typeWriter2, 1000);
         setTimeout(typeWriter3, 2000);
         setTimeout(typeWriter4, 4600);
         setTimeout(typeWriter5, 7000);
-
     </script>
 </body>
 </html>
