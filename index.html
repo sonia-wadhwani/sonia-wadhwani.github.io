@@ -31,7 +31,7 @@
         .logo {
             width: 120px;
             height: 60px;
-            padding-left: 30px;
+            padding-left: 20px;
         }
 
         main {
@@ -75,6 +75,18 @@
             display: inline-block;
         }
 
+        .body-text-l3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: calc(2vw);
+            line-height: 1.2;
+            margin-bottom: 5px; /* Reduces gap between lines */
+            margin-top: 5px; /* Reduces gap between lines */
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid black;
+            display: inline-block;
+        }
+
         .right-section img {
             max-width: 80%;
             max-height: 80vh;
@@ -109,9 +121,13 @@
 
     <main>
         <section class="left-section">
-            <p class="large-text-l1" id="typewriterLine1"> </p> <br>
-            <p class="large-text-l2" id="typewriterLine2"> </p>
-            <p>I am a compassionate, creative design enthusiast, blending artistry with user-focused innovation. I value diverse experiences, from supporting the underprivileged to exploring cultures, driven by positivity and a love for discovery.</p>
+            <p class="large-text-l1" id="typewriterLine1"> </p><br>
+            <p class="large-text-l2" id="typewriterLine2"> </p><br>
+            <p class="body-text-l3" id="typewriterLine3"> </p><br>
+            <p class="body-text-l3" id="typewriterLine4"> </p><br>
+            <p class="body-text-l3" id="typewriterLine5"> </p><br>
+            <p class="body-text-l3" id="typewriterLine6"> </p><br>
+
         </section>
         <section class="right-section">
             <img src="images/sonia.png" alt="Sonia Wadhwani">
@@ -125,10 +141,24 @@
     <script>
         const textLine1 = "Hello,";
         const textLine2 = "I am Sonia.";
+        const textLine3 = "I am a compassionate, creative design enthusiast";
+        const textLine4 = "blending artistry with user-focused innovation."; 
+        const textLine5 = "I value diverse experiences and am driven by positivity and";
+        const textLine6 = "a love for discovery.";
         const typewriterElement1 = document.getElementById('typewriterLine1');
         const typewriterElement2 = document.getElementById('typewriterLine2');
+        const typewriterElement3 = document.getElementById('typewriterLine3');
+        const typewriterElement4 = document.getElementById('typewriterLine4');
+        const typewriterElement5 = document.getElementById('typewriterLine5');
+        const typewriterElement6 = document.getElementById('typewriterLine6'); 
+             
         let index1 = 0;
         let index2 = 0;
+        let index3 = 0;
+        let index4 = 0;
+        let index5 = 0;
+        let index6 = 0;
+
 
         function typeWriter1() {
             if (index1 < textLine1.length) {
@@ -149,9 +179,54 @@
                 typewriterElement2.style.borderRight = "none";
             }
         }
+
+        function typeWriter3() {
+            if (index3 < textLine3.length) {
+                typewriterElement3.innerHTML += textLine3[index3];
+                index3++;
+                setTimeout(typeWriter3, 50);
+            } else {
+                typewriterElement3.style.borderRight = "none";
+            }
+        }
         
+        function typeWriter4() {
+            if (index4 < textLine4.length) {
+                typewriterElement4.innerHTML += textLine4[index4];
+                index4++;
+                setTimeout(typeWriter4, 50);
+            } else {
+                typewriterElement4.style.borderRight = "none";
+            }
+        }
+
+        function typeWriter5() {
+            if (index5 < textLine5.length) {
+                typewriterElement5.innerHTML += textLine5[index5];
+                index5++;
+                setTimeout(typeWriter5, 50);
+            } else {
+                typewriterElement5.style.borderRight = "none";
+            }
+        } 
+        
+        function typeWriter6() {
+            if (index6 < textLine6.length) {
+                typewriterElement6.innerHTML += textLine6[index6];
+                index6++;
+                setTimeout(typeWriter6, 50);
+            } else {
+                typewriterElement6.style.borderRight = "none";
+            }
+        } 
+
         typeWriter1();
         setTimeout(typeWriter2, 1000);
+        setTimeout(typeWriter3, 2000);
+        setTimeout(typeWriter4, 5500);
+        setTimeout(typeWriter5, 9000);
+        setTimeout(typeWriter6, 12500);
+
     </script>
 </body>
 </html>
