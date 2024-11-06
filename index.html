@@ -1,143 +1,110 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Sonia's Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonia Wadhwani</title>
     <style>
         body {
+            background-color: #EFD5C3;
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Binate', sans-serif;
             display: flex;
-            min-height: 100vh;
             flex-direction: column;
+            height: 100vh;
         }
 
         header {
-            text-align: center;
-            padding: 0px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: black;
+            font-family: 'Droid Serif', serif;
+            margin: 0 15px;
+        }
+
+        .logo {
+            width: 200px;
+            height: 60px;
         }
 
         main {
-            display: flex;
-        }
-
-        .left {
             flex: 1;
-            padding: 50px;
-            text-align: left;
             display: flex;
-            justify-content: flex-start;
         }
 
-        .left h1 {
-            font-size: 5rem;
-            line-height: 1.2;
-            white-space: pre-line;
+        .left-section {
+            flex: 0 0 40%;
+            padding: 20px;
         }
 
-        .right {
-            flex: 1;
-            padding: 0;
-            text-align: center;
+        .right-section {
+            flex: 0 0 60%;
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
         }
 
-        .fade-in {
-            opacity: 0;
-            animation: fadeIn 2s;
+        .large-text {
+            font-family: 'DM Serif Display', serif;
+            font-size: calc(3vw + 2vh);
+            line-height: 1.2;
+            margin-bottom: 20px;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+        .right-section img {
+            max-width: 100%;
+            max-height: 80vh;
+            object-fit: cover;
+            border-top-left-radius: 50%;
+            border-top-right-radius: 50%;
         }
 
         footer {
-            text-align: center;
+            background-color: #F5F5F5;
             padding: 20px;
-            background-color: #f0f0f0;
+            text-align: center;
         }
 
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        li {
-            display: inline-block;
+        footer a {
+            text-decoration: none;
+            color: black;
             margin: 0 10px;
         }
-
-        a {
-            text-decoration: none;
-            color: #333;
-        }
-
-        header img {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-        }
-
-        .right img {
-            animation-fill-mode: forwards;
-            width: 100%;
-            height: auto;
-        }
-
-        .paint-brush-cursor {
-            cursor: url('images/paintbrush-cursor.cur'), auto;
-         }
     </style>
-    <script>
-        function typeWriter(text, element) {
-            let i = 0;
-            let txt = text.split("");
-
-            function type() {
-                if (i < txt.length) {
-                    element.innerHTML += txt[i];
-                    i++;
-                    setTimeout(type, 100); // Adjust typing speed here
-                }
-            }
-
-            type();
-        }
-
-        window.onload = function() {
-            typeWriter("Hi,\nI am Sonia", document.querySelector(".left h1"));
-        };
-    </script>
 </head>
 <body>
     <header>
-        <img src="images/logo.png" alt="Logo" width="200" height="60">
+        <img src="images/logo.png" alt="Logo" class="logo">
+        <nav>
+            <a href="aboutme.html">About Me</a>
+            <a href="myart.html">My Art</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Let's Talk</a>
+        </nav>
     </header>
 
     <main>
-        <div class="left">
-            <h1 class="typed"></h1>
-        </div>
-        <div class="right">
-            <img src="images/sonia.jpg" alt="Sonia's Picture" class="fade-in">
-        </div>
+        <section class="left-section">
+            <p class="large-text">Hi,<br>I am Sonia.</p>
+            <p>I am a compassionate, creative design enthusiast, blending artistry with user-focused innovation. I value diverse experiences, from supporting the underprivileged to exploring cultures, driven by positivity and a love for discovery.</p>
+        </section>
+        <section class="right-section">
+            <img src="images/sonia.jpg" alt="Sonia Wadhwani">
+        </section>
     </main>
 
     <footer>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="aboutme.html">About Me</a></li>
-            <li><a href="mydesigns.html">My Designs</a></li>
-            <li><a href="learningprojects.html">Learning Projects</a></li>
-            <li><a href="programmingexperiences.html">Programming Experiences</a></li>
-            <li><a href="contactme.html">Contact Me</a></li>
-        </ul>
+        <a href="index.html">Home</a>
+        <a href="aboutme.html">About Me</a>
+        <a href="myart.html">My Art</a>
+        <a href="projects.html">Projects</a>
+        <a href="contactme.html">Contact Me</a>
     </footer>
 </body>
 </html>
