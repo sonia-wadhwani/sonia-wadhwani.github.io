@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonia Wadhwani</title>
+    <style>
+        body {
+            background-color: #EFD5C3;
+            margin: 0;
+            font-family: 'Binate', sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: black;
+            font-family: 'Droid Serif', serif;
+            margin: 0 15px;
+        }
+
+        .logo {
+            width: 120px;
+            height: 60px;
+            padding-left: 20px;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        /* Reel container to hold images */
+        .reel-container {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            width: 100%;
+        }
+
+        /* Style for individual images */
+        .reel-image {
+            flex: 0 0 auto;
+            width: calc(100% / 3 - 10px); /* Default 3 images */
+            height: auto;
+            max-height: 80vh;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        /* Hover effect */
+        .reel-image:hover {
+            transform: scale(1.05);
+        }
+
+        /* Responsive adjustments for different image counts */
+        @media (min-width: 768px) {
+            .reel-image {
+                width: calc(100% / 4 - 10px); /* 4 images on medium screens */
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .reel-image {
+                width: calc(100% / 5 - 10px); /* 5 images on large screens */
+            }
+        }
+
+        footer {
+            background-color: #F5F5F5;
+            text-align: center;
+            margin-top: auto;
+            padding: 10px;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: black;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html">
+            <img src="images/logo.png" alt="Logo" class="logo">
+        </a>
+        <nav>
+            <a href="aboutme.html">About Me</a>
+            <a href="myart.html">My Art</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Let's Talk</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Reel container holding the images -->
+        <div class="reel-container" id="reel">
+            <!-- Images from art1.jpg to art16.jpg -->
+            <img src="images/art10.png" alt="Art 1" class="reel-image">
+            <img src="images/art12.png" alt="Art 2" class="reel-image">
+            <img src="images/art3.png" alt="Art 3" class="reel-image">
+            <img src="images/art4.png" alt="Art 4" class="reel-image">
+            <img src="images/art5.png" alt="Art 5" class="reel-image">
+            <img src="images/art6.png" alt="Art 6" class="reel-image">
+            <img src="images/art7.png" alt="Art 7" class="reel-image">
+            <img src="images/art8.png" alt="Art 8" class="reel-image">
+            <img src="images/art9.png" alt="Art 9" class="reel-image">
+            <img src="images/art10.png" alt="Art 10" class="reel-image">
+            <img src="images/art11.png" alt="Art 11" class="reel-image">
+            <img src="images/art12.png" alt="Art 12" class="reel-image">
+            <img src="images/art13.png" alt="Art 13" class="reel-image">
+            <img src="images/art14.png" alt="Art 14" class="reel-image">
+            <img src="images/art15.png" alt="Art 15" class="reel-image">
+            <img src="images/art16.png" alt="Art 16" class="reel-image">
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; Sonia Wadhwani 2024</p>
+    </footer>
+
+    <script>
+        // Scroll the reel horizontally on mouse wheel event
+        const reel = document.getElementById("reel");
+        reel.addEventListener("wheel", (event) => {
+            event.preventDefault();
+            // Scroll left or right based on wheel direction
+            reel.scrollBy({
+                left: event.deltaY < 0 ? -200 : 200,
+                behavior: "smooth"
+            });
+        });
+    </script>
+</body>
+</html>
