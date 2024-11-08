@@ -5,14 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sonia Wadhwani</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            background-color: #EFD5C3;
+            background-color: #839791;
             margin: 0;
             font-family: 'Binate', sans-serif;
             display: flex;
             flex-direction: column;
             height: 100vh;
-            overflow-x: hidden;
         }
 
         header {
@@ -41,11 +44,24 @@
             padding: 20px;
             display: flex;
             justify-content: center;
+            max-width: 100vw;
+        }
+
+        .left-section {
+            flex: 0 0 70%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 5px;
+            gap: 10px;
+            cursor: pointer;
+            position: relative;
+            padding-top: 100px;
         }
 
         .image-container {
             display: flex;
-            width: 80%;
+            width: 80%; /* Adjusted to use 80% of the left section */
             gap: 20px;
         }
 
@@ -70,7 +86,6 @@
             z-index: 2;
         }
 
-        /* Fullscreen Overlay */
         .overlay {
             display: none;
             position: fixed;
@@ -81,12 +96,18 @@
             background-color: rgba(0, 0, 0, 0.7);
             justify-content: center;
             align-items: center;
-            flex-direction: column;
             z-index: 3;
+        }
+
+        .overlay-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .overlay img {
             width: auto;
+            max-width: 100%;
             height: 70vh;
             border-radius: 8px;
             object-fit: contain;
@@ -101,8 +122,8 @@
             font-family: Arial, sans-serif;
             font-size: 1em;
             text-align: center;
-            max-width: 90%; /* Ensure it's not wider than the screen */
-            margin-top: 10px;
+            width: 100%; /* Match the width of the image */
+            max-width: 70%; /* Keep it consistent with the image */
         }
 
         footer {
@@ -126,28 +147,31 @@
         </a>
         <nav>
             <a href="aboutme.html">About Me</a>
-            <a href="myart.html">My Art</a>
             <a href="projects.html">Projects</a>
+            <a href="myart.html">My Art</a>
             <a href="contact.html">Let's Talk</a>
         </nav>
     </header>
 
     <main>
-        <div class="image-container">
-            <div class="column" id="column1"></div>
-            <div class="column" id="column2"></div>
-            <div class="column" id="column3"></div>
-            <div class="column" id="column4"></div>
-        </div>
-
-        <!-- Fullscreen Image Overlay with Text Box -->
-        <div class="overlay" id="overlay" onclick="closeOverlay()">
-            <img src="" alt="Enlarged Image" id="overlayImage">
-            <div class="text-box" id="overlayTextBox">
-                <p>Placeholder Name</p>
-                <p>Placeholder Description</p>
+        <section class="left-section">
+            <div class="image-container">
+                <div class="column" id="column1"></div>
+                <div class="column" id="column2"></div>
+                <div class="column" id="column3"></div>
+                <div class="column" id="column4"></div>
             </div>
-        </div>
+
+            <div class="overlay" id="overlay" onclick="closeOverlay()">
+                <div class="overlay-content">
+                    <img src="" alt="Enlarged Image" id="overlayImage">
+                    <div class="text-box" id="overlayTextBox"></div>
+                </div>
+            </div>
+        </section>
+        <section class="right-section">
+            <img src="images/aboutme.png" alt="Sonia Wadhwani">
+        </section>
     </main>
 
     <footer>
@@ -155,10 +179,21 @@
     </footer>
 
     <script>
-        const imageNames = [
-            'abstract1.png', 'abstract2.png', 'abstract3.png', 'abstract4.png', 'abstract5.png', 'abstract6.png',
-            'doodle1.png', 'doodle2.png', 'doodle3.png', 'doodle4.png', 'doodle5.png', 'doodle6.png',
-            'sketches1.png', 'sketches2.png', 'sketches3.png', 'sketches4.png', 'sketches5.png', 'sketches6.png'
+        const images = [
+            { src: 'abstract1.png', name: 'Abstract 1', description: 'Description for Abstract 1' },
+            { src: 'abstract2.png', name: 'Abstract 2', description: 'Description for Abstract 2' },
+            { src: 'abstract3.png', name: 'Abstract 3', description: 'Description for Abstract 3' },
+            { src: 'abstract4.png', name: 'Abstract 4', description: 'Description for Abstract 4' },
+            { src: 'abstract5.png', name: 'Abstract 5', description: 'Description for Abstract 5' },
+            { src: 'abstract6.png', name: 'Abstract 6', description: 'Description for Abstract 6' },
+            { src: 'doodle1.png', name: 'Doodle 1', description: 'Description for Doodle 1' },
+            { src: 'doodle2.png', name: 'Doodle 2', description: 'Description for Doodle 2' },
+            { src: 'doodle3.png', name: 'Doodle 3', description: 'Description for Doodle 3' },
+            { src: 'doodle4.png', name: 'Doodle 4', description: 'Description for Doodle 4' },
+            { src: 'sketches1.png', name: 'Sketch 1', description: 'Description for Sketch 1' },
+            { src: 'sketches2.png', name: 'Sketch 2', description: 'Description for Sketch 2' },
+            { src: 'sketches3.png', name: 'Sketch 3', description: 'Description for Sketch 3' },
+            { src: 'sketches4.png', name: 'Sketch 4', description: 'Description for Sketch 4' },
         ];
 
         const columns = [
@@ -177,32 +212,28 @@
         }
 
         function displayImages() {
-            const shuffledImages = shuffleArray([...imageNames]);
-            shuffledImages.forEach((name, index) => {
+            const shuffledImages = shuffleArray([...images]);
+            shuffledImages.forEach((image, index) => {
                 const img = document.createElement('img');
-                img.src = `images/${name}`;
-                img.alt = name;
-                img.onclick = () => openOverlay(img.src, name);
+                img.src = `images/${image.src}`;
+                img.alt = image.name;
+                img.onclick = () => openOverlay(image);
 
                 columns[index % columns.length].appendChild(img);
             });
         }
 
-        function openOverlay(src, name) {
+        function openOverlay(image) {
             const overlay = document.getElementById('overlay');
             const overlayImage = document.getElementById('overlayImage');
             const overlayTextBox = document.getElementById('overlayTextBox');
 
-            overlayImage.src = src;
+            overlayImage.src = `images/${image.src}`;
             overlayTextBox.innerHTML = `
-                <p>${name.replace('.png', '')}</p>
-                <p>Placeholder Description for ${name.replace('.png', '')}</p>
+                <p>${image.name}</p>
+                <p>${image.description}</p>
             `;
             overlay.style.display = 'flex';
-
-            // Adjust the text box width to match the image width
-            const imageWidth = overlayImage.offsetWidth;
-            overlayTextBox.style.width = `${imageWidth}px`;
         }
 
         function closeOverlay() {

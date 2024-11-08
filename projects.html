@@ -8,7 +8,7 @@
     <title>Sonia Wadhwani - Interactive Images</title>
     <style>
         body {
-            background-color: #839791;
+            background-color: #EFD5C3;
             margin: 0;
             font-family: 'Binate', sans-serif;
             display: flex;
@@ -43,18 +43,31 @@
             overflow: hidden;
         }
 
+        .left-section {
+            flex: 1;
+            padding: 20px;
+            padding-left: 40px;
+        }
+
+        .right-section {
+            flex: 1;
+            display: flex;
+            align-items: flex-end; /* Align to footer */
+            justify-content: center;
+        }
+
         .grid-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            max-width: 900px; /* Adjust the maximum width as needed */
+            gap: 30px; /* Increased space between items */
             margin: 0 auto;
             width: 100%;
+            padding-top: 100px;
         }
 
         .grid-item {
             position: relative;
-            height: 250px; /* Adjust the height as needed */
+            height: 200px;
             overflow: hidden;
             border-radius: 10px;
             cursor: pointer;
@@ -76,7 +89,6 @@
             padding: 5px 10px;
             border-radius: 5px;
             font-size: 1em;
-            display: block;
         }
 
         .grid-item img {
@@ -90,12 +102,25 @@
             background-color: #F5F5F5;
             text-align: center;
             margin-top: auto;
+            padding: 10px 0;
         }
 
         footer a {
             text-decoration: none;
             color: black;
             margin: 0 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr; /* Single column for smaller screens */
+                gap: 15px; /* Adjust gap for smaller screens */
+            }
+
+            .right-section img {
+                width: 100%; /* Make image responsive */
+            }
         }
     </style>
     <script>
@@ -119,50 +144,45 @@
         </a>
         <nav>
             <a href="aboutme.html">About Me</a>
-            <a href="myart.html">My Art</a>
             <a href="projects.html">Projects</a>
+            <a href="myart.html">My Art</a>
             <a href="contact.html">Let's Talk</a>
         </nav>
     </header>
 
     <main>
-        <div class="grid-container">
-            <!-- Image 1 with overlay text -->
-            <div class="grid-item" onclick="openPopup('p5js.html', 800, 600)">
-                <img src="images/gridimage1.png" alt="About Me">
-                <div class="overlay">P5JS Project</div>
+        <section class="left-section">
+            <div class="grid-container">
+                <!-- Grid items -->
+                <div class="grid-item" onclick="openPopup('p5js.html', 800, 600)">
+                    <img src="images/gridimage1.png" alt="About Me">
+                    <div class="overlay">P5JS Project</div>
+                </div>
+                <div class="grid-item" onclick="openPopup('book.html', 1197, 911)">
+                    <img src="images/gridbook.png" alt="About Me">
+                    <div class="overlay">Saptha</div>
+                </div>
+                <div class="grid-item" onclick="openPopup('myart.html', 800, 600)">
+                    <img src="images/gridbook.png" alt="My Designs">
+                    <div class="overlay">My Designs</div>
+                </div>
+                <div class="grid-item" onclick="openPopup('learningprojects.html', 800, 600)">
+                    <img src="images/gridbook.png" alt="Learning Projects">
+                    <div class="overlay">Learning Projects</div>
+                </div>
+                <div class="grid-item" onclick="openPopup('programmingexperiences.html', 800, 600)">
+                    <img src="images/gridbook.png" alt="Programming Experiences">
+                    <div class="overlay">Programming Experiences</div>
+                </div>
+                <div class="grid-item" onclick="openPopup('contact.html', 800, 600)">
+                    <img src="images/gridbook.png" alt="Contact Me">
+                    <div class="overlay">Contact Me</div>
+                </div>
             </div>
-
-            <!-- Image 2 with overlay text -->
-            <div class="grid-item" onclick="openPopup('book.html', 1197, 911)">
-                <img src="images/gridbook.png" alt="About Me">
-                <div class="overlay">Saptha</div>
-            </div>
-
-            <!-- Image 3 with overlay text -->
-            <div class="grid-item" onclick="openPopup('myart.html', 800, 600)">
-                <img src="images/image3.jpg" alt="My Designs">
-                <div class="overlay">My Designs</div>
-            </div>
-
-            <!-- Image 4 with overlay text -->
-            <div class="grid-item" onclick="openPopup('learningprojects.html', 800, 600)">
-                <img src="images/image4.jpg" alt="Learning Projects">
-                <div class="overlay">Learning Projects</div>
-            </div>
-
-            <!-- Image 5 with overlay text -->
-            <div class="grid-item" onclick="openPopup('programmingexperiences.html', 800, 600)">
-                <img src="images/image5.jpg" alt="Programming Experiences">
-                <div class="overlay">Programming Experiences</div>
-            </div>
-
-            <!-- Image 6 with overlay text -->
-            <div class="grid-item" onclick="openPopup('contact.html', 800, 600)">
-                <img src="images/image6.jpg" alt="Contact Me">
-                <div class="overlay">Contact Me</div>
-            </div>
-        </div>
+        </section>
+        <section class="right-section">
+            <img src="images/sonia.png" alt="Sonia Wadhwani">
+        </section>
     </main>
 
     <footer>
