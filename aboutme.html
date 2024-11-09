@@ -44,11 +44,19 @@
         .left-section {
             flex: 0 0 60%;
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-around;
             align-items: center;
             padding: 20px;
-            gap: 10px; /* Reduced space between images */
+            gap: 10px;
             cursor: pointer;
+        }
+
+        /* Adjust each row to occupy full width with two rows */
+        .left-section .row {
+            display: flex;
+            width: 100%;
+            justify-content: space-around;
         }
 
         .right-section {
@@ -66,29 +74,26 @@
             border-bottom-right-radius: 50%;
         }
 
-        /* Initial Image Styles with Increased Size */
         .left-image {
-            width: 40%; /* Increased default width */
-            max-width: 250px; /* Increased max size */
+            width: 30%;
+            max-width: 250px;
             height: auto;
             transition: transform 0.3s, opacity 0.3s;
             cursor: pointer;
         }
 
         .left-image:hover {
-            transform: scale(1.1); /* Zoom effect on hover */
+            transform: scale(1.1);
         }
 
-        /* Enlarged Image */
         .left-image.enlarged {
-            width: 60%; /* Larger size when enlarged */
-            max-width: 300px; /* Increased max size for enlarged */
+            width: 40%;
+            max-width: 300px;
             z-index: 1;
         }
 
-        /* Shrinked, Unclickable Images */
         .left-image.shrinked {
-            width: 30%; /* Smaller size for shrinked images */
+            width: 25%;
             opacity: 0.5;
             pointer-events: none;
         }
@@ -121,9 +126,17 @@
 
     <main>
         <section class="left-section" onclick="resetImages(event)">
-            <img src="images/educationnormal.png" alt="Education" id="education" class="left-image" onclick="showDetails('education', event)">
-            <img src="images/personalitynormal.png" alt="Personality" id="personality" class="left-image" onclick="showDetails('personality', event)">
-            <img src="images/passionnormal.png" alt="Passion" id="passion" class="left-image" onclick="showDetails('passion', event)">
+            <!-- First Row of Images -->
+            <div class="row">
+                <img src="images/educationnormal.png" alt="Education" id="education" class="left-image" onclick="showDetails('education', event)">
+                <img src="images/personalitynormal.png" alt="Personality" id="personality" class="left-image" onclick="showDetails('personality', event)">
+                <img src="images/passionnormal.png" alt="Passion" id="passion" class="left-image" onclick="showDetails('passion', event)">
+            </div>
+            <!-- Second Row of Images -->
+            <div class="row">
+                <img src="images/skillnormal.png" alt="Skill" id="skill" class="left-image" onclick="showDetails('skill', event)">
+                <img src="images/experiencenormal.png" alt="Experience" id="experience" class="left-image" onclick="showDetails('experience', event)">
+            </div>
         </section>
 
         <section class="right-section">
@@ -140,17 +153,37 @@
             education: [
                 { id: "education", src: "images/educationdetail.png" },
                 { id: "personality", src: "images/personalitysmall.png" },
-                { id: "passion", src: "images/passionsmall.png" }
+                { id: "passion", src: "images/passionsmall.png" },
+                { id: "skill", src: "images/skillsmall.png" },
+                { id: "experience", src: "images/experiencesmall.png" }
             ],
             personality: [
                 { id: "education", src: "images/educationsmall.png" },
                 { id: "personality", src: "images/personalitydetail.png" },
-                { id: "passion", src: "images/passionsmall.png" }
+                { id: "passion", src: "images/passionsmall.png" },
+                { id: "skill", src: "images/skillsmall.png" },
+                { id: "experience", src: "images/experiencesmall.png" }
             ],
             passion: [
                 { id: "education", src: "images/educationsmall.png" },
                 { id: "personality", src: "images/personalitysmall.png" },
-                { id: "passion", src: "images/passiondetail.png" }
+                { id: "passion", src: "images/passiondetail.png" },
+                { id: "skill", src: "images/skillsmall.png" },
+                { id: "experience", src: "images/experiencesmall.png" }
+            ],
+            skill: [
+                { id: "education", src: "images/educationsmall.png" },
+                { id: "personality", src: "images/personalitysmall.png" },
+                { id: "passion", src: "images/passionsmall.png" },
+                { id: "skill", src: "images/skilldetail.png" },
+                { id: "experience", src: "images/experiencesmall.png" }
+            ],
+            experience: [
+                { id: "education", src: "images/educationsmall.png" },
+                { id: "personality", src: "images/personalitysmall.png" },
+                { id: "passion", src: "images/passionsmall.png" },
+                { id: "skill", src: "images/skillsmall.png" },
+                { id: "experience", src: "images/experiencedetail.png" }
             ]
         };
 
@@ -171,10 +204,10 @@
         }
 
         function resetImages(event, selectedImage = null) {
-            if (selectedImage) return; // Only reset on left-section click
+            if (selectedImage) return;
 
             const images = document.querySelectorAll('.left-image');
-            images.forEach((img, index) => {
+            images.forEach((img) => {
                 img.src = `images/${img.id}normal.png`;
                 img.classList.remove('enlarged', 'shrinked');
             });
