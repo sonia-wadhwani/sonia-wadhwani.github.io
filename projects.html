@@ -65,7 +65,7 @@
         .right-section img {
             width: auto;
             max-width: 100%;
-            height: 100%; /* Ensures the image stretches to fill height */
+            height: 100%; 
             object-fit: cover;
         }
 
@@ -78,16 +78,28 @@
         }
 
         .grid-item {
+            background-color: #839791;
             position: relative;
-            height: 200px;
-            overflow: hidden;
+            width: 100%;
+            aspect-ratio: 1; /* Ensures square grid items */
             border-radius: 10px;
             cursor: pointer;
             transition: transform 0.3s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .grid-item:hover {
             transform: scale(1.05);
+        }
+
+        .grid-item img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* Maintain aspect ratio without cutting off the image */
+            border-radius: 10px;
+            display: block;
         }
 
         .overlay {
@@ -99,13 +111,6 @@
             padding: 5px 10px;
             border-radius: 5px;
             font-size: 1em;
-        }
-
-        .grid-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 10px;
         }
 
         footer {
@@ -239,6 +244,16 @@
             overlay.style.display = 'none';
             iframe.src = '';
         }
+
+        function openCustomWindow(url, width, height) {
+            const left = (screen.width - width) / 2;
+            const top = (screen.height - height) / 2;
+            window.open(
+                url,
+                '_blank',
+                `width=${width},height=${height},left=${left},top=${top},toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes`
+            );
+        }
     </script>
 </head>
 <body>
@@ -262,7 +277,7 @@
                     <img src="images/p5jsproject.png" alt="About Me">
                     <div class="overlay">P5JS Project</div>
                 </div>
-                <div class="grid-item" onclick="openModal('book.html','90%', '85%')">
+                <div class="grid-item" onclick="openModal('book.html','60%', '85%')">
                     <img src="images/gridbook.png" alt="About Me">
                     <div class="overlay">Saptha</div>
                 </div>
@@ -270,11 +285,11 @@
                     <img src="images/elementsofdesign.png" alt="Elements of Design">
                     <div class="overlay">Elements of Design</div>
                 </div>
-                <div class="grid-item" onclick="openModal('https://scratch.mit.edu/projects/1094015497/embed','80%', '70%')">
+                <div class="grid-item" onclick="openModal('https://scratch.mit.edu/projects/1094015497/embed','45%', '75%')">
                     <img src="images/scratch.png" alt="Scratch">
                     <div class="overlay">Scratch Project</div>
                 </div>
-                <div class="grid-item" onclick="openModal('http://flexhub.work','80%', '70%')">
+                <div class="grid-item" onclick="openCustomWindow('http://flexhub.work', 1200, 700)">
                     <img src="images/flexhub.png" alt="Programming Experiences">
                     <div class="overlay">Branding Project</div>
                 </div>
