@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/p5.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/addons/p5.sound.min.js"></script>
     <title>Sonia Wadhwani - Interactive Images</title>
     <style>
         body {
@@ -52,14 +50,14 @@
         .right-section {
             flex: 1;
             display: flex;
-            align-items: flex-end; /* Align to footer */
+            align-items: flex-end;
             justify-content: center;
         }
 
         .grid-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 30px; /* Increased space between items */
+            gap: 30px;
             margin: 0 auto;
             width: 100%;
             padding-top: 100px;
@@ -74,12 +72,10 @@
             transition: transform 0.3s ease-in-out;
         }
 
-        /* Zoom effect on the whole box (grid-item) */
         .grid-item:hover {
             transform: scale(1.1);
         }
 
-        /* Overlay style - small rectangle on bottom right */
         .overlay {
             position: absolute;
             bottom: 10px;
@@ -111,29 +107,87 @@
             margin: 0 10px;
         }
 
-        /* Responsive Design */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70%; /* Increased by 10% */
+            height: 85%; /* Increased by 10% */
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            overflow: hidden;
+        }
+
+        .modal iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 10px;
+            object-fit: contain;
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #AAC0AF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
         @media (max-width: 768px) {
             .grid-container {
-                grid-template-columns: 1fr; /* Single column for smaller screens */
-                gap: 15px; /* Adjust gap for smaller screens */
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .modal {
+                width: 90%;
+                height: 80%; /* Slightly increased for small screens */
             }
 
             .right-section img {
-                width: 100%; /* Make image responsive */
+                width: 100%;
             }
         }
     </style>
     <script>
-        function openPopup(htmlName, width, height) {
-            const screenX = window.screenX;
-            const screenY = window.screenY;
-            const screenWidth = window.screen.width;
-            const screenHeight = window.screen.height;
+        function openModal(src) {
+            const modal = document.getElementById('modal');
+            const iframe = document.getElementById('modal-iframe');
+            const overlay = document.getElementById('modal-overlay');
+            
+            iframe.src = src;
+            modal.style.display = 'block';
+            overlay.style.display = 'block';
+        }
 
-            const left = (screenWidth / 2) - (width / 2) + screenX;
-            const top = (screenHeight / 2) - (height / 2) + screenY;
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            const iframe = document.getElementById('modal-iframe');
+            const overlay = document.getElementById('modal-overlay');
 
-            window.open(htmlName, "popupWindow", `width=${width},height=${height},left=${left},top=${top},menubar=no,toolbar=no,location=no,status=no,scrollbars=no`);
+            modal.style.display = 'none';
+            overlay.style.display = 'none';
+            iframe.src = '';
         }
     </script>
 </head>
@@ -154,29 +208,29 @@
         <section class="left-section">
             <div class="grid-container">
                 <!-- Grid items -->
-                <div class="grid-item" onclick="openPopup('p5js-lights.html', 800, 600)">
-                    <img src="images/gridimage1.png" alt="About Me">
+                <div class="grid-item" onclick="openModal('p5js-lights.html')">
+                    <img src="images/p5jsproject.png" alt="About Me">
                     <div class="overlay">P5JS Project</div>
                 </div>
-                <div class="grid-item" onclick="openPopup('book.html', 1197, 911)">
+                <div class="grid-item" onclick="openModal('book.html')">
                     <img src="images/gridbook.png" alt="About Me">
                     <div class="overlay">Saptha</div>
                 </div>
-                <div class="grid-item" onclick="openPopup('p5js-elements.html', 750, 400)">
-                    <img src="images/gridbook.png" alt="My Designs">
-                    <div class="overlay">My Designs</div>
+                <div class="grid-item" onclick="openModal('p5js-elements.html')">
+                    <img src="images/elementsofdesign.png" alt="Elements of Design">
+                    <div class="overlay">Elements of Design</div>
                 </div>
-                <div class="grid-item" onclick="openPopup('learningprojects.html', 800, 600)">
-                    <img src="images/gridbook.png" alt="Learning Projects">
-                    <div class="overlay">Learning Projects</div>
+                <div class="grid-item" onclick="openModal('https://scratch.mit.edu/projects/1094015497/embed')">
+                    <img src="images/scratch.png" alt="Scratch">
+                    <div class="overlay">Scratch Project</div>
                 </div>
-                <div class="grid-item" onclick="openPopup('programmingexperiences.html', 800, 600)">
-                    <img src="images/gridbook.png" alt="Programming Experiences">
+                <div class="grid-item" onclick="openModal('http://flexhub.work')">
+                    <img src="images/flexhub.png" alt="Programming Experiences">
                     <div class="overlay">Programming Experiences</div>
                 </div>
-                <div class="grid-item" onclick="openPopup('contact.html', 800, 600)">
-                    <img src="images/gridbook.png" alt="Contact Me">
-                    <div class="overlay">Contact Me</div>
+                <div class="grid-item" onclick="openModal('contact.html')">
+                    <img src="images/pythonproject.png" alt="Contact Me">
+                    <div class="overlay">Python Project</div>
                 </div>
             </div>
         </section>
@@ -184,6 +238,13 @@
             <img src="images/sonia.png" alt="Sonia Wadhwani">
         </section>
     </main>
+
+    <!-- Modal and overlay -->
+    <div id="modal-overlay" class="modal-overlay" onclick="closeModal()"></div>
+    <div id="modal" class="modal">
+        <button class="modal-close" onclick="closeModal()">Close</button>
+        <iframe id="modal-iframe"></iframe>
+    </div>
 
     <footer>
         <p>&copy; Sonia Wadhwani 2024</p>
