@@ -28,7 +28,6 @@ let exitClicked="No";
 function setup() 
 {
 	createCanvas(800, 650);
-	canvas.parent('canvas-container'); // Attach canvas to the center-part div
 
 }
 
