@@ -70,6 +70,7 @@
             border-radius: 8px;
             transition: transform 0.3s ease;
             cursor: pointer;
+            /*border: 2px solid #000;  Add a 2px solid border with a custom color */
         }
 
         .column img:hover {
@@ -227,11 +228,24 @@
             { src: 'doodle2.png', name: 'Doodle 2', description: 'Description for Doodle 2' },
             { src: 'doodle3.png', name: 'Doodle 3', description: 'Description for Doodle 3' },
             { src: 'doodle4.png', name: 'Doodle 4', description: 'Description for Doodle 4' },
+            { src: 'doodle5.png', name: 'Doodle 5', description: 'Description for Doodle 5' },
+            { src: 'doodle6.png', name: 'Doodle 6', description: 'Description for Doodle 6' },
             { src: 'sketches1.png', name: 'Sketch 1', description: 'Description for Sketch 1' },
             { src: 'sketches2.png', name: 'Sketch 2', description: 'Description for Sketch 2' },
             { src: 'sketches3.png', name: 'Sketch 3', description: 'Description for Sketch 3' },
             { src: 'sketches4.png', name: 'Sketch 4', description: 'Description for Sketch 4' },
+            { src: 'sketches5.png', name: 'Sketch 5', description: 'Description for Sketch 5' },
+            { src: 'sketches6.png', name: 'Sketch 6', description: 'Description for Sketch 6' },
+            { src: 'sketches7.png', name: 'Sketch 7', description: 'Description for Sketch 7' },
+            { src: 'sketches8.png', name: 'Sketch 8', description: 'Description for Sketch 8' },
+            { src: 'sketches9.png', name: 'Sketch 9', description: 'Description for Sketch 9' },
         ];
+
+        //Shufle the images
+        for (let i = images.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [images[i], images[j]] = [images[j], images[i]]; // Swap elements
+        }
 
         const columns = [
             document.getElementById('column1'),
