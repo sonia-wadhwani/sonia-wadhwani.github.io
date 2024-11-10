@@ -12,6 +12,7 @@
             display: flex;
             flex-direction: column;
             height: 100vh;
+            overflow-y: auto; /* Enable vertical scrolling for body */
         }
 
         header {
@@ -38,7 +39,7 @@
             flex: 1;
             display: flex;
             flex-direction: row;
-            overflow: hidden;
+            overflow-y: auto; /* Enable vertical scrolling for main content */
         }
 
         .left-section {
@@ -52,6 +53,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            overflow: hidden;
         }
 
         .large-text-l1, .large-text-l2 {
@@ -65,8 +67,8 @@
             display: inline-block;
         }
 
-         .body-text-l3 {
-            font-family:  'Trebuchet MS';
+        .body-text-l3 {
+            font-family: 'Trebuchet MS';
             font-size: calc(3vw + 2vh);
             line-height: 1;
             margin-bottom: 5px;
@@ -75,7 +77,6 @@
             border-right: 3px solid black;
             display: inline-block;
         }
-
 
         .large-text-l1 {
             font-size: calc(5.5vw);
@@ -93,15 +94,14 @@
         }
 
         .right-section img {
-            width: auto;
             max-width: 100%;
-            height: 100%; /* Ensures the image stretches to fill height */
-            object-fit: cover;
+            max-height: 100%;
+            object-fit: contain; /* Ensure image resizes proportionally */
         }
 
         footer {
             background-color: #F5F5F5;
-            font-family:  'Trebuchet MS';
+            font-family: 'Trebuchet MS';
             text-align: center;
             margin-top: auto;
             padding: 10px;
