@@ -8,10 +8,11 @@
         body {
             background-color: #EFD5C3;
             margin: 0;
-            font-family: 'Binate', sans-serif;
+            font-family: 'Trebuchet MS';
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
+            height: 100vh;
+            overflow-y: auto;
         }
 
         header {
@@ -22,37 +23,36 @@
             flex-wrap: wrap;
         }
 
+        header nav {
+            white-space: nowrap;
+        }
+
         header a {
             text-decoration: none;
             color: black;
-            font-family: 'Droid Serif', serif;
-            margin: 5px 15px;
+            font-family: 'Georgia';
+            margin: 0 15px;
         }
 
         .logo {
             width: 120px;
-            height: auto;
+            height: 60px;
             padding-left: 20px;
-        }
-
-        nav {
-            display: flex;
-            flex-wrap: wrap;
         }
 
         main {
             flex: 1;
             display: flex;
             flex-direction: row;
-            align-items: stretch;
+            overflow-y: auto;
         }
 
         .left-section {
             flex: 1;
             padding: 20px;
-            padding-top: 100px;
-            padding-left: 100px;
-            box-sizing: border-box;
+            padding-left: 40px;
+            padding-top: 40px;
+            overflow: visible; /* Ensure no scrollbar on left-section */
         }
 
         .right-section {
@@ -63,10 +63,9 @@
         }
 
         .right-section img {
-            width: auto;
             max-width: 100%;
-            height: 100%; 
-            object-fit: cover;
+            height: 100%;
+            object-fit: contain;
         }
 
         .grid-container {
@@ -81,7 +80,7 @@
             background-color: #839791;
             position: relative;
             width: 100%;
-            aspect-ratio: 1; /* Ensures square grid items */
+            aspect-ratio: 1;
             border-radius: 10px;
             cursor: pointer;
             transition: transform 0.3s ease-in-out;
@@ -97,7 +96,7 @@
         .grid-item img {
             max-width: 100%;
             max-height: 100%;
-            object-fit: contain; /* Maintain aspect ratio without cutting off the image */
+            object-fit: contain;
             border-radius: 10px;
             display: block;
         }
@@ -169,36 +168,20 @@
             cursor: pointer;
         }
 
-        @media (max-width: 1024px) {
-            .grid-container {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
-            }
-        }
-
         @media (max-width: 768px) {
             main {
                 flex-direction: column;
             }
 
-            header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .grid-container {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-
-            .right-section {
+            .right-section, .left-section {
+                flex: none;
+                width: 100%;
                 padding: 10px;
-                text-align: center;
             }
 
-            .modal {
-                width: 95%;
-                height: 75%;
+            .right-section img {
+                width: 100%;
+                height: auto;
             }
         }
 
