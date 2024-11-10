@@ -56,16 +56,15 @@
         .right-section {
             flex: 1;
             display: flex;
-            align-items: flex-end;
+            align-items: center;
             justify-content: center;
-            padding-bottom: 0;
+            padding: 20px; /* Ensures padding on smaller screens */
         }
 
         .right-section img {
-            width: auto;
             max-width: 100%;
-            height: 100%;
-            object-fit: cover;
+            max-height: 100%;
+            object-fit: contain;
         }
 
         footer {
@@ -184,8 +183,8 @@
             .right-section img {
                 width: auto;
                 max-width: 100%;
-                height: auto;
-                object-fit: contain; /* Ensures the image is fully visible on smaller screens */
+                max-height: 100%;
+                object-fit: contain;
             }
         }
 
@@ -198,7 +197,7 @@
             .right-section img {
                 width: auto;
                 max-width: 100%;
-                height: auto;
+                max-height: 100%;
                 object-fit: contain;
             }
 
