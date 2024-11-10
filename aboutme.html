@@ -81,34 +81,17 @@
             transition: transform 0.3s, opacity 0.3s;
             cursor: pointer;
         }
-        .left-image-top-left {
-            width: 30%;
-            max-width: 250px;
-            height: auto;
-            transition: transform 0.3s, opacity 0.3s;
-            cursor: pointer;
-            padding-left: 100px;
-        }
-        .left-image-top-right {
-            width: 30%;
-            max-width: 250px;
-            height: auto;
-            transition: transform 0.3s, opacity 0.3s;
-            cursor: pointer;
-            padding-right: 100px;
-        }
-
 
         .left-image:hover {
             transform: scale(1.1);
         }
+
 
         .left-image.enlarged {
             width: 40%;
             max-width: 300px;
             z-index: 1;
         }
-
         .left-image.shrinked {
             width: 25%;
             opacity: 0.5;
@@ -146,8 +129,10 @@
         <section class="left-section" onclick="resetImages(event)">
             <!-- First Row of Images -->
             <div class="row">
-                <img src="images/personalitynormal.png" alt="Personality" id="personality" class="left-image-top-left" onclick="showDetails('personality', event)">
-                <img src="images/passionnormal.png" alt="Passion" id="passion" class="left-image-top-right" onclick="showDetails('passion', event)">
+                &nbsp;
+                <img src="images/personalitynormal.png" alt="Personality" id="personality" class="left-image" onclick="showDetails('personality', event)">
+                <img src="images/passionnormal.png" alt="Passion" id="passion" class="left-image" onclick="showDetails('passion', event)">
+                &nbsp;    
             </div>
 
             <!-- Second Row of Images -->
