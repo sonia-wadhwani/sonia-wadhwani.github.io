@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">   
     <title>Sonia Wadhwani</title>
     <style>
         body {
@@ -107,21 +108,21 @@
 
         /* About Me Section */
         #about-me {
-            padding: 50px 10%;
-            background-color: #839791; /* Changed background color */
-            text-align: center;
+            padding: 50px 20px;
+            background-color: #839791;
+            text-align: left;
         }
 
         #about-me h2 {
             font-size: 2em;
-            margin-bottom: 50px; /* Increased space between About Me and Timeline title */
+            margin-bottom: 40px;
+            color: #EFD5C3;
             font-family: 'Georgia';
-            color: #EFD5C3; /* Changed font color */
+            text-align: center;
         }
 
         .about-title {
-            color: #EFD5C3; /* Changed font color */
-            text-align: left;
+            color: #EFD5C3;
             font-size: 2em;
             font-family: 'Georgia';
             margin-bottom: 20px;
@@ -130,10 +131,9 @@
         .timeline {
             position: relative;
             width: 60%;
+            margin: 0 auto;
             height: 5px;
-            background-color: #EFD5C3; /* Changed color of the timeline */
-            margin: 0 auto; /* Center the timeline */
-            margin-bottom: 30px;
+            background-color: #EFD5C3;
         }
 
         .milestone {
@@ -145,22 +145,38 @@
             background-color: #000;
         }
 
-        .milestone-1 { left: 50%; }
-        .milestone-2 { left: 70%; }
-        .milestone-3 { left: 90%; }
+        .milestone-1 {
+            left: 50%;
+        }
+
+        .milestone-2 {
+            left: 70%;
+        }
+
+        .milestone-3 {
+            left: 90%;
+        }
 
         .milestone-text {
             position: absolute;
             font-size: 0.9em;
-            color: black;
+            color: #EFD5C3;
             text-align: center;
             transform: translateX(-50%);
             margin-top: 20px;
         }
 
-        .milestone-1-text { left: 50%; }
-        .milestone-2-text { left: 70%; }
-        .milestone-3-text { left: 90%; }
+        .milestone-1-text {
+            left: 50%;
+        }
+
+        .milestone-2-text {
+            left: 70%;
+        }
+
+        .milestone-3-text {
+            left: 90%;
+        }
 
         footer {
             background-color: #F5F5F5;
@@ -175,26 +191,146 @@
             margin: 0 10px;
         }
 
-        /* Responsive adjustments */
+        /* Skills Section */
+        #skills {
+            padding: 50px 20px;
+            background-color: #839791;
+            text-align: center;
+        }
+
+        #skills h2 {
+            font-size: 2em;
+            margin-bottom: 40px;
+            color: #EFD5C3;
+            font-family: 'Georgia';
+        }
+
+        .skill-item {
+            font-size: 1.5em;
+            color: #EFD5C3;
+            margin: 10px 0;
+            font-family: 'Georgia';
+        }
+
+        /* Animation */
+        .skill-animation {
+            position: relative;
+            width: 80vw;
+            height: 30vh;
+            background-color: rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin: 0 auto;
+            border-radius: 10px;
+        }
+
+        .skill-circle {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            color: black;
+            font-size: 1em;
+            text-align: center;
+            transition: transform 1s ease-in-out;
+        }
+
+        /* Circle colors */
+        .circle-1 { background-color: #E5D9F2; }
+        .circle-2 { background-color: #A594F9; }
+        .circle-3 { background-color: #FFB0B0; }
+        .circle-4 { background-color: #E5D9F2; }
+        .circle-5 { background-color: #a1d6b2; }
+        .circle-6 { background-color: #dd614a; }
+        .circle-7 { background-color: #ffcf81; }
+        .circle-8 { background-color: #F6FDC3; }
+        .circle-9 { background-color: #F2D8D8; }
+        .circle-10 { background-color: #FDCEDF; }       
+
+        /* Animating skills */
+        @keyframes moveCircles {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            25% {
+                transform: translate(100%, 0);
+            }
+
+            50% {
+                transform: translate(100%, 100%);
+            }
+
+            75% {
+                transform: translate(0, 100%);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+        /* Responsiveness */
         @media (max-width: 768px) {
-            main { flex-direction: column; height: auto; }
-            .right-section, .left-section { width: 100%; padding: 10px; }
-            .right-section img { width: 100%; height: auto; object-fit: contain; }
-            .large-text-l1, .large-text-l2 { font-size: calc(4vw + 2vh); }
-            .body-text-l3 { font-size: calc(3vw); }
+            main {
+                flex-direction: column;
+                height: auto;
+            }
+
+            .right-section,
+            .left-section {
+                width: 100%;
+                padding: 10px;
+            }
+
+            .right-section img {
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+            }
+
+            .large-text-l1,
+            .large-text-l2 {
+                font-size: calc(4vw + 2vh);
+            }
+
+            .body-text-l3 {
+                font-size: calc(3vw);
+            }
         }
 
         @media (max-width: 480px) {
-            .logo { width: 90px; height: 45px; }
-            header { flex-direction: column; }
-            header nav { margin-top: 10px; }
-            .large-text-l1, .large-text-l2 { font-size: calc(5vw + 2vh); }
-            .body-text-l3 { font-size: calc(3.5vw); }
-            #about-me h2 { font-size: 1.5em; }
+            .logo {
+                width: 90px;
+                height: 45px;
+            }
+
+            header {
+                flex-direction: column;
+            }
+
+            header nav {
+                margin-top: 10px;
+            }
+
+            .large-text-l1,
+            .large-text-l2 {
+                font-size: calc(5vw + 2vh);
+            }
+
+            .body-text-l3 {
+                font-size: calc(3.5vw);
+            }
+
+            #about-me h2 {
+                font-size: 1.5em;
+            }
         }
     </style>
 </head>
+
 <body>
+
     <header>
         <a href="index.html">
             <img src="images/logo.png" alt="Logo" class="logo">
@@ -207,7 +343,7 @@
         </nav>
     </header>
 
-    <main style="margin: 0 10%;">
+    <main>
         <section class="left-section">
             <p class="large-text-l1" id="typewriterLine1"></p><br>
             <p class="large-text-l2" id="typewriterLine2"></p><br><br>
@@ -225,21 +361,58 @@
             <div class="milestone milestone-1"></div>
             <div class="milestone milestone-2"></div>
             <div class="milestone milestone-3"></div>
-
             <div class="milestone-text milestone-1-text">
-                DAV Public School<br>Secondary School<br>2020
+                Secondary School<br>DAV Public School<br>2020
             </div>
             <div class="milestone-text milestone-2-text">
-                SNBP International School<br>High School<br>2022
+                High Secondary<br>SNBP International School<br>2022
             </div>
             <div class="milestone-text milestone-3-text">
-                Flame University<br>UnderGrad<br>2024
+                B. Design<br>Flame University<br>2027
             </div>
         </div>
     </section>
 
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skill-animation" id="animation-container">
+            <div class="skill-circle circle-1" style="width: 90px; height: 90px; top: 15%; left: 20%; animation: moveCircles 5s infinite;">
+                <p>HTML</p>
+            </div>
+            <div class="skill-circle circle-2" style="width: 120px; height: 120px; top: 30%; left: 30%; animation: moveCircles 7s infinite;">
+                <p>CSS</p>
+            </div>
+            <div class="skill-circle circle-3" style="width: 100px; height: 100px; top: 30%; left: 40%; animation: moveCircles 3s infinite;">
+                <p>JavaScript</p>
+            </div>
+            <div class="skill-circle circle-4" style="width: 130px; height: 130px; top: 20%; left: 70%; animation: moveCircles 6s infinite;">
+                <p>P5JS</p>
+            </div>
+            <div class="skill-circle circle-5" style="width: 110px; height: 110px; top: 25%; left: 80%; animation: moveCircles 6s infinite;">
+                <p>Python</p>
+            </div>
+            <div class="skill-circle circle-6" style="width: 110px; height: 110px; top: 5%; left: 5%; animation: moveCircles 5s infinite;">
+                <p>Canva</p>
+            </div>
+            <div class="skill-circle circle-7" style="width: 110px; height: 110px; top: 15%; left: 30%; animation: moveCircles 9s infinite;">
+                <p>Photoshop</p>
+            </div>
+            <div class="skill-circle circle-8" style="width: 150px; height: 150px; top: 15%; left: 50%; animation: moveCircles 8s infinite;">
+                <p>A Illustrator</p>
+            </div>
+            <div class="skill-circle circle-9" style="width: 80px; height: 80px; top: 40%; left: 10%; animation: moveCircles 5s infinite;">
+                <p>Figma</p>
+            </div>
+            <div class="skill-circle circle-10" style="width: 110px; height: 110px; top: 25%; left: 70%; animation: moveCircles 4s infinite;">
+                <p>Powerpoint</p>
+            </div>
+             
+            
+        </div>
+    </section>
+
     <footer>
-        <p>&copy; Sonia Wadhwani 2024</p>
+        <p>Made by Sonia Wadhwani | <a href="contact.html">Contact</a></p>
     </footer>
 
     <script>
@@ -247,9 +420,11 @@
         const textLine2 = "I am Sonia.";
         const textLine3 = "A compassionate, creative design enthusiast blending artistry with user-focused innovation. I value diverse experiences & am driven by positivity & discovery.";
 
+
         const typewriterElement1 = document.getElementById('typewriterLine1');
         const typewriterElement2 = document.getElementById('typewriterLine2');
         const typewriterElement3 = document.getElementById('typewriterLine3');
+ 
 
         let index1 = 0, index2 = 0, index3 = 0;
 
@@ -283,9 +458,13 @@
             }
         }
 
+ 
+
         typeWriter1();
         setTimeout(typeWriter2, 1000);
         setTimeout(typeWriter3, 2000);
-    </script>
+
+    </script>   
 </body>
+
 </html>
