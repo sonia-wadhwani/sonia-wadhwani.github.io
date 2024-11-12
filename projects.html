@@ -52,7 +52,7 @@
             padding: 20px;
             padding-left: 40px;
             padding-top: 40px;
-            overflow: visible; /* Ensure no scrollbar on left-section */
+            overflow: visible;
         }
 
         .right-section {
@@ -83,14 +83,9 @@
             aspect-ratio: 1;
             border-radius: 10px;
             cursor: pointer;
-            transition: transform 0.3s ease-in-out;
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-
-        .grid-item:hover {
-            transform: scale(1.05);
         }
 
         .grid-item img {
@@ -264,7 +259,7 @@
                     <img src="images/gridbook.png" alt="About Me">
                     <div class="overlay">Saptha</div>
                 </div>
-                <div class="grid-item" onclick="openModal('p5js-elements.html','80%', '85%')">
+                <div class="grid-item" onclick="openModal('elementsofdesign.html','80%', '85%')">
                     <img src="images/elementsofdesign.png" alt="Elements of Design">
                     <div class="overlay">Elements of Design</div>
                 </div>
