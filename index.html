@@ -11,7 +11,7 @@
             font-family: 'Trebuchet MS';
             display: flex;
             flex-direction: column;
-            overflow-y: auto; /* Allow the entire page to scroll */
+            overflow-y: auto;
             scroll-behavior: smooth;
         }
 
@@ -44,15 +44,15 @@
         main {
             display: flex;
             flex-direction: row;
-            height: 100vh; /* Full viewport height */
-            width: 80%; /* Limit to 80% of the screen */
-            margin: 0 auto; /* Center the main section */
+            height: 100vh;
+            width: 80%;
+            margin: 0 auto;
         }
 
         .left-section {
             flex: 1;
             padding: 20px 40px;
-            overflow: hidden; /* Prevent scroll in the left section */
+            overflow: hidden;
         }
 
         .right-section {
@@ -60,24 +60,24 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 100vh; /* Ensure the section takes full screen height */
+            height: 100vh;
             overflow: hidden;
         }
 
         .right-section img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* Ensure image fits and doesn't get cropped */
-            object-position: center center; /* Center the image to avoid cuts */
+            object-fit: contain;
+            object-position: center center;
         }
 
-        .large-text-l1  {
+        .large-text-l1 {
             font-family: 'Georgia';
             line-height: 0.9;
             margin-bottom: 5px;
             display: inline-block;
             overflow: hidden;
-            font-size: calc(5.5vw); 
+            font-size: calc(5.5vw);
             margin-top: 120px;
         }
 
@@ -87,7 +87,7 @@
             margin-bottom: 5px;
             display: inline-block;
             overflow: hidden;
-            font-size: calc(5.5vw); 
+            font-size: calc(5.5vw);
             margin-top: 12px;
         }
 
@@ -97,17 +97,15 @@
             margin-bottom: 5px;
             display: inline-block;
             overflow: hidden;
-            font-size: calc(1.75vw); 
+            font-size: calc(1.75vw);
             margin-top: 5px;
             line-height: 1.5;
-
         }
 
         /* About Me Section */
         #about-me {
-            padding: 50px 20px;
-            background-color: #EFD5C3; /* Match body background */
-            text-align: center;
+            padding: 50px 10%;
+            background-color: #EFD5C3;
         }
 
         #about-me h2 {
@@ -116,12 +114,21 @@
             font-family: 'Georgia';
         }
 
+        .about-title {
+            color: black;
+            text-align: left;
+            font-size: 2em;
+            font-family: 'Georgia';
+            margin-bottom: 20px;
+        }
+
         .timeline {
             position: relative;
             width: 60%;
-            margin: 0 auto;
             height: 5px;
             background-color: #839791;
+            margin-left: 10%;
+            margin-bottom: 30px; /* Added margin at the bottom */
         }
 
         .milestone {
@@ -137,7 +144,6 @@
         .milestone-2 { left: 70%; }
         .milestone-3 { left: 90%; }
 
-        /* Text below each milestone */
         .milestone-text {
             position: absolute;
             font-size: 0.9em;
@@ -196,12 +202,11 @@
         </nav>
     </header>
 
-    <main>
+    <main style="margin: 0 10%;">
         <section class="left-section">
             <p class="large-text-l1" id="typewriterLine1"></p><br>
             <p class="large-text-l2" id="typewriterLine2"></p><br><br>
             <p class="body-text-l3" id="typewriterLine3"></p><br>
-
         </section>
         <section class="right-section">
             <img src="images/sonia.png" alt="Sonia Wadhwani">
@@ -209,21 +214,21 @@
     </main>
 
     <section id="about-me">
+        <h2 class="about-title">About Me</h2>
         <h2>My Timeline...</h2>
         <div class="timeline">
             <div class="milestone milestone-1"></div>
             <div class="milestone milestone-2"></div>
             <div class="milestone milestone-3"></div>
 
-            <!-- Texts below milestones -->
             <div class="milestone-text milestone-1-text">
-                Secondary School<br>2020
+                DAV Public School<br>Secondary School<br>2020
             </div>
             <div class="milestone-text milestone-2-text">
-                High School<br>2022
+                SNBP International School<br>High School<br>2022
             </div>
             <div class="milestone-text milestone-3-text">
-                UnderGrad<br>2024
+                Flame University<br>UnderGrad<br>2024
             </div>
         </div>
     </section>
@@ -233,17 +238,15 @@
     </footer>
 
     <script>
-        const textLine1 = "Hello,"; 
-        const textLine2 = "I am Sonia."; 
-        const textLine3 = "A compassionate, creative design enthusiast blending artistry with user-focused innovation. I value diverse experiences & am driven by positivity & discovery."; 
-
+        const textLine1 = "Hello,";
+        const textLine2 = "I am Sonia.";
+        const textLine3 = "A compassionate, creative design enthusiast blending artistry with user-focused innovation. I value diverse experiences & am driven by positivity & discovery.";
 
         const typewriterElement1 = document.getElementById('typewriterLine1');
         const typewriterElement2 = document.getElementById('typewriterLine2');
         const typewriterElement3 = document.getElementById('typewriterLine3');
 
-
-        let index1 = 0, index2 = 0, index3 = 0, index4 = 0, index5 = 0;
+        let index1 = 0, index2 = 0, index3 = 0;
 
         function typeWriter1() {
             if (index1 < textLine1.length) {
@@ -275,12 +278,10 @@
             }
         }
 
-
-
-
         typeWriter1();
         setTimeout(typeWriter2, 1000);
         setTimeout(typeWriter3, 2000);
+   
 
     </script>
 </body>
