@@ -226,14 +226,14 @@ main {
     font-size: 2em;
     margin-bottom: 40px;
     color: #EFD5C3;
-    font-family: 'Georgia';
+    font-family: 'Raleway';
 }
 
 .skill-item {
     font-size: 1.5em;
     color: #EFD5C3;
     margin: 10px 0;
-    font-family: 'Georgia';
+    font-family: 'Raleway';
 }
 
 /* Animation */
@@ -254,6 +254,7 @@ main {
     align-items: center;
     border-radius: 50%;
     color: black;
+    font-family: 'Raleway';
     font-size: 1em;
     text-align: center;
     transition: transform 1s ease-in-out;
@@ -287,9 +288,9 @@ main {
 }
 
 #projects h2 {
-    color: #839791;
-    font-size: 2em;
-    font-family: 'Georgia';
+    color: #001011;
+    font-size: 5em;
+    font-family: 'Raleway';
     margin-bottom: 50px;
     margin-left: 10%; /* Aligns with About Me title */
     text-align: left; /* Align text to the left */
