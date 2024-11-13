@@ -89,7 +89,7 @@ main {
     height: 100vh;
     overflow: hidden;
 }
-<style>
+
 /* Set the background color for the body and font style */
 body {
     background-color: #EFD5C3;
@@ -642,7 +642,6 @@ footer img {
     text-decoration: none;
     font-family: 'Raleway';
     color: #839791;
-    font-weight: bold;
 }
 
 .contact-links a:hover {
