@@ -336,7 +336,9 @@
 
         .thumbnail.active {
             border-color: #839791;
+        }
 
+  
         /* Animating skills */
         @keyframes moveCircles {
             0% {
@@ -360,7 +362,49 @@
             }
         }
 
-        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            height: 85%;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+
+        .modal iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 10px;
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #AAC0AF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
 
         /* Responsiveness */
         @media (max-width: 768px) {
@@ -518,9 +562,10 @@
             <img src="images/projected.png" alt="Elements of Design Project" class="project-image" id="project4">
             <img src="images/projectbook.png" alt="Book Project" class="project-image" id="project5">
             <img src="images/projectflexhub.png" alt="Flexhub Project" class="project-image" id="project6">
+            <div class="project-title" id="project-title">Scratch Project - Parallel Parking</div>
         </div>
         <div class="thumbnail-container">
-            <img src="images/projectscratchtn.png" alt="Scratch Thumbnail" class="thumbnail" onclick="showProject(0)">
+            <img src="images/projectscratchtn.png" alt="Scratch Thumbnail" class="thumbnail" onClick="openModal('p5js-lights.html','80%', '80%')">
             <img src="images/projectp5jstn.png" alt="P5JS Thumbnail" class="thumbnail" onclick="showProject(1)">
             <img src="images/projectpythontn.png" alt="Python Thumbnail" class="thumbnail" onclick="showProject(2)">
             <img src="images/projecteodtn.png" alt="EOD Thumbnail" class="thumbnail" onclick="showProject(3)">
@@ -619,7 +664,41 @@
         setInterval(nextProject, 3000);
         showProject(0);
     </script>
+    
+    <script>
+        function openModal(src, width = '90%', height = '85%') {
+            const modal = document.getElementById('modal');
+            const iframe = document.getElementById('modal-iframe');
+            const overlay = document.getElementById('modal-overlay');
+            
+            iframe.src = src;
+            modal.style.width = width;
+            modal.style.height = height;
+            modal.style.display = 'block';
+            overlay.style.display = 'block';
+        }
 
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            const iframe = document.getElementById('modal-iframe');
+            const overlay = document.getElementById('modal-overlay');
+
+            modal.style.display = 'none';
+            overlay.style.display = 'none';
+            iframe.src = '';
+        }
+
+        function openCustomWindow(url, width, height) {
+            const left = (screen.width - width) / 2;
+            const top = (screen.height - height) / 2;
+            window.open(
+                url,
+                '_blank',
+                `width=${width},height=${height},left=${left},top=${top},toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes`
+            );
+        }
+    </script>x
+    </script>
 </body>
 
 </html>
