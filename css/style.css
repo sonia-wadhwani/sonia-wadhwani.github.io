@@ -719,6 +719,13 @@ footer img {
         font-size: calc(3.5vw);
     }
 
+    #about-me h2 {
+        font-size: calc(5vw + 2vh);
+    }
+
+    #projects h2 {
+        font-size: calc(5vw + 2vh); /* Smaller font size for very small screens */
+    }
 
     .project-image {
         width: 90%; /* Make project images even smaller on very small screens */
