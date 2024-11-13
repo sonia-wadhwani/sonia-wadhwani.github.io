@@ -645,17 +645,6 @@ footer img {
         padding: 30px 20px; /* Reduce padding */
     }
 
-    /* Ensure images scale well on smaller devices */
-    .project-box {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .project-image {
-        width: 80%; /* Make the images take more space on small screens */
-        margin: 10px 0; /* Adjust margin */
-    }
 
     .thumbnail-container {
         display: flex;
@@ -722,7 +711,7 @@ footer img {
     #about-me h2 {
         font-size: calc(5vw + 2vh);
     }
-
+    /*
     #projects h2 {
         font-size: calc(5vw + 2vh); /* Smaller font size for very small screens */
     }
@@ -734,7 +723,7 @@ footer img {
     .project-box {
             width: 90%; /* Make project images even smaller on very small screens */
     }   
-
+    */
     .thumbnail {
         width: 40px; /* Even smaller thumbnails */
         height: 40px;
