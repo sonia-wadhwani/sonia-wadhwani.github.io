@@ -30,7 +30,7 @@ function nextProject() {
 setInterval(nextProject, 3000);
 showProject(0);
 
-function openModal(src, width = "75vw", height = "75vh") {
+function openModal(src, width , height) {
 	const modal = document.getElementById("modal");
 	const modalIframe = document.getElementById("modalIframe");
 	const modalContent = document.getElementById("modalContent");
@@ -39,6 +39,7 @@ function openModal(src, width = "75vw", height = "75vh") {
 	modalIframe.src = src;
 
 	// Apply width and height to modal content
+	
 	modalContent.style.width = width;
 	modalContent.style.height = height;
 
