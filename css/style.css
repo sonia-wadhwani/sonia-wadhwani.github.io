@@ -13,6 +13,16 @@ main, .about-me, #skills, #projects, #my-art {
     box-sizing: border-box;
 }
 
+main {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 70px; /* Add padding to match header height */
+    box-sizing: border-box;
+}
+
 header {
     display: flex;
     justify-content: space-between;
@@ -303,7 +313,7 @@ footer a {
     position: absolute;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain; /* Ensures the image scales to fit without cropping */
     opacity: 0;
     transition: opacity 0.5s ease;
 }
