@@ -148,7 +148,7 @@
             margin-bottom: 80px;   
             text-align: center;
         }
-        
+
         .milestone {
             position: absolute;
             top: -7px;
@@ -261,6 +261,72 @@
         .circle-10 { background-color: #FDCEDF; width: 110px; height: 110px; top: 25%; left: 70%; animation: moveCircles 4s infinite;}       
 
 
+        #projects {
+            padding: 50px 0;
+            background-color: #EFD5C3;
+            text-align: center;
+        }
+
+        #projects h2 {
+            font-size: 2em;
+            color: #839791;
+            font-family: 'Georgia';
+            margin-bottom: 40px;
+            text-align: left;
+            margin-left: 20%;
+        }
+
+        .project-box {
+            position: relative;
+            width: 60%;
+            height: 60vh;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .project-title {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-size: 1.5em;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        .dots-container {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            margin: 5px;
+            background-color: #839791;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .dot.active {
+            background-color: #EFD5C3;
+        }
 
         /* Animating skills */
         @keyframes moveCircles {
@@ -434,6 +500,28 @@
         </div>
     </section>
 
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project-box">
+            <img src="images/projectscratch.png" alt="Scratch Project" class="project-image" id="project1">
+            <img src="images/projectp5js.png" alt="P5JS Project" class="project-image" id="project2">
+            <img src="images/projectpython.png" alt="Python Project" class="project-image" id="project3">
+            <img src="images/projected.png" alt="Elements of Design Project" class="project-image" id="project4">
+            <img src="images/projectbook.png" alt="Book Project" class="project-image" id="project5">
+            <img src="images/projectflexhub.png" alt="Flexhub Project" class="project-image" id="project6">
+
+            <div class="project-title" id="project-title">Scratch Project - Parallel Parking</div>
+        </div>
+        <div class="dots-container">
+            <span class="dot" onclick="showProject(0)"></span>
+            <span class="dot" onclick="showProject(1)"></span>
+            <span class="dot" onclick="showProject(2)"></span>
+            <span class="dot" onclick="showProject(3)"></span>
+            <span class="dot" onclick="showProject(4)"></span>
+            <span class="dot" onclick="showProject(5)"></span>
+        </div>
+    </section>
+
     <footer>
         <p>Made by Sonia Wadhwani | <a href="contact.html">Contact</a></p>
     </footer>
@@ -490,6 +578,39 @@
 
 
     </script>
+
+<script>
+    const projectImages = document.querySelectorAll('.project-image');
+    const projectTitles = [
+        "Scratch Project - Parallel Parking",
+        "P5JS Project - Lighting Animation",
+        "Python Project - Foodie, the Nutrition Partner",
+        "Elements of Design",
+        "Saptha - The book of moods",
+        "Brand Positioning - Flexhub"
+    ];
+    const projectTitle = document.getElementById('project-title');
+    const dots = document.querySelectorAll('.dot');
+    let currentProject = 0;
+
+    function showProject(index) {
+        projectImages.forEach((img, i) => {
+            img.style.opacity = i === index ? '1' : '0';
+        });
+        projectTitle.textContent = projectTitles[index];
+        dots.forEach(dot => dot.classList.remove('active'));
+        dots[index].classList.add('active');
+        currentProject = index;
+    }
+
+    function nextProject() {
+        currentProject = (currentProject + 1) % projectImages.length;
+        showProject(currentProject);
+    }
+
+    setInterval(nextProject, 3000);
+    showProject(0);
+</script>
   
 </body>
 
