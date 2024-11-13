@@ -212,23 +212,9 @@
 
         <script src="script/homeanimatedtext.js"></script>
         <script src="script/projects.js"></script>
+        <script src="script/myart.js"></script>
         <script>
-            
-        
-            function openOverlay(image) {
-                const overlay = document.getElementById('overlay');
-                document.getElementById('overlayImage').src = 'images/' + image.src; // Adjust path as needed
-                document.getElementById('overlayName').textContent = image.name;
-                document.getElementById('overlayDescription').textContent = image.description;
-                overlay.style.display = 'flex';
-            }
-
-            function closeOverlay() {
-                document.getElementById('overlay').style.display = 'none';
-            }
- 
-    
-        // Device orientation check script
+            // Device orientation check script
         function checkOrientation() {
             const isLandscape = screen.orientation.type === 'landscape-primary' || screen.orientation.type === 'landscape-secondary';
             if (!isLandscape) {
