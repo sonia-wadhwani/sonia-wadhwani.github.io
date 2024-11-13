@@ -156,12 +156,14 @@ main {
     background-color: #EFD5C3;
 }
 
+
 .timeline-title {
-    color: #EFD5C3;
+    padding-bottom: 0px;
+    padding-top: 0px;
     font-size: 2em;
+    margin-bottom: 40px;
+    color: #EFD5C3;
     font-family: 'Raleway';
-    margin-bottom: 80px;   
-    text-align: center;
 }
 
 .milestone {
