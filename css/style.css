@@ -412,75 +412,7 @@ iframe {
     border: none;
 }
 
-/* Responsiveness */
-@media (max-width: 768px) {
-    main {
-        flex-direction: column;
-        height: auto;
-    }
 
-    .right-section,
-    .left-section {
-        width: 100%;
-        padding: 10px;
-    }
-
-    .right-section img {
-        width: 100%;
-        height: auto;
-        object-fit: contain;
-    }
-
-    .large-text-l1,
-    .large-text-l2 {
-        font-size: calc(4vw + 2vh);
-    }
-
-    .body-text-l3 {
-        font-size: calc(3vw);
-    }
-}
-
-@media (max-width: 480px) {
-    .logo {
-        width: 90px;
-        height: 45px;
-    }
-
-    header {
-        flex-direction: column;
-    }
-
-    header nav {
-        margin-top: 10px;
-    }
-
-    .large-text-l1,
-    .large-text-l2 {
-        font-size: calc(5vw + 2vh);
-    }
-
-    .body-text-l3 {
-        font-size: calc(3.5vw);
-    }
-
-    #about-me h2 {
-        font-size: 1.5em;
-    }
-
-    #projects h2 {
-        font-size: 1.5em; /* Smaller font size for very small screens */
-    }
-
-    .project-image {
-        width: 90%; /* Make project images even smaller on very small screens */
-    }
-
-    .thumbnail {
-        width: 40px; /* Even smaller thumbnails */
-        height: 40px;
-    }
-}
 
 #my-art {
     padding: 120px 20px;
@@ -735,5 +667,65 @@ footer img {
     .thumbnail {
         width: 50px; /* Smaller thumbnail size on small screens */
         height: 50px; /* Smaller thumbnail size on small screens */
+    }
+
+    main {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .right-section,
+    .left-section {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .right-section img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .large-text-l1,
+    .large-text-l2 {
+        font-size: calc(4vw + 2vh);
+    }
+
+    .body-text-l3 {
+        font-size: calc(3vw);
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        width: 90px;
+        height: 45px;
+    }
+
+    header {
+        flex-direction: column;
+    }
+
+    header nav {
+        margin-top: 10px;
+    }
+
+    .large-text-l1,
+    .large-text-l2 {
+        font-size: calc(5vw + 2vh);
+    }
+
+    .body-text-l3 {
+        font-size: calc(3.5vw);
+    }
+
+
+    .project-image {
+        width: 90%; /* Make project images even smaller on very small screens */
+    }
+
+    .thumbnail {
+        width: 40px; /* Even smaller thumbnails */
+        height: 40px;
     }
 }
