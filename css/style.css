@@ -90,50 +90,6 @@ main {
     overflow: hidden;
 }
 
-/* Set the background color for the body and font style */
-body {
-    background-color: #EFD5C3;
-    margin: 0;
-    font-family: 'Georgia';
-    display: flex;
-    height: 100vh;
-    overflow: hidden;
-}
-
-/* Left side styling in sub pages */
-.left-side {
-    flex: 1;
-    display: flex;
-    flex-direction: column; /* Ensure content appears in rows */
-    justify-content: center;
-    padding: 10px;
-    background-color: #AAC0AF;
-    font-family: 'Trebuchet MS' ;
-}
-
-.left-side p {
-    margin-bottom: 20px;
-}
-
-/* Center part styling in sub pages*/
-.center-part {
-    width: 800px;
-    height: 650px;
-    background-color: #FFFFFF;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    font-size: 1.5em;
-    text-align: center;
-}
-
-/* Bold title styling */
-.left-side p strong {
-    font-weight: bold;
-}
-
 .right-section img {
     width: 100%;
     height: 100%;
@@ -642,6 +598,7 @@ footer img {
     text-decoration: none;
     font-family: 'Raleway';
     color: #839791;
+
 }
 
 .contact-links a:hover {
