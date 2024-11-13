@@ -325,6 +325,7 @@ main {
     left: 150px;
     font-size: 1.5em;
     color: white;
+    font-family: 'Raleway';
     background-color: rgba(0, 0, 0, 0.6);
     padding: 10px 20px;
     border-radius: 5px;
@@ -480,8 +481,8 @@ iframe {
 
 #my-art h2 {
     color: #EFD5C3;
-    font-size: 2em;
-    font-family: 'Georgia';
+    font-size: 5em;
+    font-family: 'Raleway';
     margin-bottom: 80px;
     margin-left: 10%; /* Aligns with About Me title */
     text-align: left; /* Align text to the left */
