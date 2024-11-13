@@ -286,9 +286,10 @@ main {
     color: #839791;
     font-size: 2em;
     font-family: 'Georgia';
-    margin-bottom: 80px;
+    margin-bottom: 50px;
     margin-left: 10%; /* Aligns with About Me title */
     text-align: left; /* Align text to the left */
+    padding-bottom: 0px;
 }
 
 .project-box {
@@ -301,6 +302,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-top: 0px;
 }
 
 .project-image {
