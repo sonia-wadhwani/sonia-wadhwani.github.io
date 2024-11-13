@@ -15,7 +15,6 @@ const images = [
     { src: 'doodle6.png', name: "Chaap Corner’s Crazy Crew", description: 'A whimsical world of doodles invites you to Bombay Chaap Corner, where every bite is as fun as the art on the wall.' },
     { src: 'doodle7.png', name: "Chaap Corner’s Crazy Crew", description: 'A whimsical world of doodles invites you to Bombay Chaap Corner, where every bite is as fun as the art on the wall.' },
     { src: 'doodle8.png', name: "Chaap Corner’s Crazy Crew", description: 'A whimsical world of doodles invites you to Bombay Chaap Corner, where every bite is as fun as the art on the wall.' },
-    { src: 'doodle9.png', name: "Chaap Corner’s Crazy Crew", description: 'A whimsical world of doodles invites you to Bombay Chaap Corner, where every bite is as fun as the art on the wall.' },
     { src: 'sketches1.png', name: 'Emotionless Enigma', description: 'A person whose inner thoughts are hidden behind a mask of indifference.' },
     { src: 'sketches2.png', name: 'AAHHHHH!!!', description: 'A moment of pure frustration.' },
     { src: 'sketches3.png', name: "It's HOTTTTT!!!", description: 'A fiery showdown between a brave eater and a spicy dish.' },
