@@ -1,3 +1,4 @@
+
 const textLine1 = "Hello,";
 const textLine2 = "I am Sonia.";
 const textLine3 = "A compassionate, creative design enthusiast blending artistry with user-focused innovation. I value diverse experiences & am driven by positivity & discovery.";

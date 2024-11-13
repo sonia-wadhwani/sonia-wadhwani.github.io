@@ -1,0 +1,531 @@
+body {
+    background-color: #EFD5C3;
+    margin: 0;
+    font-family: 'Raleway';
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    flex-wrap: wrap;
+    position: fixed; /* Fixes the header at the top */
+    top: 0; /* Ensures it is at the very top */
+    left: 0; /* Aligns the header to the left edge of the screen */
+    width: 100%; /* Ensures the header spans the entire width of the screen */
+    z-index: 1000; /* Keeps the header above other elements */
+}
+
+header nav {
+    white-space: nowrap;
+}
+
+header a {
+    text-decoration: none;
+    color: black;
+    font-family: 'Georgia';
+    margin: 0 15px;
+    cursor: pointer;
+}
+
+.logo {
+    width: 120px;
+    height: 60px;
+    padding-left: 20px;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.left-section {
+    flex: 1;
+    padding: 20px 40px;
+    overflow: hidden;
+}
+
+.right-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.right-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center center;
+}
+
+.large-text-l1 {
+    font-family: 'Georgia';
+    line-height: 0.9;
+    margin-bottom: 5px;
+    display: inline-block;
+    overflow: hidden;
+    font-size: calc(5.5vw);
+    margin-top: 120px;
+}
+
+.large-text-l2 {
+    font-family: 'Georgia';
+    line-height: 0.9;
+    margin-bottom: 5px;
+    display: inline-block;
+    overflow: hidden;
+    font-size: calc(5.5vw);
+    margin-top: 12px;
+}
+
+.body-text-l3 {
+    font-family: 'Raleway';
+    line-height: 0.9;
+    margin-bottom: 5px;
+    display: inline-block;
+    overflow: hidden;
+    font-size: calc(1.75vw);
+    margin-top: 5px;
+    line-height: 1.5;
+}
+
+/* About Me Section */
+#about-me {
+    padding: 50px 20px;
+    background-color: #839791;
+    text-align: center;
+    width: 100%;
+    margin-left: 0 auto;
+}
+
+#about-me-box {
+    padding: 50px 20px;
+    background-color: #839791;
+    text-align: center;
+    width: 80%;
+    margin-left: 10%;
+}
+
+.about-title {
+    color: #EFD5C3;
+    font-size: 2em;
+    font-family: 'Georgia';
+    margin-bottom: 80px;
+    margin-left: 10%;
+    text-align: left;
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    height: 5px;
+    background-color: #EFD5C3;
+}
+
+.timeline-title {
+    color: #EFD5C3;
+    font-size: 2em;
+    font-family: 'Georgia';
+    margin-bottom: 80px;   
+    text-align: center;
+}
+
+.milestone {
+    position: absolute;
+    top: -7px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #000;
+}
+
+.milestone-1 {
+    left: 10%;
+}
+
+.milestone-2 {
+    left: 50%;
+}
+
+.milestone-3 {
+    left: 90%;
+}
+
+.milestone-text {
+    position: absolute;
+    font-size: 0.9em;
+    color: #EFD5C3;
+    text-align: center;
+    transform: translateX(-50%);
+    margin-top: 20px;
+}
+
+.milestone-1-text {
+    left: 10%;
+}
+
+.milestone-2-text {
+    left: 50%;
+}
+
+.milestone-3-text {
+    left: 90%;
+}
+
+
+
+footer {
+    background-color: #F5F5F5;
+    font-family: 'Trebuchet MS';
+    text-align: center;
+    padding: 10px;
+}
+
+footer a {
+    text-decoration: none;
+    color: black;
+    margin: 0 10px;
+}
+
+/* Skills Section */
+#skills {
+    padding: 120px 20px;
+    background-color: #839791;
+    text-align: center;
+}
+
+#skills h2 {
+    font-size: 2em;
+    margin-bottom: 40px;
+    color: #EFD5C3;
+    font-family: 'Georgia';
+}
+
+.skill-item {
+    font-size: 1.5em;
+    color: #EFD5C3;
+    margin: 10px 0;
+    font-family: 'Georgia';
+}
+
+/* Animation */
+.skill-animation {
+    position: relative;
+    width: 80vw;
+    height: 30vh;
+    background-color: rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.skill-circle {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: black;
+    font-size: 1em;
+    text-align: center;
+    transition: transform 1s ease-in-out;
+}
+
+/* Circle colors and sizes*/
+.circle-1 { background-color: #E5D9F2; width: 90px; height: 90px; top: 15%; left: 20%; animation: moveCircles 5s infinite;}
+.circle-2 { background-color: #A594F9; width: 120px; height: 120px; top: 30%; left: 30%; animation: moveCircles 7s infinite;}
+.circle-3 { background-color: #FF90BC; width: 100px; height: 100px; top: 30%; left: 40%; animation: moveCircles 3s infinite;}
+.circle-4 { background-color: #EEC759; width: 130px; height: 130px; top: 10%; left: 70%; animation: moveCircles 6s infinite;}
+.circle-5 { background-color: #a1d6b2; width: 110px; height: 110px; top: 25%; left: 85%; animation: moveCircles 6s infinite;}
+.circle-6 { background-color: #dd614a; width: 110px; height: 110px; top: 2%; left: 2%; animation: moveCircles 5s infinite;}
+.circle-7 { background-color: #ffcf81; width: 110px; height: 110px; top: 15%; left: 30%; animation: moveCircles 9s infinite;}
+.circle-8 { background-color: #F6FDC3; width: 150px; height: 150px; top: 5%; left: 50%; animation: moveCircles 8s infinite; }
+.circle-9 { background-color: #CBFFA9; width: 80px; height: 80px; top: 40%; left: 10%; animation: moveCircles 5s infinite;}
+.circle-10 { background-color: #FDCEDF; width: 110px; height: 110px; top: 25%; left: 70%; animation: moveCircles 4s infinite;}       
+
+/* Projects Section */
+#projects {
+    padding: 120px 20px;
+    background-color: #839791;
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* Projects Section */
+#projects {
+    padding: 50px 0;
+    background-color: #EFD5C3;
+    text-align: center;
+}
+
+#projects h2 {
+    font-size: 2em;
+    color: #839791;
+    font-family: 'Georgia';
+    margin-bottom: 40px;
+    text-align: left;
+    margin-left: 20%;
+}
+
+.project-box {
+    position: relative;
+    width: 60%;
+    height: 60vh;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.project-title {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-size: 1.5em;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+
+
+.thumbnail-container {
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px auto;
+}
+
+.thumbnail {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.3s;
+}
+
+.thumbnail.active {
+    border-color: #839791;
+}
+
+
+
+
+/* Animating skills */
+@keyframes moveCircles {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    25% {
+        transform: translate(100%, 0);
+    }
+
+    50% {
+        transform: translate(100%, 100%);
+    }
+
+    75% {
+        transform: translate(0, 100%);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    position: relative;
+    width: 75vw; /* Default to 75% of the viewport width */
+    height: 75vh; /* Default to 75% of the viewport height */
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .right-section,
+    .left-section {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .right-section img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .large-text-l1,
+    .large-text-l2 {
+        font-size: calc(4vw + 2vh);
+    }
+
+    .body-text-l3 {
+        font-size: calc(3vw);
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        width: 90px;
+        height: 45px;
+    }
+
+    header {
+        flex-direction: column;
+    }
+
+    header nav {
+        margin-top: 10px;
+    }
+
+    .large-text-l1,
+    .large-text-l2 {
+        font-size: calc(5vw + 2vh);
+    }
+
+    .body-text-l3 {
+        font-size: calc(3.5vw);
+    }
+
+    #about-me h2 {
+        font-size: 1.5em;
+    }
+}
+
+#my-art {
+    padding: 120px 20px;
+    background-color: #839791;
+    text-align: center;
+}
+
+#my-art h2 {
+    font-size: 2em;
+    margin-bottom: 40px;
+    color: #EFD5C3;
+    font-family: 'Georgia';
+}
+
+.art-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.art-item img {
+    width: 100%;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: transform 0.2s;
+}
+
+.art-item img:hover {
+    transform: scale(1.05);
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+}
+
+.overlay-content {
+    position: relative;
+    max-width: 80%;
+    max-height: 80%;
+    text-align: center;
+}
+
+.overlay img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 70%;
+    border-radius: 8px;
+}
+
+.overlay-text {
+    background-color: #EFD5C3;
+    color: #000;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.overlay-close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+}

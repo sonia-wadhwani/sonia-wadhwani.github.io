@@ -1,713 +1,203 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">   
-    <title>Sonia Wadhwani</title>
-    <style>
-        body {
-            background-color: #EFD5C3;
-            margin: 0;
-            font-family: 'Raleway';
-            display: flex;
-            flex-direction: column;
-            overflow-y: auto;
-            scroll-behavior: smooth;
-        }
-
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px;
-            flex-wrap: wrap;
-            position: fixed; /* Fixes the header at the top */
-            top: 0; /* Ensures it is at the very top */
-            left: 0; /* Aligns the header to the left edge of the screen */
-            width: 100%; /* Ensures the header spans the entire width of the screen */
-            z-index: 1000; /* Keeps the header above other elements */
-        }
-
-        header nav {
-            white-space: nowrap;
-        }
-
-        header a {
-            text-decoration: none;
-            color: black;
-            font-family: 'Georgia';
-            margin: 0 15px;
-            cursor: pointer;
-        }
-
-        .logo {
-            width: 120px;
-            height: 60px;
-            padding-left: 20px;
-        }
-
-        main {
-            display: flex;
-            flex-direction: row;
-            height: 100vh;
-            width: 80%;
-            margin: 0 auto;
-        }
-
-        .left-section {
-            flex: 1;
-            padding: 20px 40px;
-            overflow: hidden;
-        }
-
-        .right-section {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        .right-section img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            object-position: center center;
-        }
-
-        .large-text-l1 {
-            font-family: 'Georgia';
-            line-height: 0.9;
-            margin-bottom: 5px;
-            display: inline-block;
-            overflow: hidden;
-            font-size: calc(5.5vw);
-            margin-top: 120px;
-        }
-
-        .large-text-l2 {
-            font-family: 'Georgia';
-            line-height: 0.9;
-            margin-bottom: 5px;
-            display: inline-block;
-            overflow: hidden;
-            font-size: calc(5.5vw);
-            margin-top: 12px;
-        }
-
-        .body-text-l3 {
-            font-family: 'Raleway';
-            line-height: 0.9;
-            margin-bottom: 5px;
-            display: inline-block;
-            overflow: hidden;
-            font-size: calc(1.75vw);
-            margin-top: 5px;
-            line-height: 1.5;
-        }
-
-        /* About Me Section */
-        #about-me {
-            padding: 50px 20px;
-            background-color: #839791;
-            text-align: center;
-            width: 100%;
-            margin-left: 0 auto;
-        }
-
-        #about-me-box {
-            padding: 50px 20px;
-            background-color: #839791;
-            text-align: center;
-            width: 80%;
-            margin-left: 10%;
-        }
-
-        .about-title {
-            color: #EFD5C3;
-            font-size: 2em;
-            font-family: 'Georgia';
-            margin-bottom: 80px;
-            margin-left: 10%;
-            text-align: left;
-        }
-
-        /* Timeline */
-        .timeline {
-            position: relative;
-            width: 80%;
-            margin: 0 auto;
-            height: 5px;
-            background-color: #EFD5C3;
-        }
-
-        .timeline-title {
-            color: #EFD5C3;
-            font-size: 2em;
-            font-family: 'Georgia';
-            margin-bottom: 80px;   
-            text-align: center;
-        }
-
-        .milestone {
-            position: absolute;
-            top: -7px;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background-color: #000;
-        }
-
-        .milestone-1 {
-            left: 10%;
-        }
-
-        .milestone-2 {
-            left: 50%;
-        }
-
-        .milestone-3 {
-            left: 90%;
-        }
-
-        .milestone-text {
-            position: absolute;
-            font-size: 0.9em;
-            color: #EFD5C3;
-            text-align: center;
-            transform: translateX(-50%);
-            margin-top: 20px;
-        }
-
-        .milestone-1-text {
-            left: 10%;
-        }
-
-        .milestone-2-text {
-            left: 50%;
-        }
-
-        .milestone-3-text {
-            left: 90%;
-        }
-
-        footer {
-            background-color: #F5F5F5;
-            font-family: 'Trebuchet MS';
-            text-align: center;
-            padding: 10px;
-        }
-
-        footer a {
-            text-decoration: none;
-            color: black;
-            margin: 0 10px;
-        }
-
-        /* Skills Section */
-        #skills {
-            padding: 120px 20px;
-            background-color: #839791;
-            text-align: center;
-        }
-
-        #skills h2 {
-            font-size: 2em;
-            margin-bottom: 40px;
-            color: #EFD5C3;
-            font-family: 'Georgia';
-        }
-
-        .skill-item {
-            font-size: 1.5em;
-            color: #EFD5C3;
-            margin: 10px 0;
-            font-family: 'Georgia';
-        }
-
-        /* Animation */
-        .skill-animation {
-            position: relative;
-            width: 80vw;
-            height: 30vh;
-            background-color: rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            margin: 0 auto;
-            border-radius: 10px;
-        }
-
-        .skill-circle {
-            position: absolute;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 50%;
-            color: black;
-            font-size: 1em;
-            text-align: center;
-            transition: transform 1s ease-in-out;
-        }
-
-        /* Circle colors and sizes*/
-        .circle-1 { background-color: #E5D9F2; width: 90px; height: 90px; top: 15%; left: 20%; animation: moveCircles 5s infinite;}
-        .circle-2 { background-color: #A594F9; width: 120px; height: 120px; top: 30%; left: 30%; animation: moveCircles 7s infinite;}
-        .circle-3 { background-color: #FF90BC; width: 100px; height: 100px; top: 30%; left: 40%; animation: moveCircles 3s infinite;}
-        .circle-4 { background-color: #EEC759; width: 130px; height: 130px; top: 10%; left: 70%; animation: moveCircles 6s infinite;}
-        .circle-5 { background-color: #a1d6b2; width: 110px; height: 110px; top: 25%; left: 85%; animation: moveCircles 6s infinite;}
-        .circle-6 { background-color: #dd614a; width: 110px; height: 110px; top: 2%; left: 2%; animation: moveCircles 5s infinite;}
-        .circle-7 { background-color: #ffcf81; width: 110px; height: 110px; top: 15%; left: 30%; animation: moveCircles 9s infinite;}
-        .circle-8 { background-color: #F6FDC3; width: 150px; height: 150px; top: 5%; left: 50%; animation: moveCircles 8s infinite; }
-        .circle-9 { background-color: #CBFFA9; width: 80px; height: 80px; top: 40%; left: 10%; animation: moveCircles 5s infinite;}
-        .circle-10 { background-color: #FDCEDF; width: 110px; height: 110px; top: 25%; left: 70%; animation: moveCircles 4s infinite;}       
-
-        /* Projects Section */
-        #projects {
-            padding: 120px 20px;
-            background-color: #839791;
-            text-align: center;
-            margin-top: 50px;
-        }
-
-        /* Projects Section */
-        #projects {
-            padding: 50px 0;
-            background-color: #EFD5C3;
-            text-align: center;
-        }
-
-        #projects h2 {
-            font-size: 2em;
-            color: #839791;
-            font-family: 'Georgia';
-            margin-bottom: 40px;
-            text-align: left;
-            margin-left: 20%;
-        }
-
-        .project-box {
-            position: relative;
-            width: 60%;
-            height: 60vh;
-            margin: 0 auto;
-            overflow: hidden;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .project-image {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-
-        .project-title {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            font-size: 1.5em;
-            color: white;
-            background-color: rgba(0, 0, 0, 0.6);
-            padding: 10px 20px;
-            border-radius: 5px;
-        }
-
- 
-        
-        .thumbnail-container {
-            width: 40%;
-            display: flex;
-            justify-content: space-between;
-            margin: 10px auto;
-        }
-
-        .thumbnail {
-            width: 60px;
-            height: 60px;
-            object-fit: cover;
-            cursor: pointer;
-            border: 2px solid transparent;
-            transition: border-color 0.3s;
-        }
-
-        .thumbnail.active {
-            border-color: #839791;
-        }
-
-  
-        /* Animating skills */
-        @keyframes moveCircles {
-            0% {
-                transform: translate(0, 0);
-            }
-
-            25% {
-                transform: translate(100%, 0);
-            }
-
-            50% {
-                transform: translate(100%, 100%);
-            }
-
-            75% {
-                transform: translate(0, 100%);
-            }
-
-            100% {
-                transform: translate(0, 0);
-            }
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            position: relative;
-            width: 75vw; /* Default to 75% of the viewport width */
-            height: 75vh; /* Default to 75% of the viewport height */
-            background-color: white;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .close {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 24px;
-            cursor: pointer;
-        }
-
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        /* Responsiveness */
-        @media (max-width: 768px) {
-            main {
-                flex-direction: column;
-                height: auto;
-            }
-
-            .right-section,
-            .left-section {
-                width: 100%;
-                padding: 10px;
-            }
-
-            .right-section img {
-                width: 100%;
-                height: auto;
-                object-fit: contain;
-            }
-
-            .large-text-l1,
-            .large-text-l2 {
-                font-size: calc(4vw + 2vh);
-            }
-
-            .body-text-l3 {
-                font-size: calc(3vw);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .logo {
-                width: 90px;
-                height: 45px;
-            }
-
-            header {
-                flex-direction: column;
-            }
-
-            header nav {
-                margin-top: 10px;
-            }
-
-            .large-text-l1,
-            .large-text-l2 {
-                font-size: calc(5vw + 2vh);
-            }
-
-            .body-text-l3 {
-                font-size: calc(3.5vw);
-            }
-
-            #about-me h2 {
-                font-size: 1.5em;
-            }
-        }
-    </style>
-</head>
-
-<body>
-
-    <header>
-        <a href="index.html">
-            <img src="images/logo.png" alt="Logo" class="logo">
-        </a>
-        <nav>
-            <a href="#about-me">About Me</a>
-            <a href="#projects">Projects</a>
-            <a href="myart.html">My Art</a>
-            <a href="contact.html">Let's Talk</a>
-        </nav>
-    </header>
-
-    <main>
-        <section class="left-section">
-            <p class="large-text-l1" id="typewriterLine1"></p><br>
-            <p class="large-text-l2" id="typewriterLine2"></p><br><br>
-            <p class="body-text-l3" id="typewriterLine3"></p><br>
-        </section>
-        <section class="right-section">
-            <img src="images/sonia.png" alt="Sonia Wadhwani">
-        </section>
-    </main>
-
-    <section id="about-me">
-        <div class="about-me">
-            <div class="about-me-box">
-                <div>
-                    <h2 class="about-title">About Me</h2>
-                    <h2 class="timeline-title">My Timeline...</h2>
-                    <div class="timeline">
-                        <div class="milestone milestone-1"></div>
-                        <div class="milestone milestone-2"></div>
-                        <div class="milestone milestone-3"></div>
-                        <div class="milestone-text milestone-1-text">
-                            Secondary School<br>DAV Public School<br>2020
-                        </div>
-                        <div class="milestone-text milestone-2-text">
-                            High Secondary<br>SNBP International School<br>2022
-                        </div>
-                        <div class="milestone-text milestone-3-text">
-                            B. Design<br>Flame University<br>2027
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">   
+        <title>Sonia Wadhwani</title>
+        <link rel="stylesheet" href="css/style.css"> </head>
+        <style>
+    
+        </style>
+    </head>
+
+    <body>
+
+        <header>
+            <a href="index.html">
+                <img src="images/logo.png" alt="Logo" class="logo">
+            </a>
+            <nav>
+                <a href="#about-me">About Me</a>
+                <a href="#projects">Projects</a>
+                <a href="myart.html">My Art</a>
+                <a href="contact.html">Let's Talk</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="left-section">
+                <p class="large-text-l1" id="typewriterLine1"></p><br>
+                <p class="large-text-l2" id="typewriterLine2"></p><br><br>
+                <p class="body-text-l3" id="typewriterLine3"></p><br>
+            </section>
+            <section class="right-section">
+                <img src="images/sonia.png" alt="Sonia Wadhwani">
+            </section>
+        </main>
+
+        <section id="about-me">
+            <div class="about-me">
+                <div class="about-me-box">
+                    <div>
+                        <h2 class="about-title">About Me</h2>
+                        <h2 class="timeline-title">My Timeline...</h2>
+                        <div class="timeline">
+                            <div class="milestone milestone-1"></div>
+                            <div class="milestone milestone-2"></div>
+                            <div class="milestone milestone-3"></div>
+                            <div class="milestone-text milestone-1-text">
+                                Secondary School<br>DAV Public School<br>2020
+                            </div>
+                            <div class="milestone-text milestone-2-text">
+                                High Secondary<br>SNBP International School<br>2022
+                            </div>
+                            <div class="milestone-text milestone-3-text">
+                                B. Design<br>Flame University<br>2027
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>    
-    </section>
+            </div>    
+        </section>
 
-    <section id="skills">
-        <h2>Skills</h2>
-        <div class="skill-animation" id="animation-container">
-            <div class="skill-circle circle-1">
-                <p>HTML</p>
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="skill-animation" id="animation-container">
+                <div class="skill-circle circle-1">
+                    <p>HTML</p>
+                </div>
+                <div class="skill-circle circle-2">
+                    <p>CSS</p>
+                </div>
+                <div class="skill-circle circle-3">
+                    <p>JavaScript</p>
+                </div>
+                <div class="skill-circle circle-4">
+                    <p>P5JS</p>
+                </div>
+                <div class="skill-circle circle-5">
+                    <p>Python</p>
+                </div>
+                <div class="skill-circle circle-6">
+                    <p>Canva</p>
+                </div>
+                <div class="skill-circle circle-7">
+                    <p>Photoshop</p>
+                </div>
+                <div class="skill-circle circle-8">
+                    <p>Adobe Illustrator</p>
+                </div>
+                <div class="skill-circle circle-9">
+                    <p>Figma</p>
+                </div>
+                <div class="skill-circle circle-10">
+                    <p>Powerpoint</p>
+                </div>
+                
+                
             </div>
-            <div class="skill-circle circle-2">
-                <p>CSS</p>
-            </div>
-            <div class="skill-circle circle-3">
-                <p>JavaScript</p>
-            </div>
-            <div class="skill-circle circle-4">
-                <p>P5JS</p>
-            </div>
-            <div class="skill-circle circle-5">
-                <p>Python</p>
-            </div>
-            <div class="skill-circle circle-6">
-                <p>Canva</p>
-            </div>
-            <div class="skill-circle circle-7">
-                <p>Photoshop</p>
-            </div>
-            <div class="skill-circle circle-8">
-                <p>Adobe Illustrator</p>
-            </div>
-            <div class="skill-circle circle-9">
-                <p>Figma</p>
-            </div>
-            <div class="skill-circle circle-10">
-                <p>Powerpoint</p>
-            </div>
-             
-            
-        </div>
-    </section>
+        </section>
 
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="project-box">
-            <img src="images/projectscratch.png" alt="Scratch Project" class="project-image" id="project1">
-            <img src="images/projectp5js.png" alt="P5JS Project" class="project-image" id="project2">
-            <img src="images/projectpython.png" alt="Python Project" class="project-image" id="project3">
-            <img src="images/projecteod.png" alt="Elements of Design Project" class="project-image" id="project4">
-            <img src="images/projectbook.png" alt="Book Project" class="project-image" id="project5">
-            <img src="images/projectflexhub.png" alt="Flexhub Project" class="project-image" id="project6">
-            <div class="project-title" id="project-title">Scratch Project - Parallel Parking</div>
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project-box">
+                <img src="images/projectscratch.png" alt="Scratch Project" class="project-image" id="project1">
+                <img src="images/projectp5js.png" alt="P5JS Project" class="project-image" id="project2">
+                <img src="images/projectpython.png" alt="Python Project" class="project-image" id="project3">
+                <img src="images/projecteod.png" alt="Elements of Design Project" class="project-image" id="project4">
+                <img src="images/projectbook.png" alt="Book Project" class="project-image" id="project5">
+                <img src="images/projectflexhub.png" alt="Flexhub Project" class="project-image" id="project6">
+                <div class="project-title" id="project-title">Scratch Project - Parallel Parking</div>
+            </div>
+            <div class="thumbnail-container">
+                <img src="images/projectscratchtn.png" alt="Scratch Thumbnail" class="thumbnail" onclick="openModal('project-scratch.html','60%','50%')">
+                <img src="images/projectp5jstn.png" alt="P5JS Thumbnail" class="thumbnail" onclick="openModal('project-p5js.html')">
+                <img src="images/projectpythontn.png" alt="Python Thumbnail" class="thumbnail" onclick="openModal('project-python.html','80%','60%')">
+                <img src="images/projecteodtn.png" alt="EOD Thumbnail" class="thumbnail" onclick="openModal('project-eod.html')">
+                <img src="images/projectbooktn.png" alt="Book Thumbnail" class="thumbnail" onclick="openModal('project-book.html','60%','85%')">
+                <img src="images/projectflexhubtn.png" alt="Flexhub Thumbnail" class="thumbnail" onclick="openCustomWindow('https://flexhub.work', '1200', '800')">
+            </div>
+        </section>x
+        <div id="modal" class="modal">
+            <div id="modalContent" class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <iframe id="modalIframe" src="" frameborder="0"></iframe>
+            </div>
         </div>
-        <div class="thumbnail-container">
-            <img src="images/projectscratchtn.png" alt="Scratch Thumbnail" class="thumbnail" onclick="openModal('project-scratch.html','60%','50%')">
-            <img src="images/projectp5jstn.png" alt="P5JS Thumbnail" class="thumbnail" onclick="openModal('project-p5js.html')">
-            <img src="images/projectpythontn.png" alt="Python Thumbnail" class="thumbnail" onclick="openModal('project-python.html','80%','60%')">
-            <img src="images/projecteodtn.png" alt="EOD Thumbnail" class="thumbnail" onclick="openModal('project-eod.html')">
-            <img src="images/projectbooktn.png" alt="Book Thumbnail" class="thumbnail" onclick="openModal('project-book.html','60%','85%')">
-            <img src="images/projectflexhubtn.png" alt="Flexhub Thumbnail" class="thumbnail" onclick="openCustomWindow('https://flexhub.work', '1200', '800')">
-        </div>
-    </section>
-    <div id="modal" class="modal">
-        <div id="modalContent" class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <iframe id="modalIframe" src="" frameborder="0"></iframe>
-        </div>
-    </div>
 
-    <footer>
-        <p>Made by Sonia Wadhwani | <a href="contact.html">Contact</a></p>
-    </footer>
+        <section id="my-art">
+            <h2>My Art</h2>
+            <div class="art-gallery">
+                <!-- Generate art items dynamically -->
+                <div class="art-item" v-for="image in images" :key="image.src">
+                    <img :src="'images/' + image.src" :alt="image.name" @click="openOverlay(image)">
+                </div>
+            </div>
+        
+            <!-- Overlay for displaying the enlarged image and details -->
+            <div id="overlay" class="overlay">
+                <span class="overlay-close" onclick="closeOverlay()">&times;</span>
+                <div class="overlay-content">
+                    <img id="overlayImage" src="" alt="">
+                    <div class="overlay-text">
+                        <h3 id="overlayName"></h3>
+                        <p id="overlayDescription"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+
+
+        <footer>
+            <p>Made by Sonia Wadhwani | <a href="contact.html">Contact</a></p>
+        </footer>
+
+        <script src="script/homeanimatedtext.js"></script>
+        <script src="script/projects.js"></script>
+        <script>
+            const images = [
+                { src: 'abstract1.png', name: 'Feathered Zigs and Zags', description: "A dreamcatcher's dream, woven into reality. These feathers, symbols of hope and protection, guard the dreams of the dreamer." },
+                { src: 'abstract2.png', name: 'Leafy Labyrinth', description: 'A whimsical journey through a jungle of patterns. This monstera leaf, a portal to a world of imagination.' },
+                { src: 'abstract3.png', name: 'Ink-spired Escape', description: 'A whimsical escape, captured in ink. This mountain landscape invites you to wander through its peaks and valleys and lose yourself in its beauty.' },
+                { src: 'abstract4.png', name: 'Triangular Tranquility', description: 'A glimpse into a world beyond. This artwork transports you to a place of tranquility and wonder.' },
+                { src: 'abstract5.png', name: 'Sun, Moon, Sea, and Sky', description: 'A testament to the cyclical nature of life. The sun and moon, the sea and sky, forever changing, yet eternally the same.' },
+                { src: 'abstract6.png', name: 'Dualities in Design', description: 'A harmonious blend of chaos and order. This yin yang, a testament to the beauty of imperfection.' },
+                { src: 'doodle1.png', name: 'Doodlephoria', description: 'A chaotic harmony of lines and curves. This doodle masterpiece invites you to lose yourself in its vibrant energy.' },
+                { src: 'doodle2.png', name: 'Doodlepalooza', description: 'This doodle artwork, a reminder of the power of imagination.' },
+                { src: 'doodle3.png', name: 'Mushroom Madness', description: 'A playful mushroom, caught in a moment of stillness. Its patterns and textures tell a story of a vibrant woodland.' },
+                { src: 'doodle4.png', name: 'Creature Chaos', description: 'This doodle is a delightful mix of shapes, patterns, and characters.' },
+                { src: 'doodle5.png', name: 'Creature Cauldron', description: 'A playful mushroom, caught in a moment of stillness. Its patterns and textures tell a story of a vibrant woodland.' },
+                { src: 'doodle6.png', name: "Chaap Corner’s Crazy Crew", description: 'A whimsical world of doodles invites you to Bombay Chaap Corner, where every bite is as fun as the art on the wall.' },
+                { src: 'sketches1.png', name: 'Emotionless Enigma', description: 'A person whose inner thoughts are hidden behind a mask of indifference.' },
+                { src: 'sketches2.png', name: 'AAHHHHH!!!', description: 'A moment of pure frustration.' },
+                { src: 'sketches3.png', name: "It's HOTTTTT!!!", description: 'A fiery showdown between a brave eater and a spicy dish.' },
+                { src: 'sketches4.png', name: 'Shifting of the Self', description: 'A face unraveling, symbolizing the breakdown of the ego and the emergence of the subconscious.' },
+                { src: 'sketches5.png', name: 'Last Christmas', description: 'A grim reminder of the harsh reality of illness, even during the most joyous of times.' },
+                { src: 'sketches6.png', name: 'The Mysterious Maven', description: 'A puff of smoke and a pout, this character knows how to work a pose.' },
+                { src: 'sketches7.png', name: 'The Frozen Soul', description: 'A once-tender heart, now encased in a shell of crystal, protecting itself from further pain.' },
+                { src: 'sketches8.png', name: 'Peek-a-Boo Kitty', description: 'A curious cat explores the hidden depths of a notebook, discovering a world beyond the lines.' },
+                { src: 'sketches9.png', name: 'Square Dance', description: 'A playful dance of black and white squares, where reality is a trick of the eye.' },
+            ];
+        
+            function openOverlay(image) {
+                document.getElementById('overlay').style.display = 'flex';
+                document.getElementById('overlayImage').src = 'images/' + image.src;
+                document.getElementById('overlayName').textContent = image.name;
+                document.getElementById('overlayDescription').textContent = image.description;
+            }
+        
+            function closeOverlay() {
+                document.getElementById('overlay').style.display = 'none';
+            }
+        </script>
     
-    <script>
-        const textLine1 = "Hello,";
-        const textLine2 = "I am Sonia.";
-        const textLine3 = "A compassionate, creative design enthusiast blending artistry with user-focused innovation. I value diverse experiences & am driven by positivity & discovery.";
 
 
-        const typewriterElement1 = document.getElementById('typewriterLine1');
-        const typewriterElement2 = document.getElementById('typewriterLine2');
-        const typewriterElement3 = document.getElementById('typewriterLine3');
+    </body>
 
-
-        let index1 = 0, index2 = 0, index3 = 0;
-
-        function typeWriter1() {
-            if (index1 < textLine1.length) {
-                typewriterElement1.innerHTML += textLine1[index1];
-                index1++;
-                setTimeout(typeWriter1, 100);
-            } else {
-                typewriterElement1.style.borderRight = "none";
-            }
-        }
-
-        function typeWriter2() {
-            if (index2 < textLine2.length) {
-                typewriterElement2.innerHTML += textLine2[index2];
-                index2++;
-                setTimeout(typeWriter2, 100);
-            } else {
-                typewriterElement2.style.borderRight = "none";
-            }
-        }
-
-        function typeWriter3() {
-            if (index3 < textLine3.length) {
-                typewriterElement3.innerHTML += textLine3[index3];
-                index3++;
-                setTimeout(typeWriter3, 40);
-            } else {
-                typewriterElement3.style.borderRight = "none";
-            }
-        }
-
-
-
-        typeWriter1();
-        setTimeout(typeWriter2, 1000);
-        setTimeout(typeWriter3, 2000);
-
-
-    </script>
-  
-    <script>
-        const projectImages = document.querySelectorAll('.project-image');
-        const projectTitles = [
-            "Scratch Project - Parallel Parking",
-            "P5JS Project - Lighting Animation",
-            "Python Project - Foodie, the Nutrition Partner",
-            "Elements of Design",
-            "Saptha - The book of moods",
-            "Brand Positioning - Flexhub"
-        ];
-        const projectTitle = document.getElementById('project-title');
-        const thumbnails = document.querySelectorAll('.thumbnail');
-        let currentProject = 0;
-
-        function showProject(index) {
-            projectImages.forEach((img, i) => {
-                img.style.opacity = i === index ? '1' : '0';
-            });
-            projectTitle.textContent = projectTitles[index];
-            thumbnails.forEach(thumb => thumb.classList.remove('active'));
-            thumbnails[index].classList.add('active');
-            currentProject = index;
-        }
-
-        function nextProject() {
-            currentProject = (currentProject + 1) % projectImages.length;
-            showProject(currentProject);
-        }
-
-        setInterval(nextProject, 3000);
-        showProject(0);
-    </script>
-    
-    <script>
-        function openModal(src, width = "75vw", height = "75vh") {
-            const modal = document.getElementById("modal");
-            const modalIframe = document.getElementById("modalIframe");
-            const modalContent = document.getElementById("modalContent");
-
-            // Set the iframe source to the provided src
-            modalIframe.src = src;
-
-            // Apply width and height to modal content
-            modalContent.style.width = width;
-            modalContent.style.height = height;
-
-            // Display the modal
-            modal.style.display = "flex";
-        }
-
-        // Closes the modal and resets the iframe src
-        function closeModal() {
-            const modal = document.getElementById("modal");
-            const modalIframe = document.getElementById("modalIframe");
-
-            // Hide the modal
-            modal.style.display = "none";
-
-            // Clear the iframe source to prevent it from continuing to load in the background
-            modalIframe.src = "";
-        }
-
-        function openCustomWindow(url, width, height) {
-            const left = (window.innerWidth - width) / 2 + window.screenX;
-            const top = (window.innerHeight - height) / 2 + window.screenY;
-            window.open(
-                url,
-                '_blank',
-                `width=${width},height=${height},left=${left},top=${top},toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes`
-            );
-        }
-
-    </script>
-
-</body>
-
-</html>
+    </html>
