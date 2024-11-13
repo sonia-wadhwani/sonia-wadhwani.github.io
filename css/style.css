@@ -139,11 +139,12 @@ main {
 
 .about-title {
     color: #EFD5C3;
-    font-size: 2em;
-    font-family: 'Georgia';
+    font-size: 5em;
+    font-family: 'Raleway';
     margin-bottom: 80px;
     margin-left: 10%;
     text-align: left;
+    font-weight: bold;
 }
 
 /* Timeline */
