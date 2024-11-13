@@ -138,23 +138,6 @@ main {
     margin-left: 0 auto;
 }
 
-#about-me-box {
-    padding: 50px 10px;
-    background-color: #839791;
-    text-align: center;
-    width: 80%;
-    margin-left: 10%;
-}
-
-.about-title {
-    color: #EFD5C3;
-    font-size: 5em;
-    font-family: 'Raleway';
-    margin-bottom: 80px;
-    margin-left: 10%;
-    text-align: left;
-}
-
 #about-me h2 {
     color: #EFD5C3;
     font-size: 5em;
@@ -224,11 +207,6 @@ main {
 }
 
 
-
-
-
-
-
 /* Skills Section */
 #skills {
     padding: 120px 20px;
@@ -291,17 +269,13 @@ main {
 /* Projects Section */
 #projects {
     padding: 120px 20px;
-    background-color: #839791;
     text-align: center;
     margin-top: 50px;
-}
-
-/* Projects Section */
-#projects {
     padding: 50px 0;
     background-color: #EFD5C3;
     text-align: center;
 }
+
 
 #projects h2 {
     color: #001011;
