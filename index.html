@@ -365,45 +365,37 @@
         .modal {
             display: none;
             position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 90%;
-            height: 85%;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            z-index: 1000;
-        }
-
-        .modal iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            border-radius: 10px;
-        }
-
-        .modal-overlay {
-            display: none;
-            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 999;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
         }
 
-        .modal-close {
+        .modal-content {
+            position: relative;
+            width: 75vw; /* Default to 75% of the viewport width */
+            height: 75vh; /* Default to 75% of the viewport height */
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .close {
             position: absolute;
             top: 10px;
-            right: 10px;
-            background-color: #AAC0AF;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 5px 10px;
+            right: 15px;
+            font-size: 24px;
             cursor: pointer;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
         }
 
         /* Responsiveness */
@@ -559,21 +551,26 @@
             <img src="images/projectscratch.png" alt="Scratch Project" class="project-image" id="project1">
             <img src="images/projectp5js.png" alt="P5JS Project" class="project-image" id="project2">
             <img src="images/projectpython.png" alt="Python Project" class="project-image" id="project3">
-            <img src="images/projected.png" alt="Elements of Design Project" class="project-image" id="project4">
+            <img src="images/projecteod.png" alt="Elements of Design Project" class="project-image" id="project4">
             <img src="images/projectbook.png" alt="Book Project" class="project-image" id="project5">
             <img src="images/projectflexhub.png" alt="Flexhub Project" class="project-image" id="project6">
             <div class="project-title" id="project-title">Scratch Project - Parallel Parking</div>
         </div>
         <div class="thumbnail-container">
-            <img src="images/projectscratchtn.png" alt="Scratch Thumbnail" class="thumbnail" onClick="openModal('p5js-lights.html','80%', '80%')">
-            <img src="images/projectp5jstn.png" alt="P5JS Thumbnail" class="thumbnail" onclick="showProject(1)">
-            <img src="images/projectpythontn.png" alt="Python Thumbnail" class="thumbnail" onclick="showProject(2)">
-            <img src="images/projecteodtn.png" alt="EOD Thumbnail" class="thumbnail" onclick="showProject(3)">
-            <img src="images/projectbooktn.png" alt="Book Thumbnail" class="thumbnail" onclick="showProject(4)">
-            <img src="images/projectflexhubtn.png" alt="Flexhub Thumbnail" class="thumbnail" onclick="showProject(5)">
+            <img src="images/projectscratchtn.png" alt="Scratch Thumbnail" class="thumbnail" onclick="openModal('project-scratch.html')">
+            <img src="images/projectp5jstn.png" alt="P5JS Thumbnail" class="thumbnail" onclick="openModal('project-p5js.html')">
+            <img src="images/projectpythontn.png" alt="Python Thumbnail" class="thumbnail" onclick="openModal('projectpython.html')">
+            <img src="images/projecteodtn.png" alt="EOD Thumbnail" class="thumbnail" onclick="openModal('project-eod.html')">
+            <img src="images/projectbooktn.png" alt="Book Thumbnail" class="thumbnail" onclick="openModal('project-book.html')">
+            <img src="images/projectflexhubtn.png" alt="Flexhub Thumbnail" class="thumbnail" onclick="openCustomWindow('https://flexhub.work', 1200, 700)">
         </div>
     </section>
-
+    <div id="modal" class="modal">
+        <div id="modalContent" class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <iframe id="modalIframe" src="" frameborder="0"></iframe>
+        </div>
+    </div>
 
     <footer>
         <p>Made by Sonia Wadhwani | <a href="contact.html">Contact</a></p>
@@ -666,26 +663,27 @@
     </script>
     
     <script>
-        function openModal(src, width = '90%', height = '85%') {
-            const modal = document.getElementById('modal');
-            const iframe = document.getElementById('modal-iframe');
-            const overlay = document.getElementById('modal-overlay');
-            
-            iframe.src = src;
-            modal.style.width = width;
-            modal.style.height = height;
-            modal.style.display = 'block';
-            overlay.style.display = 'block';
+        function openModal(src) {
+            const modal = document.getElementById("modal");
+            const modalIframe = document.getElementById("modalIframe");
+
+            // Set the iframe source to the provided src
+            modalIframe.src = src;
+
+            // Display the modal
+            modal.style.display = "flex";
         }
 
+        // Closes the modal and resets the iframe src
         function closeModal() {
-            const modal = document.getElementById('modal');
-            const iframe = document.getElementById('modal-iframe');
-            const overlay = document.getElementById('modal-overlay');
+            const modal = document.getElementById("modal");
+            const modalIframe = document.getElementById("modalIframe");
 
-            modal.style.display = 'none';
-            overlay.style.display = 'none';
-            iframe.src = '';
+            // Hide the modal
+            modal.style.display = "none";
+
+            // Clear the iframe source to prevent it from continuing to load in the background
+            modalIframe.src = "";
         }
 
         function openCustomWindow(url, width, height) {
@@ -697,8 +695,8 @@
                 `width=${width},height=${height},left=${left},top=${top},toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes`
             );
         }
-    </script>x
     </script>
+
 </body>
 
 </html>
