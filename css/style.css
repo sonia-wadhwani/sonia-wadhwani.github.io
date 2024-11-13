@@ -204,18 +204,9 @@ main {
 
 
 
-footer {
-    background-color: #F5F5F5;
-    font-family: 'Trebuchet MS';
-    text-align: center;
-    padding: 10px;
-}
 
-footer a {
-    text-decoration: none;
-    color: black;
-    margin: 0 10px;
-}
+
+
 
 /* Skills Section */
 #skills {
@@ -289,17 +280,17 @@ footer a {
 }
 
 #projects h2 {
-    font-size: 2em;
     color: #839791;
+    font-size: 2em;
     font-family: 'Georgia';
-    margin-bottom: 40px;
-    text-align: left;
-    margin-left: 20%;
+    margin-bottom: 80px;
+    margin-left: 10%; /* Aligns with About Me title */
+    text-align: left; /* Align text to the left */
 }
 
 .project-box {
     position: relative;
-    width: 50%;
+    width: 55%;
     height: 68vh;
     margin: 0 auto;
     overflow: hidden;
@@ -478,16 +469,18 @@ iframe {
 }
 
 #my-art h2 {
-    font-size: 2em;
-    margin-bottom: 40px;
     color: #EFD5C3;
+    font-size: 2em;
     font-family: 'Georgia';
+    margin-bottom: 80px;
+    margin-left: 10%; /* Aligns with About Me title */
+    text-align: left; /* Align text to the left */
 }
 
 .art-gallery {
-    column-count: 5; /* Set number of columns */
+    column-count: 4; /* Set number of columns */
     column-gap: 15px; /* Space between columns */
-    width: 80%;
+    width: 55%;
     margin: 0 auto;
 }
 
@@ -550,4 +543,127 @@ iframe {
     font-size: 30px;
     color: #fff;
     cursor: pointer;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #F5F5F5;
+    font-family: 'Trebuchet MS';
+}
+
+footer p {
+    margin: 0;
+}
+
+footer a {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+}
+
+footer img {
+    width: 24px;
+    height: 24px;
+    margin: 0 5px;
+}
+
+#lets-talk {
+    padding: 40px;
+    background-color: #EFD5C3;
+    
+}
+
+#lets-talk h2 {
+    color: #839791;
+    font-size: 2em;
+    font-family: 'Georgia';
+    margin-bottom: 80px;
+    margin-left: 10%; /* Aligns with About Me title */
+    text-align: left; /* Align text to the left */
+}
+
+.contact-container {
+    display: flex;
+    gap: 20px; /* Adjust gap as needed */
+    width: 60%;
+    margin: 0 auto;
+}
+
+.contact-left, .contact-right {
+    width: 50%;
+    display: flex;
+    justify-content: center; /* Centers the accordion within each column */
+}
+
+.accordion {
+    width: 90%; /* Adjust width as needed to control accordion size */
+    max-width: 500px;
+}
+
+.accordion-item {
+    background-color: #839791;
+    color: white;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.accordion-item button {
+    width: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    padding: 15px;
+    text-align: left;
+    cursor: pointer;
+    font-size: 1.2em;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordion-item button:hover {
+    background-color: #71897E;
+}
+
+.accordion-content {
+    padding: 15px;
+    background-color: #FFFFFF;
+    color: black;
+}
+
+.contact-links a {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: #839791;
+    font-weight: bold;
+}
+
+.contact-links a:hover {
+    color: #71897E;
+}
+
+.contact-links img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.map-container {
+    margin-top: 15px;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 250px;
+    border: 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
