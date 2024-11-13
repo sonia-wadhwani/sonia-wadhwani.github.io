@@ -47,3 +47,15 @@ document.addEventListener('DOMContentLoaded', () => {
         gallery.appendChild(artItem);
     });
 });
+
+function openOverlay(image) {
+    const overlay = document.getElementById('overlay');
+    document.getElementById('overlayImage').src = 'images/' + image.src; // Adjust path as needed
+    document.getElementById('overlayName').textContent = image.name;
+    document.getElementById('overlayDescription').textContent = image.description;
+    overlay.style.display = 'flex';
+}
+
+function closeOverlay() {
+    document.getElementById('overlay').style.display = 'none';
+}
