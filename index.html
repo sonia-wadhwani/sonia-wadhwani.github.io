@@ -260,7 +260,15 @@
         .circle-9 { background-color: #CBFFA9; width: 80px; height: 80px; top: 40%; left: 10%; animation: moveCircles 5s infinite;}
         .circle-10 { background-color: #FDCEDF; width: 110px; height: 110px; top: 25%; left: 70%; animation: moveCircles 4s infinite;}       
 
+        /* Projects Section */
+        #projects {
+            padding: 120px 20px;
+            background-color: #839791;
+            text-align: center;
+            margin-top: 50px;
+        }
 
+        /* Projects Section */
         #projects {
             padding: 50px 0;
             background-color: #EFD5C3;
@@ -308,25 +316,26 @@
             border-radius: 5px;
         }
 
-        .dots-container {
-            text-align: center;
-            margin-top: 10px;
+ 
+        
+        .thumbnail-container {
+            width: 40%;
+            display: flex;
+            justify-content: space-between;
+            margin: 10px auto;
         }
 
-        .dot {
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            margin: 5px;
-            background-color: #839791;
-            border-radius: 50%;
+        .thumbnail {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
             cursor: pointer;
-            transition: background-color 0.3s;
+            border: 2px solid transparent;
+            transition: border-color 0.3s;
         }
 
-        .dot.active {
-            background-color: #EFD5C3;
-        }
+        .thumbnail.active {
+            border-color: #839791;
 
         /* Animating skills */
         @keyframes moveCircles {
@@ -509,18 +518,17 @@
             <img src="images/projected.png" alt="Elements of Design Project" class="project-image" id="project4">
             <img src="images/projectbook.png" alt="Book Project" class="project-image" id="project5">
             <img src="images/projectflexhub.png" alt="Flexhub Project" class="project-image" id="project6">
-
-            <div class="project-title" id="project-title">Scratch Project - Parallel Parking</div>
         </div>
-        <div class="dots-container">
-            <span class="dot" onclick="showProject(0)"></span>
-            <span class="dot" onclick="showProject(1)"></span>
-            <span class="dot" onclick="showProject(2)"></span>
-            <span class="dot" onclick="showProject(3)"></span>
-            <span class="dot" onclick="showProject(4)"></span>
-            <span class="dot" onclick="showProject(5)"></span>
+        <div class="thumbnail-container">
+            <img src="images/projectscratchtn.png" alt="Scratch Thumbnail" class="thumbnail" onclick="showProject(0)">
+            <img src="images/projectp5jstn.png" alt="P5JS Thumbnail" class="thumbnail" onclick="showProject(1)">
+            <img src="images/projectpythontn.png" alt="Python Thumbnail" class="thumbnail" onclick="showProject(2)">
+            <img src="images/projecteodtn.png" alt="EOD Thumbnail" class="thumbnail" onclick="showProject(3)">
+            <img src="images/projectbooktn.png" alt="Book Thumbnail" class="thumbnail" onclick="showProject(4)">
+            <img src="images/projectflexhubtn.png" alt="Flexhub Thumbnail" class="thumbnail" onclick="showProject(5)">
         </div>
     </section>
+
 
     <footer>
         <p>Made by Sonia Wadhwani | <a href="contact.html">Contact</a></p>
@@ -578,40 +586,40 @@
 
 
     </script>
-
-<script>
-    const projectImages = document.querySelectorAll('.project-image');
-    const projectTitles = [
-        "Scratch Project - Parallel Parking",
-        "P5JS Project - Lighting Animation",
-        "Python Project - Foodie, the Nutrition Partner",
-        "Elements of Design",
-        "Saptha - The book of moods",
-        "Brand Positioning - Flexhub"
-    ];
-    const projectTitle = document.getElementById('project-title');
-    const dots = document.querySelectorAll('.dot');
-    let currentProject = 0;
-
-    function showProject(index) {
-        projectImages.forEach((img, i) => {
-            img.style.opacity = i === index ? '1' : '0';
-        });
-        projectTitle.textContent = projectTitles[index];
-        dots.forEach(dot => dot.classList.remove('active'));
-        dots[index].classList.add('active');
-        currentProject = index;
-    }
-
-    function nextProject() {
-        currentProject = (currentProject + 1) % projectImages.length;
-        showProject(currentProject);
-    }
-
-    setInterval(nextProject, 3000);
-    showProject(0);
-</script>
   
+    <script>
+        const projectImages = document.querySelectorAll('.project-image');
+        const projectTitles = [
+            "Scratch Project - Parallel Parking",
+            "P5JS Project - Lighting Animation",
+            "Python Project - Foodie, the Nutrition Partner",
+            "Elements of Design",
+            "Saptha - The book of moods",
+            "Brand Positioning - Flexhub"
+        ];
+        const projectTitle = document.getElementById('project-title');
+        const thumbnails = document.querySelectorAll('.thumbnail');
+        let currentProject = 0;
+
+        function showProject(index) {
+            projectImages.forEach((img, i) => {
+                img.style.opacity = i === index ? '1' : '0';
+            });
+            projectTitle.textContent = projectTitles[index];
+            thumbnails.forEach(thumb => thumb.classList.remove('active'));
+            thumbnails[index].classList.add('active');
+            currentProject = index;
+        }
+
+        function nextProject() {
+            currentProject = (currentProject + 1) % projectImages.length;
+            showProject(currentProject);
+        }
+
+        setInterval(nextProject, 3000);
+        showProject(0);
+    </script>
+
 </body>
 
 </html>
