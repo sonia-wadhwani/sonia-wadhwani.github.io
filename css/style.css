@@ -155,6 +155,15 @@ main {
     text-align: left;
 }
 
+#about-me h2 {
+    color: #EFD5C3;
+    font-size: 5em;
+    font-family: 'Raleway';
+    margin-bottom: 50px;
+    margin-left: 10%; /* Aligns with About Me title */
+    text-align: left; /* Align text to the left */
+    padding-bottom: 0px;
+}
 /* Timeline */
 .timeline {
     position: relative;
