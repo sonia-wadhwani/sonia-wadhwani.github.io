@@ -122,7 +122,8 @@ main {
 
 /* About Me Section */
 #about-me {
-    padding: 50px 20px;
+    padding: 50px 10px;
+    padding-top: 0px;
     background-color: #839791;
     text-align: center;
     width: 100%;
@@ -130,7 +131,7 @@ main {
 }
 
 #about-me-box {
-    padding: 50px 20px;
+    padding: 50px 10px;
     background-color: #839791;
     text-align: center;
     width: 80%;
@@ -159,7 +160,7 @@ main {
 .timeline-title {
     color: #EFD5C3;
     font-size: 2em;
-    font-family: 'Georgia';
+    font-family: 'Raleway';
     margin-bottom: 80px;   
     text-align: center;
 }
@@ -220,6 +221,8 @@ main {
 }
 
 #skills h2 {
+    padding-bottom: 0px;
+    padding-top: 0px;
     font-size: 2em;
     margin-bottom: 40px;
     color: #EFD5C3;
