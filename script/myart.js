@@ -23,7 +23,7 @@ const images = [
     { src: 'sketches6.png', name: 'The Mysterious Maven', description: 'A puff of smoke and a pout, this character knows how to work a pose.' },
     { src: 'sketches7.png', name: 'The Frozen Soul', description: 'A once-tender heart, now encased in a shell of crystal, protecting itself from further pain.' },
     { src: 'sketches8.png', name: 'Peek-a-Boo Kitty', description: 'A curious cat explores the hidden depths of a notebook, discovering a world beyond the lines.' },
-    { src: 'sketches9.png', name: 'Square Dance', description: 'A playful dance of black and white squares, where reality is a trick of the eye.' },
+    { src: 'sketches9.png', name: 'The Frozen Soul', description: 'A once-tender heart, now encased in a shell of crystal, protecting itself from further pain.' },
 ];
 
 //Shufle the images
