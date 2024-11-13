@@ -154,6 +154,10 @@ main {
     margin: 0 auto;
     height: 5px;
     background-color: #EFD5C3;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    padding-top: 0px;
+    margin-top: 10px;
 }
 
 
@@ -211,7 +215,7 @@ main {
 
 /* Skills Section */
 #skills {
-    padding: 120px 20px;
+    padding: 50px 20px;
     background-color: #839791;
     text-align: center;
 }
@@ -220,7 +224,7 @@ main {
     padding-bottom: 0px;
     padding-top: 0px;
     font-size: 2em;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
     color: #EFD5C3;
     font-family: 'Raleway';
 }
