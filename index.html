@@ -25,6 +25,11 @@
             align-items: center;
             padding: 10px;
             flex-wrap: wrap;
+            position: fixed; /* Fixes the header at the top */
+            top: 0; /* Ensures it is at the very top */
+            left: 0; /* Aligns the header to the left edge of the screen */
+            width: 100%; /* Ensures the header spans the entire width of the screen */
+            z-index: 1000; /* Keeps the header above other elements */
         }
 
         header nav {
@@ -465,7 +470,7 @@
         </a>
         <nav>
             <a href="#about-me">About Me</a>
-            <a href="projects.html">Projects</a>
+            <a href="#projects">Projects</a>
             <a href="myart.html">My Art</a>
             <a href="contact.html">Let's Talk</a>
         </nav>
@@ -557,12 +562,12 @@
             <div class="project-title" id="project-title">Scratch Project - Parallel Parking</div>
         </div>
         <div class="thumbnail-container">
-            <img src="images/projectscratchtn.png" alt="Scratch Thumbnail" class="thumbnail" onclick="openModal('project-scratch.html')">
+            <img src="images/projectscratchtn.png" alt="Scratch Thumbnail" class="thumbnail" onclick="openModal('project-scratch.html','60%','50%')">
             <img src="images/projectp5jstn.png" alt="P5JS Thumbnail" class="thumbnail" onclick="openModal('project-p5js.html')">
-            <img src="images/projectpythontn.png" alt="Python Thumbnail" class="thumbnail" onclick="openModal('projectpython.html')">
+            <img src="images/projectpythontn.png" alt="Python Thumbnail" class="thumbnail" onclick="openModal('project-python.html','80%','60%')">
             <img src="images/projecteodtn.png" alt="EOD Thumbnail" class="thumbnail" onclick="openModal('project-eod.html')">
-            <img src="images/projectbooktn.png" alt="Book Thumbnail" class="thumbnail" onclick="openModal('project-book.html')">
-            <img src="images/projectflexhubtn.png" alt="Flexhub Thumbnail" class="thumbnail" onclick="openCustomWindow('https://flexhub.work', 1200, 700)">
+            <img src="images/projectbooktn.png" alt="Book Thumbnail" class="thumbnail" onclick="openModal('project-book.html','60%','85%')">
+            <img src="images/projectflexhubtn.png" alt="Flexhub Thumbnail" class="thumbnail" onclick="openCustomWindow('https://flexhub.work', '1200', '800')">
         </div>
     </section>
     <div id="modal" class="modal">
@@ -663,12 +668,17 @@
     </script>
     
     <script>
-        function openModal(src) {
+        function openModal(src, width = "75vw", height = "75vh") {
             const modal = document.getElementById("modal");
             const modalIframe = document.getElementById("modalIframe");
+            const modalContent = document.getElementById("modalContent");
 
             // Set the iframe source to the provided src
             modalIframe.src = src;
+
+            // Apply width and height to modal content
+            modalContent.style.width = width;
+            modalContent.style.height = height;
 
             // Display the modal
             modal.style.display = "flex";
@@ -687,14 +697,15 @@
         }
 
         function openCustomWindow(url, width, height) {
-            const left = (screen.width - width) / 2;
-            const top = (screen.height - height) / 2;
+            const left = (window.innerWidth - width) / 2 + window.screenX;
+            const top = (window.innerHeight - height) / 2 + window.screenY;
             window.open(
                 url,
                 '_blank',
                 `width=${width},height=${height},left=${left},top=${top},toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes`
             );
         }
+
     </script>
 
 </body>

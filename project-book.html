@@ -6,7 +6,7 @@
     <title>Interactive Book</title>
     <style>
         body {
-            background-color: #f5f5f5;
+            background-color: #839791;
             margin: 0;
             font-family: 'Arial', sans-serif;
             overflow: hidden;
@@ -76,7 +76,7 @@
 <body>
     <div class="container" id="bookContainer">
         <div class="page" id="currentPage">
-            <img src="images/bookpage1.png" alt="Page 1" id="pageImage">
+            <img src="images/book-page1.png" alt="Page 1" id="pageImage">
         </div>
     </div>
 
@@ -104,7 +104,7 @@
         }
 
         function updatePage(scrollDirection) {
-            const pageImageSrc = `images/bookpage${currentPage}.png`;
+            const pageImageSrc = `images/book-page${currentPage}.png`;
             pageImage.src = pageImageSrc;
 
             if (scrollDirection === 'scroll-up') {
