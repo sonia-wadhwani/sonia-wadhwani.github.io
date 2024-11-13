@@ -110,24 +110,29 @@
         #about-me {
             padding: 50px 20px;
             background-color: #839791;
-            text-align: left;
+            text-align: center;
+            width: 100%;
+            margin-left: 0 auto;
         }
 
-        #about-me h2 {
-            font-size: 2em;
-            margin-bottom: 40px;
-            color: #EFD5C3;
-            font-family: 'Georgia';
+        #about-me-box {
+            padding: 50px 20px;
+            background-color: #839791;
             text-align: center;
+            width: 80%;
+            margin-left: 10%;
         }
 
         .about-title {
             color: #EFD5C3;
             font-size: 2em;
             font-family: 'Georgia';
-            margin-bottom: 20px;
+            margin-bottom: 80px;
+            margin-left: 10%;
+            text-align: left;
         }
 
+        /* Timeline */
         .timeline {
             position: relative;
             width: 80%;
@@ -136,11 +141,19 @@
             background-color: #EFD5C3;
         }
 
+        .timeline-title {
+            color: #EFD5C3;
+            font-size: 2em;
+            font-family: 'Georgia';
+            margin-bottom: 80px;   
+            text-align: center;
+        }
+        
         .milestone {
             position: absolute;
-            top: -5px;
-            width: 12px;
-            height: 12px;
+            top: -7px;
+            width: 20px;
+            height: 20px;
             border-radius: 50%;
             background-color: #000;
         }
@@ -193,7 +206,7 @@
 
         /* Skills Section */
         #skills {
-            padding: 50px 20px;
+            padding: 120px 20px;
             background-color: #839791;
             text-align: center;
         }
@@ -235,17 +248,19 @@
             transition: transform 1s ease-in-out;
         }
 
-        /* Circle colors */
-        .circle-1 { background-color: #E5D9F2; }
-        .circle-2 { background-color: #A594F9; }
-        .circle-3 { background-color: #FF90BC; }
-        .circle-4 { background-color: #EEC759; }
-        .circle-5 { background-color: #a1d6b2; }
-        .circle-6 { background-color: #dd614a; }
-        .circle-7 { background-color: #ffcf81; }
-        .circle-8 { background-color: #F6FDC3; }
-        .circle-9 { background-color: #CBFFA9; }
-        .circle-10 { background-color: #FDCEDF; }       
+        /* Circle colors and sizes*/
+        .circle-1 { background-color: #E5D9F2; width: 90px; height: 90px; top: 15%; left: 20%; animation: moveCircles 5s infinite;}
+        .circle-2 { background-color: #A594F9; width: 120px; height: 120px; top: 30%; left: 30%; animation: moveCircles 7s infinite;}
+        .circle-3 { background-color: #FF90BC; width: 100px; height: 100px; top: 30%; left: 40%; animation: moveCircles 3s infinite;}
+        .circle-4 { background-color: #EEC759; width: 130px; height: 130px; top: 10%; left: 70%; animation: moveCircles 6s infinite;}
+        .circle-5 { background-color: #a1d6b2; width: 110px; height: 110px; top: 25%; left: 85%; animation: moveCircles 6s infinite;}
+        .circle-6 { background-color: #dd614a; width: 110px; height: 110px; top: 2%; left: 2%; animation: moveCircles 5s infinite;}
+        .circle-7 { background-color: #ffcf81; width: 110px; height: 110px; top: 15%; left: 30%; animation: moveCircles 9s infinite;}
+        .circle-8 { background-color: #F6FDC3; width: 150px; height: 150px; top: 5%; left: 50%; animation: moveCircles 8s infinite; }
+        .circle-9 { background-color: #CBFFA9; width: 80px; height: 80px; top: 40%; left: 10%; animation: moveCircles 5s infinite;}
+        .circle-10 { background-color: #FDCEDF; width: 110px; height: 110px; top: 25%; left: 70%; animation: moveCircles 4s infinite;}       
+
+
 
         /* Animating skills */
         @keyframes moveCircles {
@@ -269,6 +284,8 @@
                 transform: translate(0, 0);
             }
         }
+
+        
 
         /* Responsiveness */
         @media (max-width: 768px) {
@@ -355,55 +372,61 @@
     </main>
 
     <section id="about-me">
-        <h2 class="about-title"About Me</h2>
-        <h2>My Timeline...</h2>
-        <div class="timeline">
-            <div class="milestone milestone-1"></div>
-            <div class="milestone milestone-2"></div>
-            <div class="milestone milestone-3"></div>
-            <div class="milestone-text milestone-1-text">
-                Secondary School<br>DAV Public School<br>2020
+        <div class="about-me">
+            <div class="about-me-box">
+                <div>
+                    <h2 class="about-title">About Me</h2>
+                    <h2 class="timeline-title">My Timeline...</h2>
+                    <div class="timeline">
+                        <div class="milestone milestone-1"></div>
+                        <div class="milestone milestone-2"></div>
+                        <div class="milestone milestone-3"></div>
+                        <div class="milestone-text milestone-1-text">
+                            Secondary School<br>DAV Public School<br>2020
+                        </div>
+                        <div class="milestone-text milestone-2-text">
+                            High Secondary<br>SNBP International School<br>2022
+                        </div>
+                        <div class="milestone-text milestone-3-text">
+                            B. Design<br>Flame University<br>2027
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="milestone-text milestone-2-text">
-                High Secondary<br>SNBP International School<br>2022
-            </div>
-            <div class="milestone-text milestone-3-text">
-                B. Design<br>Flame University<br>2027
-            </div>
-        </div>
+        </div>    
     </section>
 
     <section id="skills">
         <h2>Skills</h2>
         <div class="skill-animation" id="animation-container">
-            <div class="skill-circle circle-1" style="width: 90px; height: 90px; top: 15%; left: 20%; animation: moveCircles 5s infinite;">
+            <div class="skill-circle circle-1">
                 <p>HTML</p>
             </div>
-            <div class="skill-circle circle-2" style="width: 120px; height: 120px; top: 30%; left: 30%; animation: moveCircles 7s infinite;">
+            <div class="skill-circle circle-2">
                 <p>CSS</p>
             </div>
-            <div class="skill-circle circle-3" style="width: 100px; height: 100px; top: 30%; left: 40%; animation: moveCircles 3s infinite;">
+            <div class="skill-circle circle-3">
                 <p>JavaScript</p>
             </div>
-            <div class="skill-circle circle-4" style="width: 130px; height: 130px; top: 10%; left: 70%; animation: moveCircles 6s infinite;">
+            <div class="skill-circle circle-4">
                 <p>P5JS</p>
             </div>
-            <div class="skill-circle circle-5" style="width: 110px; height: 110px; top: 25%; left: 85%; animation: moveCircles 6s infinite;">
+            <div class="skill-circle circle-5">
                 <p>Python</p>
             </div>
-            <div class="skill-circle circle-6" style="width: 110px; height: 110px; top: 2%; left: 2%; animation: moveCircles 5s infinite;">
+            <div class="skill-circle circle-6">
                 <p>Canva</p>
             </div>
-            <div class="skill-circle circle-7" style="width: 110px; height: 110px; top: 15%; left: 30%; animation: moveCircles 9s infinite;">
+            <div class="skill-circle circle-7">
                 <p>Photoshop</p>
             </div>
-            <div class="skill-circle circle-8" style="width: 150px; height: 150px; top: 5%; left: 50%; animation: moveCircles 8s infinite;">
+            <div class="skill-circle circle-8">
                 <p>Adobe Illustrator</p>
             </div>
-            <div class="skill-circle circle-9" style="width: 80px; height: 80px; top: 40%; left: 10%; animation: moveCircles 5s infinite;">
+            <div class="skill-circle circle-9">
                 <p>Figma</p>
             </div>
-            <div class="skill-circle circle-10" style="width: 110px; height: 110px; top: 25%; left: 70%; animation: moveCircles 4s infinite;">
+            <div class="skill-circle circle-10">
                 <p>Powerpoint</p>
             </div>
              
@@ -415,6 +438,7 @@
         <p>Made by Sonia Wadhwani | <a href="contact.html">Contact</a></p>
     </footer>
 
+    
     <script>
         const textLine1 = "Hello,";
         const textLine2 = "I am Sonia.";
@@ -424,7 +448,7 @@
         const typewriterElement1 = document.getElementById('typewriterLine1');
         const typewriterElement2 = document.getElementById('typewriterLine2');
         const typewriterElement3 = document.getElementById('typewriterLine3');
- 
+
 
         let index1 = 0, index2 = 0, index3 = 0;
 
@@ -458,13 +482,15 @@
             }
         }
 
- 
+
 
         typeWriter1();
         setTimeout(typeWriter2, 1000);
         setTimeout(typeWriter3, 2000);
 
-    </script>   
+
+    </script>
+  
 </body>
 
 </html>
