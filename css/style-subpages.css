@@ -5,7 +5,7 @@
         font-family: 'Georgia';
         display: flex;
         height: 100vh;
-        overflow: hidden;
+        overflow: visible;
     }
 
     /* Left side styling - PDF section */
