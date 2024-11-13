@@ -274,10 +274,9 @@ main {
 
 /* Projects Section */
 #projects {
-    padding: 120px 20px;
+    padding: 10px 20px;
     text-align: center;
-    margin-top: 50px;
-    padding: 50px 0;
+    margin-top: 20px;
     background-color: #EFD5C3;
     text-align: center;
 }
@@ -335,6 +334,9 @@ main {
     display: flex;
     justify-content: space-between;
     margin: 10px auto;
+    margin-bottom: 40px;
+    margin-top: 40px;
+
 }
 
 .thumbnail {
