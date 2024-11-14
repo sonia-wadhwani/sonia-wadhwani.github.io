@@ -334,6 +334,7 @@ main {
 .thumbnail-container {
     width: 55%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     margin: 10px auto;
     margin-bottom: 40px;
@@ -661,7 +662,7 @@ footer img {
 
     .project-box {
         width: 70%;
-        height: 40vh;
+        height: 30vh;
     }       
 
         
@@ -687,6 +688,11 @@ footer img {
     .contact-container {
         padding: 10px;
     }
+
+    .thumbnail-container {
+        width: 40%;
+    }
+    
 
     .thumbnail {
         width: 40px; /* Even smaller thumbnails */
