@@ -1,3 +1,6 @@
+/* This JS file has the methods for navigating in the boook. 
+Right and left navigation through arrows, scroll up and down */ 
+
 let currentPage = 1;
 const totalPages = 9;
 const pageContainer = document.getElementById("currentPage");

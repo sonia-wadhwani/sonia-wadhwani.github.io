@@ -1,3 +1,4 @@
+/*This JS file has animated text on the home page*/
 
 const textLine1 = "Hello,";
 const textLine2 = "I am Sonia.";
@@ -48,6 +49,7 @@ setTimeout(typeWriter2, 1000);
 setTimeout(typeWriter3, 2000);
 
 /*
+This methods checks the orientation of the device and displays a message 
 function checkOrientation() {
 	const isLandscape = screen.orientation.type === 'landscape-primary' || screen.orientation.type === 'landscape-secondary';
 	if (!isLandscape) {

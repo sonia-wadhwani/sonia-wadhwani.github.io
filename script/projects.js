@@ -1,4 +1,7 @@
 
+/*The JS shows the carousel for images on the project page. 
+Also manages the thumbnail actions*/
+
 const projectImages = document.querySelectorAll('.project-image');
 const projectTitles = [
 	"Scratch Project - Parallel Parking",
@@ -12,6 +15,7 @@ const projectTitle = document.getElementById('project-title');
 const thumbnails = document.querySelectorAll('.thumbnail');
 let currentProject = 0;
 
+//Shows the project images
 function showProject(index) {
 	projectImages.forEach((img, i) => {
 		img.style.opacity = i === index ? '1' : '0';
@@ -22,6 +26,7 @@ function showProject(index) {
 	currentProject = index;
 }
 
+//Scrolls to next images
 function nextProject() {
 	currentProject = (currentProject + 1) % projectImages.length;
 	showProject(currentProject);
@@ -30,6 +35,7 @@ function nextProject() {
 setInterval(nextProject, 3000);
 showProject(0);
 
+//Opens modal window on click of each thumbnail
 function openModal(src, width , height) {
 	const modal = document.getElementById("modal");
 	const modalIframe = document.getElementById("modalIframe");
@@ -59,6 +65,7 @@ function closeModal() {
 	modalIframe.src = "";
 }
 
+//Git doesnt allow to open sites outside the domain in a modal window hence opening the new flexhub site in new window
 function openCustomWindow(url, width, height) {
 	const left = (window.innerWidth - width) / 2 + window.screenX;
 	const top = (window.innerHeight - height) / 2 + window.screenY;

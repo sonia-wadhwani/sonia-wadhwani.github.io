@@ -1,3 +1,7 @@
+/* This JS is for displaying the images on the my-art section. 
+The images are stacked in the array they shuffle for random view to allows different images each time. 
+Shows the overlay of the images and close as desired*/
+
 const images = [
     { src: 'abstract1.png', name: 'Feathered Zigs and Zags', description: "A dreamcatcher's dream, woven into reality. These feathers, symbols of hope and protection, guard the dreams of the dreamer." },
     { src: 'abstract2.png', name: 'Leafy Labyrinth', description: 'A whimsical journey through a jungle of patterns. This monstera leaf, a portal to a world of imagination.' },
