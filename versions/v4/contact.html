@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonia Wadhwani</title>
+    <style>
+        /* Basic page styling */
+        body {
+            background-color: #EFD5C3;
+            margin: 0;
+            font-family: 'Trebuchet MS';
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow-y: hidden;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            flex-wrap: wrap;
+        }
+
+        header nav {
+            white-space: nowrap;
+        }
+
+        header a {
+            text-decoration: none;
+            color: black;
+            font-family: 'Georgia';
+            margin: 0 15px;
+        }
+
+        .logo {
+            width: 120px;
+            height: 60px;
+            padding-left: 20px;
+        }
+
+        main {
+            display: flex;
+            flex: 1;
+            flex-direction: row;
+            overflow-y: auto;
+        }
+
+        .left-section {
+            flex: 1;
+            padding: 100px 20px 20px 40px;
+        }
+
+        .right-section {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px; /* Ensures padding on smaller screens */
+        }
+
+        .right-section img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        footer {
+            background-color: #F5F5F5;
+            text-align: center;
+            padding: 10px;
+            margin-top: auto;
+        }
+
+        /* Accordion styling */
+        .accordion {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .accordion-item {
+            background-color: #839791;
+            color: white;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            overflow: hidden;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .accordion-item button {
+            width: 100%;
+            background: none;
+            border: none;
+            outline: none;
+            padding: 15px;
+            text-align: left;
+            cursor: pointer;
+            font-size: 1.2em;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .accordion-item button:hover {
+            background-color: #71897E;
+        }
+
+        .accordion-content {
+            display: none;
+            padding: 15px;
+            background-color: #FFFFFF;
+            color: black;
+            font-size: 1em;
+        }
+
+        .accordion-item.active .accordion-content {
+            display: block;
+        }
+
+        /* Icon styles */
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .contact-links a {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: #839791;
+            font-weight: bold;
+            font-size: 1em;
+            transition: color 0.3s;
+        }
+
+        .contact-links a:hover {
+            color: #71897E;
+        }
+
+        .contact-links img {
+            width: 30px;
+            height: 30px;
+            margin-right: 5px;
+        }
+
+        /* Map styling */
+        .map-container {
+            margin-top: 15px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 250px;
+            border: 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Responsive styling */
+        @media (max-width: 768px) {
+            main {
+                flex-direction: column;
+            }
+
+            .left-section, .right-section {
+                padding: 20px;
+                text-align: center;
+            }
+
+            .left-section {
+                padding-top: 50px;
+            }
+
+            .accordion {
+                max-width: 100%;
+            }
+
+            .right-section img {
+                width: auto;
+                max-width: 100%;
+                max-height: 100%;
+                object-fit: contain;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header a {
+                margin: 0 10px;
+                font-size: 0.9em;
+            }
+
+            .right-section img {
+                width: auto;
+                max-width: 100%;
+                max-height: 100%;
+                object-fit: contain;
+            }
+
+            footer {
+                font-size: 0.8em;
+            }
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const items = document.querySelectorAll('.accordion-item');
+
+            items.forEach((item, index) => {
+                const button = item.querySelector('button');
+                const content = item.querySelector('.accordion-content');
+
+                // Set the first item as open by default
+                if (index === 0) {
+                    item.classList.add('active');
+                    button.querySelector('span').textContent = '-';
+                }
+
+                button.addEventListener('click', () => {
+                    // Close other items
+                    items.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                            otherItem.querySelector('.accordion-content').style.display = 'none';
+                            otherItem.querySelector('button span').textContent = '+';
+                        }
+                    });
+
+                    // Toggle current item
+                    item.classList.toggle('active');
+                    content.style.display = item.classList.contains('active') ? 'block' : 'none';
+                    button.querySelector('span').textContent = item.classList.contains('active') ? '-' : '+';
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <a href="index.html">
+            <img src="images/logo.png" alt="Logo" class="logo">
+        </a>
+        <nav>
+            <a href="aboutme.html">About Me</a>
+            <a href="projects.html">Projects</a>
+            <a href="myart.html">My Art</a>
+            <a href="contact.html">Let's Talk</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="left-section">
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button>Contact Information <span>-</span></button>
+                    <div class="accordion-content" style="display: block;">
+                        <p><strong>Name:</strong> Sonia Wadhwani</p>
+                        <p><strong>Phone:</strong> +91 79721 22827</p>
+                        <p><strong>Email:</strong> 
+                            <a href="mailto:sonia.d.wadhwani@gmail.com">
+                                sonia.d.wadhwani@gmail.com
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button>Social Media <span>+</span></button>
+                    <div class="accordion-content contact-links">
+                        <a href="https://www.instagram.com/tunnaa.oo" target="_blank">
+                            <img src="images/insta.png" alt="Instagram"> Instagram
+                        </a>
+                        <a href="https://www.behance.net/soniawadhwani" target="_blank">
+                            <img src="images/behance.png" alt="Behance"> Behance
+                        </a>
+                        <a href="https://www.linkedin.com/in/soniawadhwani/" target="_blank">
+                            <img src="images/linkedin.png" alt="LinkedIn"> LinkedIn
+                        </a>
+                        <a href="abcd.html" target="_blank">
+                            <img src="images/pinterest.png" alt="Pinterest"> Pinterest
+                        </a>
+                        <a href="http://wa.me/+917972122827" target="_blank">
+                            <img src="images/whatsapp.png" alt="WhatsApp"> WhatsApp
+                        </a>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button>Address <span>+</span></button>
+                    <div class="accordion-content">
+                        <p>Gat No. 1270, Lavale, Off. Pune Bangalore Highway, Pune, Maharashtra 412115</p>
+                        <div class="map-container">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.0868482915114!2d73.7007807755037!3d18.553303487071342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b91fbaeb5a17%3A0x637de7a54b7b14cb!2sGat%20No.%201270%2C%20Lavale%2C%20Off.%20Pune%20Bangalore%20Highway%2C%20Pune%2C%20Maharashtra%20412115%2C%20India!5e0!3m2!1sen!2sus!4v1679653823916!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="right-section">
+            <img src="images/sonia.png" alt="Sonia Wadhwani">
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; Sonia Wadhwani 2024</p>
+    </footer>
+</body>
+</html>

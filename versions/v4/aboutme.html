@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonia Wadhwani - Interactive Images</title>
+    <style>
+        body {
+            background-color: #839791;
+            margin: 0;
+            font-family: 'Trebuchet MS';
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            flex-wrap: wrap;
+        }
+
+        header nav {
+            white-space: nowrap;
+        }
+
+        header a {
+            text-decoration: none;
+            color: black;
+            font-family: 'Georgia';
+            margin: 0 15px;
+        }
+
+        .logo {
+            width: 120px;
+            height: 60px;
+            padding-left: 20px;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: row;
+            overflow-y: auto;
+        }
+
+        .left-section {
+            flex: 1;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .left-section .row {
+            display: flex;
+            width: 100%;
+            justify-content: space-around;
+        }
+
+        .right-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 10px;
+        }
+
+        .right-section img {
+            width: 80%;
+            height: 80%;
+            object-fit: contain;
+            border-bottom-left-radius: 50%;
+            border-bottom-right-radius: 50%;
+        }
+
+        .left-image {
+            width: 30%;
+            max-width: 250px;
+            height: auto;
+            transition: transform 0.3s, opacity 0.3s;
+            cursor: pointer;
+        }
+
+        .left-image:hover {
+            transform: scale(1.1);
+        }
+
+        .left-image.enlarged {
+            width: 40%;
+            max-width: 300px;
+            z-index: 1;
+        }
+
+        .left-image.shrinked {
+            width: 25%;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        footer {
+            background-color: #F5F5F5;
+            font-family: 'Trebuchet MS';
+            text-align: center;
+            padding: 10px;
+            margin-top: auto;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: black;
+            margin: 0 10px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            main {
+                flex-direction: column;
+            }
+
+            .right-section {
+                width: 100%;
+                height: auto;
+                padding: 10px;
+            }
+
+            .right-section img {
+                width: 75%;
+                height: auto;
+                object-fit: cover;
+            }
+
+            .left-section .left-image {
+                width: 35%; /* Slightly larger on smaller screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                width: 90px;
+                height: 45px;
+            }
+
+            header {
+                flex-direction: column;
+            }
+
+            .left-section .left-image {
+                width: 45%; /* Fit more comfortably on very small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html">
+            <img src="images/logo.png" alt="Logo" class="logo">
+        </a>
+        <nav>
+            <a href="aboutme.html">About Me</a>
+            <a href="projects.html">Projects</a>
+            <a href="myart.html">My Art</a>
+            <a href="contact.html">Let's Talk</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="left-section" onclick="resetImages(event)">
+            <!-- First Row of Images -->
+            <div class="row">
+                &nbsp;<img src="images/personalitynormal.png" alt="Personality" id="personality" class="left-image" onclick="showDetails('personality', event)">
+                <img src="images/passionnormal.png" alt="Passion" id="passion" class="left-image" onclick="showDetails('passion', event)">
+                &nbsp;
+            </div>
+
+            <!-- Second Row of Images -->
+            <div class="row">
+                <img src="images/educationnormal.png" alt="Education" id="education" class="left-image" onclick="showDetails('education', event)">
+                <img src="images/skillnormal.png" alt="Skill" id="skill" class="left-image" onclick="showDetails('skill', event)">
+                <img src="images/experiencenormal.png" alt="Experience" id="experience" class="left-image" onclick="showDetails('experience', event)">
+            </div>
+        </section>
+
+        <section class="right-section">
+            <img src="images/aboutme.png" alt="Sonia Wadhwani">
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; Sonia Wadhwani 2024</p>
+    </footer>
+
+    <script>
+        const imagesData = {
+            education: [
+                { id: "education", src: "images/educationdetail.png" },
+                { id: "personality", src: "images/personalitysmall.png" },
+                { id: "passion", src: "images/passionsmall.png" },
+                { id: "skill", src: "images/skillsmall.png" },
+                { id: "experience", src: "images/experiencesmall.png" }
+            ],
+            personality: [
+                { id: "education", src: "images/educationsmall.png" },
+                { id: "personality", src: "images/personalitydetail.png" },
+                { id: "passion", src: "images/passionsmall.png" },
+                { id: "skill", src: "images/skillsmall.png" },
+                { id: "experience", src: "images/experiencesmall.png" }
+            ],
+            passion: [
+                { id: "education", src: "images/educationsmall.png" },
+                { id: "personality", src: "images/personalitysmall.png" },
+                { id: "passion", src: "images/passiondetail.png" },
+                { id: "skill", src: "images/skillsmall.png" },
+                { id: "experience", src: "images/experiencesmall.png" }
+            ],
+            skill: [
+                { id: "education", src: "images/educationsmall.png" },
+                { id: "personality", src: "images/personalitysmall.png" },
+                { id: "passion", src: "images/passionsmall.png" },
+                { id: "skill", src: "images/skilldetail.png" },
+                { id: "experience", src: "images/experiencesmall.png" }
+            ],
+            experience: [
+                { id: "education", src: "images/educationsmall.png" },
+                { id: "personality", src: "images/personalitysmall.png" },
+                { id: "passion", src: "images/passionsmall.png" },
+                { id: "skill", src: "images/skillsmall.png" },
+                { id: "experience", src: "images/experiencedetail.png" }
+            ]
+        };
+
+        function showDetails(selectedImage, event) {
+            event.stopPropagation();
+            resetImages(event, selectedImage);
+
+            const images = document.querySelectorAll('.left-image');
+            images.forEach(img => {
+                if (img.id === selectedImage) {
+                    img.src = imagesData[selectedImage].find(data => data.id === selectedImage).src;
+                    img.classList.add('enlarged');
+                } else {
+                    img.src = imagesData[selectedImage].find(data => data.id === img.id).src;
+                    img.classList.add('shrinked');
+                }
+            });
+        }
+
+        function resetImages(event, selectedImage = null) {
+            if (selectedImage) return;
+
+            const images = document.querySelectorAll('.left-image');
+            images.forEach((img) => {
+                img.src = `images/${img.id}normal.png`;
+                img.classList.remove('enlarged', 'shrinked');
+            });
+        }
+    </script>
+</body>
+</html>
