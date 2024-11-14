@@ -1,3 +1,4 @@
+/* Global Styles */
 body {
     overflow-x: hidden; /* Prevent horizontal scrolling */
     margin: 0;
@@ -9,7 +10,7 @@ body {
 }
 
 
-
+/* Main Content Container */
 main {
     display: flex;
     flex-direction: row;
@@ -21,7 +22,7 @@ main {
     /* Remove the fixed height to allow natural scrolling */
 }
 
-
+/* Header Styles */
 header {
     display: flex;
     justify-content: space-between;
@@ -39,6 +40,7 @@ header {
     /*box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);*/
 }
 
+/* Navigation Styles */
 nav {
     display: flex;
     gap: 15px;
@@ -67,7 +69,7 @@ header a {
     padding-left: 20px;
 }
 
-
+/* Main Content Sections */
 
 .left-section {
     flex: 1;
@@ -90,7 +92,7 @@ header a {
     object-fit: contain;
     object-position: center center;
 }
-
+/* Typography Styles */
 .large-text-l1 {
     font-family: 'Georgia';
     line-height: 0.9;
@@ -126,6 +128,8 @@ header a {
     width: 100vw; /* Ensure content doesn’t overflow viewport */
     box-sizing: border-box;
 }
+
+/* Section Styles */
 /* About Me Section */
 #about-me {
     padding: 50px 0px ;
@@ -145,6 +149,7 @@ header a {
     text-align: left; /* Align text to the left */
     padding-bottom: 0px;
 }
+/* Timeline Section */
 /* Timeline */
 .timeline {
     position: relative;
@@ -327,7 +332,7 @@ header a {
     
 }
 
-
+/* Thumbnails below the project */
 
 .thumbnail-container {
     width: 55%;
@@ -379,6 +384,8 @@ header a {
     }
 }
 
+/* Modal Dialog used in MyArt */
+
 .modal {
     display: none;
     position: fixed;
@@ -414,8 +421,7 @@ iframe {
     height: 100%;
     border: none;
 }
-
-
+/* My Art Section */
 
 #my-art {
     padding: 50px 0px;
@@ -522,12 +528,9 @@ footer a {
     color: black;
 }
 
-footer img {
-    width: 24px;
-    height: 24px;
-    margin: 0 5px;
-}
 
+
+/* Lets Talk Section */
 #lets-talk {
     padding: 40px;
     background-color: #EFD5C3;
@@ -626,6 +629,13 @@ footer img {
     border: 0;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+/* Footer Section*/
+
+footer img {
+    width: 24px;
+    height: 24px;
+    margin: 0 5px;
 }
 /* For tablet-sized screens */
 @media (max-width: 768px) {
