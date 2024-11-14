@@ -285,7 +285,8 @@ header a {
     color: #001011;
     font-size: 5em;
     font-family: 'Raleway';
-    margin-bottom: 50px;
+    margin-bottom: 30px;
+    margin-top: 20px;
     margin-left: 10%; /* Aligns with About Me title */
     text-align: left; /* Align text to the left */
     padding-bottom: 0px;
@@ -417,7 +418,7 @@ iframe {
 
 
 #my-art {
-    padding: 120px 0px;
+    padding: 50px 0px;
     background-color: #839791;
     text-align: center;
 }
@@ -426,7 +427,8 @@ iframe {
     color: #EFD5C3;
     font-size: 5em;
     font-family: 'Raleway';
-    margin-bottom: 80px;
+    margin-bottom: 30px;
+    margin-top: 20px;
     margin-left: 10%; /* Aligns with About Me title */
     text-align: left; /* Align text to the left */
 }
@@ -536,7 +538,8 @@ footer img {
     color: #001011;
     font-size: 5em;
     font-family: 'Raleway';
-    margin-bottom: 80px;
+    margin-bottom: 50px;
+    margin-top: 30px;
     margin-left: 10%; /* Aligns with About Me title */
     text-align: left; /* Align text to the left */
 }
@@ -644,7 +647,7 @@ footer img {
     }
 
     .body-text-l3 {
-        font-size: calc(4vw);
+        font-size: calc(3vw);
     }
 
     #about-me h2 {
