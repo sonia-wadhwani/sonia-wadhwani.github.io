@@ -8,10 +8,7 @@ body {
     background-color: #EFD5C3;
 }
 
-main, .about-me, #skills, #projects, #my-art {
-    width: 100vw; /* Ensure content doesn’t overflow viewport */
-    box-sizing: border-box;
-}
+
 
 main {
     display: flex;
@@ -125,6 +122,10 @@ header a {
     line-height: 1.5;
 }
 
+.about-me, #skills, #projects, #my-art {
+    width: 100vw; /* Ensure content doesn’t overflow viewport */
+    box-sizing: border-box;
+}
 /* About Me Section */
 #about-me {
     padding: 50px 0px ;
