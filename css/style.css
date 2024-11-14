@@ -637,10 +637,20 @@ footer img {
         width: 100%;
         margin-bottom: 20px;
     }
+
+    .project-box {
+        width: 70%;
+        height: 40vh;
+    } 
 }
 
 /* For very small screens (phones) */
 @media (max-width: 480px) {
+
+    .project-box {
+        width: 70%;
+        height: 40vh;
+    }       
     .accordion-item button {
         font-size: 1em; /* Make accordion button text smaller */
         padding: 10px;  /* Adjust padding for better fit */
