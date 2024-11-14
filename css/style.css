@@ -687,4 +687,9 @@ footer img {
     .contact-container {
         padding: 10px;
     }
+
+    .thumbnail {
+        width: 40px; /* Even smaller thumbnails */
+        height: 40px;
+    }
 }
