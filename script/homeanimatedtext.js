@@ -47,6 +47,7 @@ typeWriter1();
 setTimeout(typeWriter2, 1000);
 setTimeout(typeWriter3, 2000);
 
+/*
 function checkOrientation() {
 	const isLandscape = screen.orientation.type === 'landscape-primary' || screen.orientation.type === 'landscape-secondary';
 	if (!isLandscape) {
@@ -57,3 +58,4 @@ function checkOrientation() {
 window.addEventListener('orientationchange', checkOrientation);
 
 checkOrientation(); // Check initial orientation on page load
+*/
