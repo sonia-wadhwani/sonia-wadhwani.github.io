@@ -663,6 +663,12 @@ footer img {
         width: 70%;
         height: 40vh;
     }       
+
+        
+    .thumbnail {
+        width: 40px; /* Even smaller thumbnails */
+        height: 40px;
+    }
     .accordion-item button {
         font-size: 1em; /* Make accordion button text smaller */
         padding: 10px;  /* Adjust padding for better fit */
