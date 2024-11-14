@@ -629,8 +629,8 @@ footer img {
 }
 /* For tablet-sized screens */
 @media (max-width: 768px) {
-    .left-section{
-        margin-bottom: 50px;
+    .main{
+        height: 120vh;
     }
     .contact-container {
         flex-direction: column;
@@ -660,6 +660,9 @@ footer img {
 /* For very small screens (phones) */
 @media (max-width: 480px) {
 
+    .main{
+        height: 120vh;
+    }
     .left-section{
         margin-bottom: 50px;
     }
