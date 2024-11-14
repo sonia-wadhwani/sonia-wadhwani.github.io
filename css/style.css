@@ -648,23 +648,24 @@ footer img {
     }
 
     #about-me h2 {
-        text-align: center; /* Align text to the left */
+        text-align: center; /* Align text to the center */
+        margin-left: 0px;
 
     }
 
     #project h2 {
-        text-align: center; /* Align text to the left */
-
+        text-align: center; /* Align text to the center */
+        margin-left: 0px;
     }
 
     #my-art h2 {
-        text-align: center; /* Align text to the left */
-
+        text-align: center; /* Align text to the center */
+        margin-left: 0px;
     }
 
     #lets-talk h2 {
-        text-align: center; /* Align text to the left */
-
+        text-align: center; /* Align text to the center */
+        margin-left: 0px;
     }
 
     .contact-container {
