@@ -216,12 +216,10 @@ main {
 
 /* Skills Section */
 #skills {
-    padding: 0px;
+    padding: 40px 0px;
     background-color: #839791;
     text-align: center;
     width: 100vw;
-    width: 100%;
-    box-sizing: border-box;
 }
 
 #skills h2 {
@@ -423,8 +421,6 @@ iframe {
     padding: 120px 0px;
     background-color: #839791;
     text-align: center;
-    width: 100%;
-    box-sizing: border-box;
 }
 
 #my-art h2 {
