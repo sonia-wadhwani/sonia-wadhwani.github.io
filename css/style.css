@@ -508,25 +508,6 @@ iframe {
     cursor: pointer;
 }
 
-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #F5F5F5;
-    font-family: 'Raleway';
-}
-
-footer p {
-    margin: 0;
-}
-
-footer a {
-    display: inline-flex;
-    align-items: center;
-    text-decoration: none;
-    color: black;
-}
 
 
 
@@ -632,6 +613,26 @@ footer a {
 }
 /* Footer Section*/
 
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px;
+    background-color: #F5F5F5;
+    font-family: 'Raleway';
+}
+
+footer p {
+    margin: 0;
+}
+
+footer a {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+}
 footer img {
     width: 24px;
     height: 24px;
