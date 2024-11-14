@@ -646,6 +646,18 @@ footer img {
 
 /* For very small screens (phones) */
 @media (max-width: 480px) {
+    .logo {
+        width: 90px;
+        height: 45px;
+    }
+
+    header {
+        flex-direction: column;
+    }
+
+    header nav {
+        margin-top: 10px;
+    }
 
     .project-box {
         width: 70%;
