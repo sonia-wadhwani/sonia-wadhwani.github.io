@@ -639,10 +639,6 @@ footer img {
 
 /* For very small screens (phones) */
 @media (max-width: 480px) {
-    #lets-talk h2 {
-        font-size: 2em; /* Reduce title size */
-    }
-
     .accordion-item button {
         font-size: 1em; /* Make accordion button text smaller */
         padding: 10px;  /* Adjust padding for better fit */
