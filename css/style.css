@@ -135,7 +135,7 @@ main {
     background-color: #839791;
     text-align: center;
     width: 100%;
-    margin-left: 0 auto;
+    margin-left: 0 0;
 }
 
 #about-me h2 {
@@ -143,7 +143,7 @@ main {
     font-size: 5em;
     font-family: 'Raleway';
     margin-bottom: 50px;
-    margin-left: 10%; /* Aligns with About Me title */
+    margin-left: 0%; /* Aligns with About Me title */
     text-align: left; /* Align text to the left */
     padding-bottom: 0px;
 }
