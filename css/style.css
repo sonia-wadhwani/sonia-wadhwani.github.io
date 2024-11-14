@@ -33,7 +33,7 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    height: 70px;
+    height: auto;
     background-color: #EFD5C3;
     z-index: 1000;
     box-sizing: border-box;
