@@ -28,6 +28,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
+    padding-top: 10px;
     position: fixed;
     top: 0;
     left: 0;
@@ -219,6 +220,8 @@ main {
     background-color: #839791;
     text-align: center;
     width: 100vw;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 #skills h2 {
@@ -420,6 +423,8 @@ iframe {
     padding: 120px 0px;
     background-color: #839791;
     text-align: center;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 #my-art h2 {
