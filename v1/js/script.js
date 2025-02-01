@@ -4,7 +4,9 @@ document.addEventListener("DOMContentLoaded", function () {
     let imagesPerView = 3;
     let isMobile = false;
     let isScrolling = false;
+    let scrollTimeout;
 
+    // Adjust image size and layout based on the screen width
     function adjustImageSize() {
         const containerWidth = window.innerWidth * 0.9; // 5% margin on both sides
         const spacing = containerWidth * 0.05; // 5% spacing between images
@@ -18,32 +20,31 @@ document.addEventListener("DOMContentLoaded", function () {
             img.style.marginRight = `${spacing}px`;
         });
 
-        // Clone first and last images for infinite loop effect
+        // Reset the track to start from the original images
+        resetCarousel();
+    }
+
+    // Reset carousel by removing clones and repositioning the track
+    function resetCarousel() {
         const firstClone = images[0].cloneNode(true);
         const lastClone = images[images.length - 1].cloneNode(true);
+
+        // Remove any existing clones
+        if (track.querySelector(".carousel-item-clone")) {
+            track.querySelector(".carousel-item-clone").remove();
+        }
+
         track.appendChild(firstClone);
         track.insertBefore(lastClone, images[0]);
 
         images = Array.from(document.querySelectorAll(".carousel-item"));
-        updateCarousel(true);
+        track.style.transition = "none"; // Disable transition during reset
+        track.style.transform = `translateX(0)`;
     }
 
-    function updateCarousel(noTransition = false) {
-        const imageWidth = images[1].getBoundingClientRect().width;
-        const spacing = imageWidth * 0.05;
-        const totalWidth = imageWidth + spacing;
-
-        if (noTransition) {
-            track.style.transition = "none";
-        } else {
-            track.style.transition = "transform 0.5s ease-in-out";
-        }
-
-        track.style.transform = `translateX(${-imagesPerView * totalWidth}px)`;
-    }
-
+    // Shift images based on scroll direction (down or up)
     function shiftImages(direction) {
-        if (isScrolling) return;
+        if (isScrolling) return; // Prevent multiple scrolls at once
         isScrolling = true;
 
         const imageWidth = images[1].getBoundingClientRect().width;
@@ -52,32 +53,41 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (direction === "down") {
             track.style.transition = "transform 0.5s ease-in-out";
-            track.style.transform = `translateX(${-totalWidth * (imagesPerView + 1)}px)`;
+            track.style.transform = `translateX(${-totalWidth * 3}px)`; // Scroll 3 images at once
         } else if (direction === "up") {
             track.style.transition = "transform 0.5s ease-in-out";
-            track.style.transform = `translateX(${-totalWidth * (imagesPerView - 1)}px)`;
+            track.style.transform = `translateX(${totalWidth * 3}px)`; // Scroll 3 images at once
         }
 
         setTimeout(() => {
+            // Move the first image to the end or vice versa to create a seamless loop
             if (direction === "down") {
-                track.appendChild(track.firstElementChild);
+                track.appendChild(track.firstElementChild); // Move the first to last
             } else if (direction === "up") {
-                track.insertBefore(track.lastElementChild, track.firstElementChild);
+                track.insertBefore(track.lastElementChild, track.firstElementChild); // Move the last to first
             }
-            track.style.transition = "none";
-            track.style.transform = `translateX(${-imagesPerView * totalWidth}px)`;
-            isScrolling = false;
-        }, 500);
+            track.style.transition = "none"; // Reset transition to immediate movement
+            track.style.transform = `translateX(${-totalWidth * 3}px)`; // Reset to show the next set of images
+            isScrolling = false; // Allow scrolling again
+        }, 500); // Time matching the transition duration
     }
 
+    // Handle scroll events
     window.addEventListener("wheel", (event) => {
-        if (event.deltaY > 0) {
-            shiftImages("down");
-        } else {
-            shiftImages("up");
-        }
+        // Clear the previous timeout to reset debounce
+        clearTimeout(scrollTimeout);
+
+        // Debounce scroll to allow only one action at a time
+        scrollTimeout = setTimeout(() => {
+            if (event.deltaY > 0) {
+                shiftImages("down");
+            } else {
+                shiftImages("up");
+            }
+        }, 150); // Delay of 150ms to wait for the scroll movement to settle
     });
 
+    // Handle touch swipe on mobile
     let startY;
     window.addEventListener("touchstart", (event) => {
         startY = event.touches[0].clientY;
@@ -92,6 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    // Initialize the page and adjust image sizes
     adjustImageSize();
     window.addEventListener("resize", adjustImageSize);
 });

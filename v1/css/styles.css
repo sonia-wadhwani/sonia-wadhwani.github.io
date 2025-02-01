@@ -23,6 +23,9 @@ header {
     display: flex;
     justify-content: flex-start;
     background-color: white;
+    position: fixed;
+    top: 0;
+    z-index: 10;
 }
 
 .logo {
@@ -31,15 +34,18 @@ header {
 }
 
 /* Carousel Container */
+/* Carousel Container */
 .carousel {
     width: 100vw;
-    height: 80vh;
+    height: 70vh; /* Reduced height of the carousel container */
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     position: relative;
+    margin-top: 60px; /* Add space after the header */
 }
+
 
 /* Track that moves images */
 .carousel-track {
@@ -50,9 +56,13 @@ header {
 /* Individual Image */
 .carousel-item {
     width: auto;
-    height: 80vh;
+    height: 70vh; /* Adjusting image height to match the new container height */
     object-fit: contain;
-    margin: 0 2vw; /* Add spacing between images */
+    margin: 0 4vw; /* Doubled spacing between images */
+}
+
+.carousel-item.center {
+    transform: scale(1.1); /* Enlarge the centered image */
 }
 
 /* Responsive Settings */
