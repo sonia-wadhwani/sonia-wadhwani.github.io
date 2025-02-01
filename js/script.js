@@ -1,71 +1,97 @@
-const track = document.querySelector(".carousel-track");
-const images = document.querySelectorAll(".carousel-item");
+document.addEventListener("DOMContentLoaded", function () {
+    const track = document.querySelector(".carousel-track");
+    let images = Array.from(document.querySelectorAll(".carousel-item"));
+    let imagesPerView = 3;
+    let isMobile = false;
+    let isScrolling = false;
 
-let index = 0; 
-let imagesPerView = 3; // Default for large screens
-let isMobile = false;
+    function adjustImageSize() {
+        const containerWidth = window.innerWidth * 0.9; // 5% margin on both sides
+        const spacing = containerWidth * 0.05; // 5% spacing between images
+        imagesPerView = window.innerWidth <= 600 ? 1 : 3;
+        isMobile = window.innerWidth <= 600;
 
-// Function to adjust how many images should be visible based on screen width
-function adjustImageCount() {
-    const screenWidth = window.innerWidth;
-    
-    if (screenWidth <= 600) {
-        imagesPerView = 1; // Show 1 image on mobile
-        isMobile = true;
-    } else {
-        imagesPerView = 3; // Show 3 images on larger screens
-        isMobile = false;
+        const imageWidth = (containerWidth - spacing * (imagesPerView - 1)) / imagesPerView;
+
+        images.forEach(img => {
+            img.style.width = `${imageWidth}px`;
+            img.style.marginRight = `${spacing}px`;
+        });
+
+        // Clone first and last images for infinite loop effect
+        const firstClone = images[0].cloneNode(true);
+        const lastClone = images[images.length - 1].cloneNode(true);
+        track.appendChild(firstClone);
+        track.insertBefore(lastClone, images[0]);
+
+        images = Array.from(document.querySelectorAll(".carousel-item"));
+        updateCarousel(true);
     }
-    
-    updateCarousel();
-}
 
-// Function to update visible images in the carousel
-function updateCarousel() {
-    const imageWidth = images[0].getBoundingClientRect().width;
-    const spacing = imageWidth * 0.2; // 20% of image width as space
-    const offset = -(index * (imageWidth + spacing));
-    
-    track.style.transform = `translateX(${offset}px)`;
-}
+    function updateCarousel(noTransition = false) {
+        const imageWidth = images[1].getBoundingClientRect().width;
+        const spacing = imageWidth * 0.05;
+        const totalWidth = imageWidth + spacing;
 
-// Function to shift images when scrolling
-function shiftImages(direction) {
-    if (direction === "down") {
-        index = (index + 1) % images.length;
-    } else if (direction === "up") {
-        index = (index - 1 + images.length) % images.length;
+        if (noTransition) {
+            track.style.transition = "none";
+        } else {
+            track.style.transition = "transform 0.5s ease-in-out";
+        }
+
+        track.style.transform = `translateX(${-imagesPerView * totalWidth}px)`;
     }
-    
-    updateCarousel();
-}
 
-// Mouse Wheel Scroll Event
-window.addEventListener("wheel", (event) => {
-    if (event.deltaY > 0) {
-        shiftImages("down");
-    } else {
-        shiftImages("up");
+    function shiftImages(direction) {
+        if (isScrolling) return;
+        isScrolling = true;
+
+        const imageWidth = images[1].getBoundingClientRect().width;
+        const spacing = imageWidth * 0.05;
+        const totalWidth = imageWidth + spacing;
+
+        if (direction === "down") {
+            track.style.transition = "transform 0.5s ease-in-out";
+            track.style.transform = `translateX(${-totalWidth * (imagesPerView + 1)}px)`;
+        } else if (direction === "up") {
+            track.style.transition = "transform 0.5s ease-in-out";
+            track.style.transform = `translateX(${-totalWidth * (imagesPerView - 1)}px)`;
+        }
+
+        setTimeout(() => {
+            if (direction === "down") {
+                track.appendChild(track.firstElementChild);
+            } else if (direction === "up") {
+                track.insertBefore(track.lastElementChild, track.firstElementChild);
+            }
+            track.style.transition = "none";
+            track.style.transform = `translateX(${-imagesPerView * totalWidth}px)`;
+            isScrolling = false;
+        }, 500);
     }
+
+    window.addEventListener("wheel", (event) => {
+        if (event.deltaY > 0) {
+            shiftImages("down");
+        } else {
+            shiftImages("up");
+        }
+    });
+
+    let startY;
+    window.addEventListener("touchstart", (event) => {
+        startY = event.touches[0].clientY;
+    });
+
+    window.addEventListener("touchend", (event) => {
+        let endY = event.changedTouches[0].clientY;
+        if (startY > endY) {
+            shiftImages("down");
+        } else {
+            shiftImages("up");
+        }
+    });
+
+    adjustImageSize();
+    window.addEventListener("resize", adjustImageSize);
 });
-
-// Mobile Touch Support
-let startX, endX;
-
-window.addEventListener("touchstart", (event) => {
-    startX = event.touches[0].clientX;
-});
-
-window.addEventListener("touchend", (event) => {
-    endX = event.changedTouches[0].clientX;
-
-    if (startX > endX) {
-        shiftImages("down"); // Swipe left
-    } else if (startX < endX) {
-        shiftImages("up"); // Swipe right
-    }
-});
-
-// Initialize
-window.addEventListener("resize", adjustImageCount);
-adjustImageCount();
