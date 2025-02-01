@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive UX Page</title>
+    <style>
+        /* Default styles */
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            transition: background 0.5s ease, color 0.5s ease;
+            overflow: hidden; /* Prevent vertical scrolling */
+            background-color: #eac784; /* Default Palette 1 */
+            color: #362415;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Header styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            width: 100%;
+            background-color: #fffcfc; /* Default Palette 1 Header */
+            transition: background 0.5s ease;
+            position: absolute;
+            top: 0;
+        }
+
+        .logo {
+            width: 50px;
+            height: 25px;
+        }
+
+        .controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* Theme selector (color circles) */
+        .theme-circle {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .theme-one { background-color: #eac784; }
+        .theme-two { background-color: #bbbbbb; }
+
+        /* Accessibility "A" letters with different sizes */
+        .accessibility span {
+            cursor: pointer;
+            font-weight: bold;
+            padding: 5px;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .size-small { font-size: 14px; }
+        .size-medium { font-size: 18px; }
+        .size-large { font-size: 22px; }
+
+        /* Large center circle */
+        .circle {
+            width: 80vmin;
+            height: 80vmin;
+            background-color: #0b421a; /* Default Palette 1 */
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            transition: background 0.5s ease;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Text inside circle */
+        .circle h1 {
+            font-size: 2em;
+            margin: 0;
+        }
+
+        .circle p {
+            font-size: 1.2em;
+            margin: 5px 0 0;
+        }
+
+        /* Slime effect */
+        @keyframes slimeMorph {
+            0% { border-radius: 50%; transform: translate(-50%, -50%) scale(1); }
+            25% { border-radius: 60% 40% 50% 45%; transform: translate(-50%, -50%) scale(1.1, 0.9); }
+            50% { border-radius: 40% 60% 35% 50%; transform: translate(-50%, -50%) scale(0.9, 1.1); }
+            75% { border-radius: 55% 45% 60% 40%; transform: translate(-50%, -50%) scale(1.05, 0.95); }
+            100% { border-radius: 50%; transform: translate(-50%, -50%) scale(1); }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header id="header">
+        <img src="images/logo.png" alt="Logo" class="logo">
+        <div class="controls">
+            <div class="theme-circle theme-one" onclick="changeTheme('theme1')"></div>
+            <div class="theme-circle theme-two" onclick="changeTheme('theme2')"></div>
+
+            <div class="accessibility">
+                <span class="size-small" onclick="changeFontSize('14px')">A</span>
+                <span class="size-medium" onclick="changeFontSize('18px')">A</span>
+                <span class="size-large" onclick="changeFontSize('22px')">A</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="circle" id="circle">
+        <h1>Sonia Wadhwani</h1>
+        <p>Exploring the UX world</p>
+    </div>
+
+    <script>
+        // Change font size dynamically
+        function changeFontSize(size) {
+            document.documentElement.style.fontSize = size;
+        }
+
+        // Change theme colors dynamically
+        function changeTheme(theme) {
+            let body = document.body;
+            let header = document.getElementById("header");
+            let circle = document.getElementById("circle");
+
+            if (theme === 'theme1') {
+                body.style.backgroundColor = "#eac784";  
+                body.style.color = "#362415";
+                circle.style.backgroundColor = "#0b421a";
+                circle.style.color = "#ffffff";
+                header.style.backgroundColor = "#fffcfc"; 
+            } else if (theme === 'theme2') {
+                body.style.backgroundColor = "#bbbbbb";  
+                body.style.color = "#312020";
+                circle.style.backgroundColor = "#00723f";
+                circle.style.color = "#ffffff";
+                header.style.backgroundColor = "#ffffff"; 
+            }
+        }
+
+        // Slime effect on click
+        function triggerSlimeEffect() {
+            let circle = document.getElementById('circle');
+            circle.style.animation = "slimeMorph 2s ease-in-out forwards";
+            setTimeout(() => {
+                circle.style.animation = "";
+            }, 2000);
+        }
+
+        // Drag effect for pulling animation
+        let circle = document.getElementById('circle');
+        let isDragging = false;
+        let startX, startY;
+
+        circle.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.clientX;
+            startY = e.clientY;
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            let diffX = (e.clientX - startX) / 10; 
+            let diffY = (e.clientY - startY) / 10;
+
+            circle.style.transform = `translate(-50%, -50%) scale(1.1) skew(${diffX}deg, ${diffY}deg)`;
+        });
+
+        document.addEventListener('mouseup', () => {
+            if (isDragging) {
+                isDragging = false;
+                circle.style.transform = "translate(-50%, -50%) scale(1) skew(0deg, 0deg)";
+            }
+        });
+
+        // Ensure both effects work together
+        circle.addEventListener('click', (e) => {
+            if (!isDragging) {
+                triggerSlimeEffect();
+            }
+        });
+
+    </script>
+
+</body>
+</html>

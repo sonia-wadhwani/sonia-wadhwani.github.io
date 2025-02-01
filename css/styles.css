@@ -1,0 +1,78 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    background-color: white;
+  }
+  
+  /* Header Styles */
+  header {
+    display: flex;
+    justify-content: flex-start;
+    padding: 20px;
+    background-color: white;
+  }
+  
+  header .logo {
+    width: 100px;
+    cursor: pointer;
+  }
+  
+  /* Images Section Styles */
+  .images-container {
+    display: flex;
+    justify-content: flex-start; /* Align images at the start */
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .images-container .image {
+    height: 80%;
+    display: none; /* Initially hide all images */
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* When 1 image is displayed (Mobile view) */
+  @media (max-width: 600px) {
+    .images-container .image {
+      width: 100vw; /* Full width on mobile */
+      margin-right: 0; /* No space between images */
+    }
+  }
+  
+  /* For larger screens (3 images) */
+  @media (min-width: 601px) and (max-width: 1024px) {
+    .images-container .image {
+      width: 33.33vw; /* Show 3 images at a time */
+      margin-right: 6.67vw; /* 20% of image width as space between images */
+    }
+  }
+  
+  /* For large screens (more than 1024px) */
+  @media (min-width: 1025px) {
+    .images-container .image {
+      width: 33.33vw; /* Show 3 images at a time */
+      margin-right: 6.67vw; /* 20% of image width as space between images */
+    }
+  }
+  
+  .images-container .image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .images-container .image.active {
+    display: block; /* Only active images are shown */
+  }
+  
