@@ -53,10 +53,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (direction === "down") {
             track.style.transition = "transform 0.5s ease-in-out";
-            track.style.transform = `translateX(${-totalWidth * 3}px)`; // Scroll 3 images at once
+            track.style.transform = `translateX(${-totalWidth}px)`; // Scroll 1 image at a time
         } else if (direction === "up") {
             track.style.transition = "transform 0.5s ease-in-out";
-            track.style.transform = `translateX(${totalWidth * 3}px)`; // Scroll 3 images at once
+            track.style.transform = `translateX(${totalWidth}px)`; // Scroll 1 image at a time
         }
 
         setTimeout(() => {
@@ -67,12 +67,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 track.insertBefore(track.lastElementChild, track.firstElementChild); // Move the last to first
             }
             track.style.transition = "none"; // Reset transition to immediate movement
-            track.style.transform = `translateX(${-totalWidth * 3}px)`; // Reset to show the next set of images
+            track.style.transform = `translateX(0)`; // Reset to show the next set of images
             isScrolling = false; // Allow scrolling again
         }, 500); // Time matching the transition duration
     }
 
-    // Handle scroll events
+    // Handle scroll events (down and up)
     window.addEventListener("wheel", (event) => {
         // Clear the previous timeout to reset debounce
         clearTimeout(scrollTimeout);
