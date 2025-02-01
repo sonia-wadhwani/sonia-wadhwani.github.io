@@ -3,76 +3,62 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  
-  body {
+}
+
+body {
     font-family: Arial, sans-serif;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
     background-color: white;
-  }
-  
-  /* Header Styles */
-  header {
+}
+
+/* Header */
+header {
+    width: 100%;
+    padding: 10px;
     display: flex;
     justify-content: flex-start;
-    padding: 20px;
     background-color: white;
-  }
-  
-  header .logo {
+}
+
+.logo {
     width: 100px;
     cursor: pointer;
-  }
-  
-  /* Images Section Styles */
-  .images-container {
-    display: flex;
-    justify-content: flex-start; /* Align images at the start */
-    align-items: center;
+}
+
+/* Carousel Container */
+.carousel {
     width: 100vw;
-    height: 100vh;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
     position: relative;
-  }
-  
-  .images-container .image {
-    height: 80%;
-    display: none; /* Initially hide all images */
-    justify-content: center;
-    align-items: center;
-  }
-  
-  /* When 1 image is displayed (Mobile view) */
-  @media (max-width: 600px) {
-    .images-container .image {
-      width: 100vw; /* Full width on mobile */
-      margin-right: 0; /* No space between images */
+}
+
+/* Track that moves images */
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Individual Image */
+.carousel-item {
+    width: auto;
+    height: 80vh;
+    object-fit: contain;
+    margin: 0 2vw; /* Add spacing between images */
+}
+
+/* Responsive Settings */
+@media (max-width: 600px) {
+    .carousel-item {
+        width: 100vw;
+        margin: 0;
     }
-  }
-  
-  /* For larger screens (3 images) */
-  @media (min-width: 601px) and (max-width: 1024px) {
-    .images-container .image {
-      width: 33.33vw; /* Show 3 images at a time */
-      margin-right: 6.67vw; /* 20% of image width as space between images */
-    }
-  }
-  
-  /* For large screens (more than 1024px) */
-  @media (min-width: 1025px) {
-    .images-container .image {
-      width: 33.33vw; /* Show 3 images at a time */
-      margin-right: 6.67vw; /* 20% of image width as space between images */
-    }
-  }
-  
-  .images-container .image img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-  }
-  
-  .images-container .image.active {
-    display: block; /* Only active images are shown */
-  }
-  
+}

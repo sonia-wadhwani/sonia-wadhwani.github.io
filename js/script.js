@@ -1,66 +1,71 @@
-// Array of image IDs
-const images = [
-    "image1",
-    "image2",
-    "image3",
-    "image4",
-    "image5",
-    "image6"
-  ];
-  
-  let currentIndex = 0; // To track the current set of 3 images
-  let imageCount = 3;  // Default to 3 images
-  
-  // Adjust the number of images based on screen width
-  function adjustImageCount() {
-    const width = window.innerWidth;
-    if (width <= 600) {
-      imageCount = 1;  // Mobile view: Show 1 image
-    } else if (width <= 1024) {
-      imageCount = 3;  // Tablet view: Show 3 images
+const track = document.querySelector(".carousel-track");
+const images = document.querySelectorAll(".carousel-item");
+
+let index = 0; 
+let imagesPerView = 3; // Default for large screens
+let isMobile = false;
+
+// Function to adjust how many images should be visible based on screen width
+function adjustImageCount() {
+    const screenWidth = window.innerWidth;
+    
+    if (screenWidth <= 600) {
+        imagesPerView = 1; // Show 1 image on mobile
+        isMobile = true;
     } else {
-      imageCount = 3;  // Large screen view: Show 3 images
+        imagesPerView = 3; // Show 3 images on larger screens
+        isMobile = false;
     }
-    updateImages();  // Update the displayed images
-  }
-  
-  // Function to shift images when scrolling
-  function shiftImages(direction) {
-    if (direction === "up") {
-      currentIndex = (currentIndex - 1 + images.length) % images.length; // Scroll up (previous images)
-    } else if (direction === "down") {
-      currentIndex = (currentIndex + 1) % images.length; // Scroll down (next images)
+    
+    updateCarousel();
+}
+
+// Function to update visible images in the carousel
+function updateCarousel() {
+    const imageWidth = images[0].getBoundingClientRect().width;
+    const spacing = imageWidth * 0.2; // 20% of image width as space
+    const offset = -(index * (imageWidth + spacing));
+    
+    track.style.transform = `translateX(${offset}px)`;
+}
+
+// Function to shift images when scrolling
+function shiftImages(direction) {
+    if (direction === "down") {
+        index = (index + 1) % images.length;
+    } else if (direction === "up") {
+        index = (index - 1 + images.length) % images.length;
     }
-  
-    // Adjust the images to display based on the new index
-    updateImages();
-  }
-  
-  // Function to update the images visible on screen
-  function updateImages() {
-    // First, hide all images
-    images.forEach((image) => {
-      document.getElementById(image).classList.remove("active");
-    });
-  
-    // Add new set of active images
-    for (let i = 0; i < imageCount; i++) {
-      document.getElementById(images[(currentIndex + i) % images.length]).classList.add("active");
-    }
-  }
-  
-  // Initialize the page with the first set of images
-  adjustImageCount();
-  
-  // Listen for window resizing
-  window.addEventListener("resize", adjustImageCount);
-  
-  // Add event listener for mouse wheel scrolling
-  window.addEventListener("wheel", (e) => {
-    if (e.deltaY > 0) {
-      shiftImages("down"); // Scroll down (next images)
+    
+    updateCarousel();
+}
+
+// Mouse Wheel Scroll Event
+window.addEventListener("wheel", (event) => {
+    if (event.deltaY > 0) {
+        shiftImages("down");
     } else {
-      shiftImages("up"); // Scroll up (previous images)
+        shiftImages("up");
     }
-  });
-  
+});
+
+// Mobile Touch Support
+let startX, endX;
+
+window.addEventListener("touchstart", (event) => {
+    startX = event.touches[0].clientX;
+});
+
+window.addEventListener("touchend", (event) => {
+    endX = event.changedTouches[0].clientX;
+
+    if (startX > endX) {
+        shiftImages("down"); // Swipe left
+    } else if (startX < endX) {
+        shiftImages("up"); // Swipe right
+    }
+});
+
+// Initialize
+window.addEventListener("resize", adjustImageCount);
+adjustImageCount();
