@@ -9,17 +9,29 @@ document.addEventListener("DOMContentLoaded", function () {
     // Adjust image size and layout based on the screen width
     function adjustImageSize() {
         const containerWidth = window.innerWidth * 0.9; // 5% margin on both sides
+        const containerHeight = window.innerHeight; // Full height of the viewport
         const spacing = containerWidth * 0.05; // 5% spacing between images
-        imagesPerView = window.innerWidth <= 600 ? 1 : 3;
         isMobile = window.innerWidth <= 600;
-
-        const imageWidth = (containerWidth - spacing * (imagesPerView - 1)) / imagesPerView;
-
-        images.forEach(img => {
-            img.style.width = `${imageWidth}px`;
-            img.style.marginRight = `${spacing}px`;
-        });
-
+    
+        if (isMobile) {
+            // For mobile, make the images smaller to fit
+            imagesPerView = 1;
+            const imageWidth = containerWidth - spacing; // No right margin for mobile
+            const imageHeight = containerHeight * 0.9; // Make images fit the height while maintaining the aspect ratio
+            images.forEach(img => {
+                img.style.width = `${imageWidth}px`;
+                img.style.height = `${imageHeight}px`;
+            });
+        } else {
+            // For desktop/tablet, continue using the 3-image view
+            imagesPerView = 3;
+            const imageWidth = (containerWidth - spacing * (imagesPerView - 1)) / imagesPerView;
+            images.forEach(img => {
+                img.style.width = `${imageWidth}px`;
+                img.style.marginRight = `${spacing}px`;
+            });
+        }
+    
         // Reset the track to start from the original images
         resetCarousel();
     }
