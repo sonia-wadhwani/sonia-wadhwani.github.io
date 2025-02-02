@@ -12,7 +12,7 @@
             <span class="name">Sonia Wadhwani</span>
         </div>
         <div class="header-right">
-            <a class="about-me" id="sonia1" onclick="showOverlay('overlaySonia')">About Me</a>
+            <a class="about-me" id="sonia1" onclick="showOverlayRight('overlaySonia')">About Me</a>
         </div>
     </header>
     
@@ -29,7 +29,7 @@
         </div>
 
         <div class="area-center">
-            <img src="images/reset.png" class="arrow" alt="Arrow">
+            <img src="images/reset.png" class="arrow" id="resetArrow" alt="Arrow" onclick="resetCards()">
         </div>
 
         <div class="area-right">
@@ -47,56 +47,44 @@
     <div id="overlay1" class="overlay">
         <div class="overlay-content">
             <span class="close-btn" onclick="closeOverlay('overlay1')">&times;</span>
-            <h2>Overlay 1 Content</h2>
-            <p>Sample text for Overlay 1.</p>
+            <iframe id="project1-frame" src="" frameborder="0"></iframe>
         </div>
     </div>
 
     <div id="overlay2" class="overlay">
         <div class="overlay-content">
             <span class="close-btn" onclick="closeOverlay('overlay2')">&times;</span>
-            <h2>Overlay 2 Content</h2>
-            <p>Sample text for Overlay 2.</p>
+            <iframe id="project2-frame" src="" frameborder="0"></iframe>
         </div>
     </div>
 
     <div id="overlay3" class="overlay">
         <div class="overlay-content">
             <span class="close-btn" onclick="closeOverlay('overlay3')">&times;</span>
-            <h2>Overlay 3 Content</h2>
-            <p>Sample text for Overlay 3.</p>
+            <iframe id="project3-frame" src="" frameborder="0"></iframe>
         </div>
     </div>
 
     <div id="overlay4" class="overlay">
         <div class="overlay-content">
             <span class="close-btn" onclick="closeOverlay('overlay4')">&times;</span>
-            <h2>Overlay 4 Content</h2>
-            <p>Sample text for Overlay 4.</p>
+            <iframe id="project4-frame" src="" frameborder="0"></iframe>
         </div>
     </div>
 
     <div id="overlay5" class="overlay">
         <div class="overlay-content">
             <span class="close-btn" onclick="closeOverlay('overlay5')">&times;</span>
-            <h2>Overlay 5 Content</h2>
-            <p>Sample text for Overlay 5.</p>
+            <iframe id="project5-frame" src="" frameborder="0"></iframe>
         </div>
     </div>
 
-    <div id="overlay6" class="overlay">
-        <div class="overlay-content">
-            <span class="close-btn" onclick="closeOverlay('overlay6')">&times;</span>
-            <h2>Overlay 6 Content</h2>
-            <p>Sample text for Overlay 6.</p>
-        </div>
-    </div>
+
 
     <div id="overlaySonia" class="overlay-right">
         <div class="overlay-content">
             <span class="close-btn" onclick="closeOverlayRight('overlaySonia')">&times;</span>
-            <h2>Sonia's Special Overlay</h2>
-            <p>Sample text for Sonia's overlay.</p>
+            <iframe id="aboutme-frame" src="" frameborder="0"></iframe>
         </div>
     </div>
 

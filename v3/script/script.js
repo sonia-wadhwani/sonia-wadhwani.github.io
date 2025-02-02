@@ -1,47 +1,99 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const cards = document.querySelectorAll('.card');
-    const transitionCards = document.querySelectorAll('.transition-card');
-    const mainContent = document.querySelector("main");
+document.addEventListener('DOMContentLoaded', () => {
+    const resetButton = document.getElementById('resetArrow');
+    const cardStack = document.querySelector('.card-stack');
 
-    function transitionCard(cardIndex) {
-        let clickedCard = cards[cardIndex - 1];
+    // Hide the reset button initially
+    resetButton.style.display = 'none';
 
-        // ✅ Do not hide "sonia1.jpg"
-        if (clickedCard.id !== "sonia1") {
-            clickedCard.style.display = 'none';
-            transitionCards[cardIndex - 1].style.display = 'block';
-        }
-    }
+    // Show the reset button when a card in the left stack is clicked
+    cardStack.addEventListener('click', () => {
+        resetButton.style.display = 'block';  // Show the reset button
+    });
 
-    cards.forEach((card, index) => {
-        card.addEventListener('click', function () {
-            transitionCard(index + 1);
-        });
+    // Ensure reset button triggers the resetCards function
+    resetButton.addEventListener('click', (e) => {
+        resetCards();
+        resetButton.style.display = 'none'; // Hide the reset button after reset
     });
 });
 
-// Function to show overlay and disable main content interaction
-function showOverlay(overlayId) {
-    document.getElementById(overlayId).style.left = "0"; // Slide overlay in
-    document.querySelector("main").classList.add("disabled"); // Disable clicks on main content
+// Function to reset cards
+function resetCards() {
+    const cardStack = document.querySelector('.card-stack');
+    const transitionStack = document.querySelector('.transition-stack');
+
+    // Reset the cards in the card stack to their original state
+    cardStack.querySelectorAll('.card').forEach((card, index) => {
+        card.style.display = 'block'; // Make sure all original cards are visible
+        card.style.transform = 'translateX(0)'; // Reset the position to its original state
+    });
+
+    // Reset the cards in the transition stack to their hidden state
+    transitionStack.querySelectorAll('.transition-card').forEach((card, index) => {
+        card.style.display = 'none'; // Hide all transition cards
+        card.style.transform = 'translateX(0)'; // Reset any transformations applied
+    });
 }
 
-
-// Function to close overlay and restore main content interaction
-function closeOverlay(overlayId) {
-    document.getElementById(overlayId).style.left = "100%"; // Slide overlay out
-    document.querySelector("main").classList.remove("disabled"); // Enable clicks on main content
+// Transition the clicked card
+function transitionCard(cardNumber) {
+    const card = document.getElementById(`card${cardNumber}`);
+    const transitionCard = document.getElementById(`card${cardNumber}a`);
+    
+    // Hide the original card and show the transition card
+    card.style.display = 'none';
+    transitionCard.style.display = 'block';
 }
 
-// Function to show overlay and disable main content interaction
+// Overlay logic for right transition
 function showOverlayRight(overlayId) {
-    document.getElementById(overlayId).style.left = "0"; // Slide overlay in
-    document.querySelector("main").classList.add("disabled"); // Disable clicks on main content
+    const overlay = document.getElementById(overlayId);
+    const iframe = document.getElementById('aboutme-frame');   
+    iframe.src = 'aboutme.html'; // Set the source to your aboutme.html file
+    overlay.style.left = '0';  // Make it slide in from the right
 }
 
-
-// Function to close overlay and restore main content interaction
 function closeOverlayRight(overlayId) {
-    document.getElementById(overlayId).style.left = "-100%"; // Slide overlay out
-    document.querySelector("main").classList.remove("disabled"); // Enable clicks on main content
+    const overlay = document.getElementById(overlayId);
+    const iframe = document.getElementById('aboutme-frame');
+    iframe.src = '';
+    overlay.style.left = '-100%';  // Slide it out again
+}
+
+// Overlay logic for left transition
+function showOverlay(overlayId) {
+    const overlay = document.getElementById(overlayId);
+       
+    if(overlayId='overlay1')
+    {
+        const iframe1 = document.getElementById('project1-frame');
+        iframe1.src = 'project1.html'; // Set the source to your aboutme.html file
+    }
+    if(overlayId='overlay2')
+    {
+        const iframe2 = document.getElementById('project2-frame');
+        iframe2.src = 'project2.html'; // Set the source to your aboutme.html file
+    }   
+    if(overlayId='overlay3')
+    {
+        const iframe3 = document.getElementById('project3-frame');
+        iframe3.src = 'project3.html'; // Set the source to your aboutme.html file
+    } 
+    if(overlayId='overlay4')
+    {
+        const iframe4 = document.getElementById('project4-frame');
+        iframe4.src = 'project4.html'; // Set the source to your aboutme.html file
+    } 
+    if(overlayId='overlay5')
+    {
+        const iframe5 = document.getElementById('project5-frame');
+        iframe5.src = 'project5.html'; // Set the source to your aboutme.html file
+    }     
+
+    overlay.style.left = '0';  // Show the overlay from the left
+}
+
+function closeOverlay(overlayId) {
+    const overlay = document.getElementById(overlayId);
+    overlay.style.left = '100%';  // Hide it to the right
 }

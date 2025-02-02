@@ -3,7 +3,7 @@ body {
     font-family: 'Oswald', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: black;
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -37,7 +37,7 @@ main {
     justify-content: space-between;
     align-items: center;
     flex-grow: 1;
-    padding: 20px;
+    padding: 0px;
     overflow: hidden;
     margin: 0 auto; /* Center main content */
     width: 100%;
@@ -72,6 +72,7 @@ main {
     height: 60vh;
 }
 
+/* Card Images */
 .card, .transition-card {
     width: 100%;
     height: auto;
@@ -114,8 +115,8 @@ html, body {
     position: fixed;
     top: 0;
     left: 100%; /* Initially off-screen */
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background: rgba(0, 0, 0, 1); /* Glossy black */
     color: white;
     display: flex;
@@ -130,8 +131,8 @@ html, body {
     position: fixed;
     top: 0;
     left: -100%; /* Initially off-screen */
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background: rgba(0, 0, 0, 1); /* Glossy black */
     color: white;
     display: flex;
@@ -144,8 +145,14 @@ html, body {
 
 /* Overlay Content */
 .overlay-content {
-    text-align: center;
-    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
 }
 
 /* 🔹 Close Button */
@@ -163,6 +170,17 @@ html, body {
     text-decoration: underline;
 }
 
+#aboutme-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+#project1-frame, #project2-frame, #project3-frame, #project4-frame, #project5-frame{
+    width: 100%;
+    height: 100%;
+
+
+}
 /* Responsive Design */
 @media (max-width: 768px) {
     main {
@@ -188,28 +206,34 @@ html, body {
 }
 
 /* Portrait Mode (width < height) */
-@media (max-width: 768px) and (orientation: portrait) {
+@media (orientation: portrait) {
     .area-left, .area-right {
-        height: 38%; /* Reduce the height of each stack a little more to 38% of the screen */
-        margin-bottom: 4%; /* Added space between stacks */
+        width: 45%;
+        height: 45%; /* Adjust the size of the areas */
     }
-
     .area-center {
-        height: 10%; /* 10% height for center area */
-        margin-bottom: 5%; /* Space below the center area */
+        width: 100%;
+        height: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
     }
 
-    main {
-        flex-direction: column;
-        height: 100%; /* Ensure the main area takes full height */
-        margin: 0 auto; /* Center the main content */
+    /* Ensure the reset button is clearly visible and clickable */
+    #resetArrow {
+        width: 60px;
+        height: 60px; /* Ensure the reset button has a decent size */
+        cursor: pointer;
+        z-index: 1000; /* Ensure it's above other content */
+        position: relative;
+        margin-top: 10px; /* Slight margin to prevent overlap */
     }
 
-    /* Adjust image size further for portrait mode */
-    .card, .transition-card {
-        width: 65%; /* Reduce image width to 65% of the available space */
-        height: auto; /* Keep aspect ratio */
-        max-height: 65%; /* Prevent images from becoming too large */
-        object-fit: contain;
+    /* If you have other specific content stacking on top, ensure this one is on top */
+    .card-stack, .transition-stack {
+        position: relative;
+        z-index: 0;
     }
 }
+
