@@ -14,21 +14,29 @@ document.addEventListener("DOMContentLoaded", function () {
         isMobile = window.innerWidth <= 600;
     
         if (isMobile) {
-            // For mobile, make the images smaller to fit
+            // For mobile, ensure only one image is visible and make the image smaller
             imagesPerView = 1;
-            const imageWidth = containerWidth - spacing; // No right margin for mobile
-            const imageHeight = containerHeight * 0.9; // Make images fit the height while maintaining the aspect ratio
+            const imageWidth = containerWidth; // Full width of the container
+            const imageHeight = containerHeight; // Take up full height to avoid scrollbars
+    
+            // Ensure the images take up the whole screen width and height
             images.forEach(img => {
                 img.style.width = `${imageWidth}px`;
                 img.style.height = `${imageHeight}px`;
+                img.style.marginRight = "0"; // No margin between images on mobile
             });
+    
+            // Remove vertical scrollbar
+            document.body.style.overflow = "hidden"; 
+    
         } else {
             // For desktop/tablet, continue using the 3-image view
             imagesPerView = 3;
             const imageWidth = (containerWidth - spacing * (imagesPerView - 1)) / imagesPerView;
+    
             images.forEach(img => {
                 img.style.width = `${imageWidth}px`;
-                img.style.marginRight = `${spacing}px`;
+                img.style.marginRight = `${spacing}px`; // Maintain the gap between images
             });
         }
     
