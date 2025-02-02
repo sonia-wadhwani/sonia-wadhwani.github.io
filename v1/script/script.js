@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
         track.style.transform = `translateX(0)`;
     }
 
-    // Shift images based on scroll direction (down or up)
+    // Shift images based on scroll direction
     function shiftImages(direction) {
         if (isScrolling) return; // Prevent multiple scrolls at once
         isScrolling = true;
@@ -51,54 +51,74 @@ document.addEventListener("DOMContentLoaded", function () {
         const spacing = imageWidth * 0.05;
         const totalWidth = imageWidth + spacing;
 
-        if (direction === "down") {
-            track.style.transition = "transform 0.5s ease-in-out";
-            track.style.transform = `translateX(${-totalWidth}px)`; // Scroll 1 image at a time
-        } else if (direction === "up") {
-            track.style.transition = "transform 0.5s ease-in-out";
-            track.style.transform = `translateX(${totalWidth}px)`; // Scroll 1 image at a time
+        track.style.transition = "transform 0.5s ease-in-out"; // Smooth transition
+
+        if (direction === "down" || direction === "right") {
+            track.style.transform = `translateX(${-totalWidth}px)`;
+        } else if (direction === "up" || direction === "left") {
+            track.style.transform = `translateX(${totalWidth}px)`;
         }
 
         setTimeout(() => {
-            // Move the first image to the end or vice versa to create a seamless loop
-            if (direction === "down") {
-                track.appendChild(track.firstElementChild); // Move the first to last
-            } else if (direction === "up") {
-                track.insertBefore(track.lastElementChild, track.firstElementChild); // Move the last to first
+            if (direction === "down" || direction === "right") {
+                track.appendChild(track.firstElementChild);
+            } else if (direction === "up" || direction === "left") {
+                track.insertBefore(track.lastElementChild, track.firstElementChild);
             }
-            track.style.transition = "none"; // Reset transition to immediate movement
-            track.style.transform = `translateX(0)`; // Reset to show the next set of images
-            isScrolling = false; // Allow scrolling again
-        }, 500); // Time matching the transition duration
+            track.style.transition = "none";
+            track.style.transform = `translateX(0)`;
+            isScrolling = false;
+        }, 500); // Duration matching the transition time (0.5s)
     }
 
-    // Handle scroll events (down and up)
+    // Handle Mouse & Touchpad Scroll Events (UP/DOWN and LEFT/RIGHT)
     window.addEventListener("wheel", (event) => {
-        // Clear the previous timeout to reset debounce
-        clearTimeout(scrollTimeout);
+        clearTimeout(scrollTimeout); // Clear the previous timeout to reset debounce
 
         // Debounce scroll to allow only one action at a time
         scrollTimeout = setTimeout(() => {
-            if (event.deltaY > 0) {
-                shiftImages("down");
+            if (Math.abs(event.deltaX) > Math.abs(event.deltaY)) {
+                if (event.deltaX > 0) {
+                    shiftImages("right");
+                } else {
+                    shiftImages("left");
+                }
             } else {
-                shiftImages("up");
+                if (event.deltaY > 0) {
+                    shiftImages("down");
+                } else {
+                    shiftImages("up");
+                }
             }
         }, 150); // Delay of 150ms to wait for the scroll movement to settle
     });
 
-    // Handle touch swipe on mobile
-    let startY;
+    // Handle Touchpad Gestures More Accurately
+    let lastTouchX = 0, lastTouchY = 0;
     window.addEventListener("touchstart", (event) => {
-        startY = event.touches[0].clientY;
+        lastTouchX = event.touches[0].clientX;
+        lastTouchY = event.touches[0].clientY;
     });
 
     window.addEventListener("touchend", (event) => {
-        let endY = event.changedTouches[0].clientY;
-        if (startY > endY) {
-            shiftImages("down");
-        } else {
-            shiftImages("up");
+        let touchX = event.changedTouches[0].clientX;
+        let touchY = event.changedTouches[0].clientY;
+        let deltaX = touchX - lastTouchX;
+        let deltaY = touchY - lastTouchY;
+
+        // Only trigger movement if the swipe distance is significant enough
+        if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 30) { // 30px swipe threshold
+            if (deltaX > 0) {
+                shiftImages("left");
+            } else {
+                shiftImages("right");
+            }
+        } else if (Math.abs(deltaY) > Math.abs(deltaX) && Math.abs(deltaY) > 30) { // 30px swipe threshold
+            if (deltaY > 0) {
+                shiftImages("down");
+            } else {
+                shiftImages("up");
+            }
         }
     });
 
@@ -107,56 +127,41 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("resize", adjustImageSize);
 });
 
-
 // Overlay logic for left transition
 function showOverlay(overlayId) {
     const overlay = document.getElementById(overlayId);
-       
-    if(overlayId='overlay1')
-    {
-        const iframe1 = document.getElementById('project1-frame');
-        iframe1.src = 'project1.html'; // Set the source to your aboutme.html file
+    
+    if (overlayId === 'overlay1') {
+        document.getElementById('project1-frame').src = 'project1.html';
+    } else if (overlayId === 'overlay2') {
+        document.getElementById('project2-frame').src = 'project2.html';
+    } else if (overlayId === 'overlay3') {
+        document.getElementById('project3-frame').src = 'project3.html';
+    } else if (overlayId === 'overlay4') {
+        document.getElementById('project4-frame').src = 'project4.html';
+    } else if (overlayId === 'overlay5') {
+        document.getElementById('project5-frame').src = 'project5.html';
     }
-    if(overlayId='overlay2')
-    {
-        const iframe2 = document.getElementById('project2-frame');
-        iframe2.src = 'project2.html'; // Set the source to your aboutme.html file
-    }   
-    if(overlayId='overlay3')
-    {
-        const iframe3 = document.getElementById('project3-frame');
-        iframe3.src = 'project3.html'; // Set the source to your aboutme.html file
-    } 
-    if(overlayId='overlay4')
-    {
-        const iframe4 = document.getElementById('project4-frame');
-        iframe4.src = 'project4.html'; // Set the source to your aboutme.html file
-    } 
-    if(overlayId='overlay5')
-    {
-        const iframe5 = document.getElementById('project5-frame');
-        iframe5.src = 'project5.html'; // Set the source to your aboutme.html file
-    }     
 
-    overlay.style.left = '0';  // Show the overlay from the left
+    overlay.style.left = '0';
 }
 
 function closeOverlay(overlayId) {
     const overlay = document.getElementById(overlayId);
-    overlay.style.left = '100%';  // Hide it to the right
+    overlay.style.left = '100%';
 }
 
 // Overlay logic for right transition
 function showOverlayRight(overlayId) {
     const overlay = document.getElementById(overlayId);
-    const iframe = document.getElementById('aboutme-frame');   
-    iframe.src = 'aboutme.html'; // Set the source to your aboutme.html file
-    overlay.style.left = '0';  // Make it slide in from the right
+    const iframe = document.getElementById('aboutme-frame');
+    iframe.src = 'aboutme.html';
+    overlay.style.left = '0';
 }
 
 function closeOverlayRight(overlayId) {
     const overlay = document.getElementById(overlayId);
     const iframe = document.getElementById('aboutme-frame');
     iframe.src = '';
-    overlay.style.left = '-100%';  // Slide it out again
+    overlay.style.left = '-100%';
 }
