@@ -31,49 +31,54 @@ header {
     text-decoration: none;
 }
 
-/* Card Stack */
+/* Main Layout */
 main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+    padding: 20px;
+    overflow: hidden;
+    margin: 0 auto; /* Center main content */
+    width: 100%;
+}
+
+/* Area Layout */
+.area-left, .area-right {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex: 1;
+    width: 45%;
+    height: 100%;
     position: relative;
-    z-index: 1;
-    transition: opacity 0.3s ease;
 }
 
-/* 🔹 When overlay is open, disable main content */
-main.disabled {
-    pointer-events: none;  /* Blocks clicks */
-    opacity: 0.2;  /* Slight fade effect */
+.area-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
 }
 
-/* Card Stacks */
+/* Card Stack */
 .card-stack, .transition-stack {
     position: relative;
-    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Centers the card stack vertically */
+    width: 100%; /* Adjust the width */
+    max-width: 400px; /* Limit the max width of the card stack */
     height: 60vh;
-    margin-left: 15%;
-    margin-top: 20px;
 }
 
-.card {
-    width: auto;
-    height: 100%;
+.card, .transition-card {
+    width: 100%;
+    height: auto;
     position: absolute;
     transition: transform 0.3s ease;
     object-fit: contain;
     box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.4);
-}
-
-/* Transition Stack */
-.transition-card {
-    width: auto;
-    height: 100%;
-    position: absolute;
-    transition: transform 0.3s ease;
-    object-fit: contain;
-    display: none;
 }
 
 /* Stacking Effect */
@@ -91,12 +96,20 @@ main.disabled {
 .transition-card:nth-child(2) { z-index: 2; left: 20px; }
 .transition-card:nth-child(1) { z-index: 1; left: 25px; }
 
+/* Arrow Image Styling */
+.arrow {
+    display: block;
+    margin: 20px auto; /* Centers the arrow horizontally */
+    width: 100px; /* You can adjust the size of the arrow */
+    height: auto;
+}
+
 /* Prevent scrollbar */
 html, body {
     overflow: hidden;
 }
 
-/* 🔹 Overlay Styles */
+/* Overlay Styles */
 .overlay {
     position: fixed;
     top: 0;
@@ -150,10 +163,53 @@ html, body {
     text-decoration: underline;
 }
 
-/* Arrow Image Styling */
-.arrow {
-    display: block;
-    margin: 20px auto; /* Centers the arrow horizontally */
-    width: 100px; /* You can adjust the size of the arrow */
-    height: auto;
+/* Responsive Design */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+        height: 100%; /* Ensure main area takes full height */
+        margin: 0 auto; /* Center main content */
+    }
+
+    .area-left, .area-right {
+        width: 100%;
+        height: auto;
+        justify-content: center;  /* Center cards in mobile view */
+        margin-bottom: 10px; /* Added some spacing between stacks */
+    }
+
+    .area-center {
+        width: 100%;
+    }
+
+    .card-stack, .transition-stack {
+        max-width: 100%; /* Allow the stacks to take full width on mobile */
+    }
+}
+
+/* Portrait Mode (width < height) */
+@media (max-width: 768px) and (orientation: portrait) {
+    .area-left, .area-right {
+        height: 38%; /* Reduce the height of each stack a little more to 38% of the screen */
+        margin-bottom: 4%; /* Added space between stacks */
+    }
+
+    .area-center {
+        height: 10%; /* 10% height for center area */
+        margin-bottom: 5%; /* Space below the center area */
+    }
+
+    main {
+        flex-direction: column;
+        height: 100%; /* Ensure the main area takes full height */
+        margin: 0 auto; /* Center the main content */
+    }
+
+    /* Adjust image size further for portrait mode */
+    .card, .transition-card {
+        width: 65%; /* Reduce image width to 65% of the available space */
+        height: auto; /* Keep aspect ratio */
+        max-height: 65%; /* Prevent images from becoming too large */
+        object-fit: contain;
+    }
 }

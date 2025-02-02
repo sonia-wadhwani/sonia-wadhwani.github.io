@@ -12,28 +12,34 @@
             <span class="name">Sonia Wadhwani</span>
         </div>
         <div class="header-right">
-            <a  class="about-me" id="sonia1" onclick="showOverlay('overlaySonia')">About Me</a>
+            <a class="about-me" id="sonia1" onclick="showOverlay('overlaySonia')">About Me</a>
         </div>
     </header>
     
     <main>
-        <div class="card-stack">
-            <img src="images/card1.jpg" class="card" id="card1" onclick="transitionCard(1)">
-            <img src="images/card2.jpg" class="card" id="card2" onclick="transitionCard(2)">
-            <img src="images/card3.jpg" class="card" id="card3" onclick="transitionCard(3)">
-            <img src="images/card4.jpg" class="card" id="card4" onclick="transitionCard(4)">
-            <img src="images/card5.jpg" class="card" id="card5" onclick="transitionCard(5)">
-            <img src="images/sonia1.jpg" class="card" id="sonia1" onclick="showOverlayRight('overlaySonia')">
+        <div class="area-left">
+            <div class="card-stack">
+                <img src="images/card1.jpg" class="card" id="card1" onclick="transitionCard(1)">
+                <img src="images/card2.jpg" class="card" id="card2" onclick="transitionCard(2)">
+                <img src="images/card3.jpg" class="card" id="card3" onclick="transitionCard(3)">
+                <img src="images/card4.jpg" class="card" id="card4" onclick="transitionCard(4)">
+                <img src="images/card5.jpg" class="card" id="card5" onclick="transitionCard(5)">
+                <img src="images/sonia1.jpg" class="card" id="sonia1" onclick="showOverlayRight('overlaySonia')">
+            </div>
         </div>
 
-        <img src="images/reset.png" class="arrow" alt="Arrow">
+        <div class="area-center">
+            <img src="images/reset.png" class="arrow" alt="Arrow">
+        </div>
 
-        <div class="transition-stack">
-            <img src="images/card1a.jpg" class="transition-card" id="card1a" style="display: none;" onclick="showOverlay('overlay1')">
-            <img src="images/card2a.jpg" class="transition-card" id="card2a" style="display: none;" onclick="showOverlay('overlay2')">
-            <img src="images/card3a.jpg" class="transition-card" id="card3a" style="display: none;" onclick="showOverlay('overlay3')">
-            <img src="images/card4a.jpg" class="transition-card" id="card4a" style="display: none;" onclick="showOverlay('overlay4')">
-            <img src="images/card5a.jpg" class="transition-card" id="card5a" style="display: none;" onclick="showOverlay('overlay5')">
+        <div class="area-right">
+            <div class="transition-stack">
+                <img src="images/card1a.jpg" class="transition-card" id="card1a" style="display: none;" onclick="showOverlay('overlay1')">
+                <img src="images/card2a.jpg" class="transition-card" id="card2a" style="display: none;" onclick="showOverlay('overlay2')">
+                <img src="images/card3a.jpg" class="transition-card" id="card3a" style="display: none;" onclick="showOverlay('overlay3')">
+                <img src="images/card4a.jpg" class="transition-card" id="card4a" style="display: none;" onclick="showOverlay('overlay4')">
+                <img src="images/card5a.jpg" class="transition-card" id="card5a" style="display: none;" onclick="showOverlay('overlay5')">
+            </div>
         </div>
     </main>
 
