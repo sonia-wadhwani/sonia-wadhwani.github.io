@@ -6,27 +6,42 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    overflow: hidden;
+    font-family: 'Oswald', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     height: 100vh;
-    background-color: white;
+    justify-content: flex-start;
 }
+
 
 /* Header */
 header {
-    width: 100%;
-    padding: 10px;
     display: flex;
-    justify-content: space-between; /* Space out items */
-    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
     background-color: white;
-    position: fixed;
-    top: 0;
+    position: relative;
     z-index: 10;
+}
+
+.header-left .name {
+    font-size: 24px;
+    color: #000;
+}
+
+.header-right .about-me {
+    font-size: 20px;
+    color: #000;
+    text-decoration: none;
+}
+
+.name {
+    text-decoration: none; /* Removes underline */
+    color: black; /* Ensures text color remains */
+    font-weight: bold; /* Optional: Makes it bold */
 }
 
 .logo {
@@ -109,4 +124,76 @@ header span {
     color: black;
     cursor: pointer;
     text-decoration: underline;
+}
+
+/* Overlay Styles */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 100%; /* Initially off-screen */
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 1); /* Glossy black */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: left 0.5s ease-in-out;
+    z-index: 1000;  /* Always on top */
+    opacity: 100%;
+}
+
+.overlay-right {
+    position: fixed;
+    top: 0;
+    left: -100%; /* Initially off-screen */
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 1); /* Glossy black */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: left 0.5s ease-in-out;
+    z-index: 1000;  /* Always on top */
+    opacity: 100%;
+}
+
+/* Overlay Content */
+.overlay-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+/* 🔹 Close Button */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 24px;
+    color: black;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.close-btn:hover {
+    text-decoration: none;
+}
+
+#aboutme-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+#project1-frame, #project2-frame, #project3-frame, #project4-frame, #project5-frame{
+    width: 100%;
+    height: 100%;
+
+
 }

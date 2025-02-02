@@ -106,3 +106,57 @@ document.addEventListener("DOMContentLoaded", function () {
     adjustImageSize();
     window.addEventListener("resize", adjustImageSize);
 });
+
+
+// Overlay logic for left transition
+function showOverlay(overlayId) {
+    const overlay = document.getElementById(overlayId);
+       
+    if(overlayId='overlay1')
+    {
+        const iframe1 = document.getElementById('project1-frame');
+        iframe1.src = 'project1.html'; // Set the source to your aboutme.html file
+    }
+    if(overlayId='overlay2')
+    {
+        const iframe2 = document.getElementById('project2-frame');
+        iframe2.src = 'project2.html'; // Set the source to your aboutme.html file
+    }   
+    if(overlayId='overlay3')
+    {
+        const iframe3 = document.getElementById('project3-frame');
+        iframe3.src = 'project3.html'; // Set the source to your aboutme.html file
+    } 
+    if(overlayId='overlay4')
+    {
+        const iframe4 = document.getElementById('project4-frame');
+        iframe4.src = 'project4.html'; // Set the source to your aboutme.html file
+    } 
+    if(overlayId='overlay5')
+    {
+        const iframe5 = document.getElementById('project5-frame');
+        iframe5.src = 'project5.html'; // Set the source to your aboutme.html file
+    }     
+
+    overlay.style.left = '0';  // Show the overlay from the left
+}
+
+function closeOverlay(overlayId) {
+    const overlay = document.getElementById(overlayId);
+    overlay.style.left = '100%';  // Hide it to the right
+}
+
+// Overlay logic for right transition
+function showOverlayRight(overlayId) {
+    const overlay = document.getElementById(overlayId);
+    const iframe = document.getElementById('aboutme-frame');   
+    iframe.src = 'aboutme.html'; // Set the source to your aboutme.html file
+    overlay.style.left = '0';  // Make it slide in from the right
+}
+
+function closeOverlayRight(overlayId) {
+    const overlay = document.getElementById(overlayId);
+    const iframe = document.getElementById('aboutme-frame');
+    iframe.src = '';
+    overlay.style.left = '-100%';  // Slide it out again
+}

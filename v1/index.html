@@ -10,22 +10,76 @@
 
     <!-- Header -->
     <header>
-        <img src="images/logo.png" class="logo" alt="Logo" onclick="window.location.reload();">
-        <span class="about-me-link" onclick="window.location.href='aboutme.html';">About Me</span>
+        <div class="header-left">
+            <a href="index.html" class="name">Sonia Wadhwani</a>
+        </div>
+        <div class="header-right">
+            <a class="about-me" id="sonia1" onclick="showOverlayRight('overlaySonia')">About Me</a>
+        </div>
     </header>
 
     <!-- Image Carousel Container -->
     <div class="carousel">
         <div class="carousel-track">
-            <img src="images/card1.jpg" class="carousel-item" id="image1" onclick="window.location.href='project1.html';">
-            <img src="images/card2.jpg" class="carousel-item" id="image2" onclick="window.location.href='project2.html';">
-            <img src="images/card3.jpg" class="carousel-item" id="image3" onclick="window.location.href='project3.html';">
-            <img src="images/card4.jpg" class="carousel-item" id="image4" onclick="window.location.href='project4.html';">
-            <img src="images/card5.jpg" class="carousel-item" id="image5" onclick="window.location.href='project5.html';">
-            <img src="images/card6.jpg" class="carousel-item" id="image6" onclick="window.location.href='project6.html';">
+            <img src="images/card1.jpg" class="carousel-item" id="image1" onclick="showOverlay('overlay1')">
+            <img src="images/card2.jpg" class="carousel-item" id="image2" onclick="showOverlay('overlay2')">
+            <img src="images/card3.jpg" class="carousel-item" id="image3" onclick="showOverlay('overlay3')">
+            <img src="images/card4.jpg" class="carousel-item" id="image4" onclick="showOverlay('overlay4')">
+            <img src="images/card5.jpg" class="carousel-item" id="image5" onclick="showOverlay('overlay5')">
+            <img src="images/card6.jpg" class="carousel-item" id="image6" onclick="showOverlay('overlay6')">
         </div>
     </div>
 
-    <script src="js/script.js"></script>
+    <!-- Overlay Sections -->
+    <div id="overlay1" class="overlay">
+        <div class="overlay-content">
+            <span class="close-btn" onclick="closeOverlay('overlay1')">&times;</span>
+            <iframe id="project1-frame" src="" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <div id="overlay2" class="overlay">
+        <div class="overlay-content">
+            <span class="close-btn" onclick="closeOverlay('overlay2')">&times;</span>
+            <iframe id="project2-frame" src="" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <div id="overlay3" class="overlay">
+        <div class="overlay-content">
+            <span class="close-btn" onclick="closeOverlay('overlay3')">&times;</span>
+            <iframe id="project3-frame" src="" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <div id="overlay4" class="overlay">
+        <div class="overlay-content">
+            <span class="close-btn" onclick="closeOverlay('overlay4')">&times;</span>
+            <iframe id="project4-frame" src="" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <div id="overlay5" class="overlay">
+        <div class="overlay-content">
+            <span class="close-btn" onclick="closeOverlay('overlay5')">&times;</span>
+            <iframe id="project5-frame" src="" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <div id="overlay6" class="overlay">
+        <div class="overlay-content">
+            <span class="close-btn" onclick="closeOverlay('overlay5')">&times;</span>
+            <iframe id="project5-frame" src="" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <div id="overlaySonia" class="overlay-right">
+        <div class="overlay-content">
+            <span class="close-btn" onclick="closeOverlayRight('overlaySonia')">&times;</span>
+            <iframe id="aboutme-frame" src="" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <script src="script/script.js"></script>
 </body>
 </html>
