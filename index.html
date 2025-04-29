@@ -1,0 +1,195 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <!-- Header-->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">   
+        <title>Sonia Wadhwani</title>
+        <link rel="stylesheet" href="css/style.css"> </head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/p5.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/addons/p5.sound.min.js"></script>        
+    </head>
+    <!-- Body main content-->
+    <body>
+        <header>
+            <a href="index.html">
+                <img src="images/logo.png" alt="Logo" class="logo">
+            </a>
+            <nav>
+                <a href="#about-me">About Me</a>
+                <a href="#projects">Projects</a>
+                <a href="#my-art">My Art</a>
+                <a href="#lets-talk">Let's Talk</a>
+            </nav>
+        </header>
+        <!-- Left Section to show dynamic text and image-->
+        <main>
+            <section class="left-section">
+                <p class="large-text-l1" id="typewriterLine1"></p><br>
+                <p class="large-text-l2" id="typewriterLine2"></p><br><br>
+                <p class="body-text-l3" id="typewriterLine3"></p><br>
+            </section>
+            <section class="right-section">
+                <img src="images/sonia.png" alt="Sonia Wadhwani">
+            </section>
+        </main>
+        <!-- About me section-->
+        <section id="about-me">
+            <div class="about-me">
+                <h2>About Me</h2>
+                <p class="timeline-title"><strong>My Timeline...</strong></p>
+                <div class="timeline">
+                    <div class="milestone milestone-1"></div>
+                    <div class="milestone milestone-2"></div>
+                    <div class="milestone milestone-3"></div>
+                    <div class="milestone-text milestone-1-text">
+                        Secondary School<br>DAV Public School<br>2020
+                    </div>
+                    <div class="milestone-text milestone-2-text">
+                        High Secondary<br>SNBP International School<br>2022
+                    </div>
+                    <div class="milestone-text milestone-3-text">
+                        B. Design<br>Flame University<br>2027
+                    </div>
+                </div>
+            </div> 
+            <br>   
+        </section>
+        <!-- Skills section-->
+        <section id="skills">
+            <br>
+            <h2>Tools & Skills</h2>
+            
+            <div class="skill-animation" id="animation-container">
+                <div class="skill-circle circle-1"><p>HTML</p></div>
+                <div class="skill-circle circle-2"><p>CSS</p></div>
+                <div class="skill-circle circle-3"><p>JavaScript</p></div>
+                <div class="skill-circle circle-4"><p>P5JS</p></div>
+                <div class="skill-circle circle-5"><p>Python</p></div>
+                <div class="skill-circle circle-6"><p>Canva</p></div>
+                <div class="skill-circle circle-7"><p>Photoshop</p></div>
+                <div class="skill-circle circle-8"><p>Adobe Illustrator</p></div>
+                <div class="skill-circle circle-9"><p>Figma</p></div>
+                <div class="skill-circle circle-10"><p>Powerpoint</p></div>
+            </div>
+            <br>
+        </section>
+        <!-- Project section-->
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project-box">
+                <img src="images/projectscratch.png" alt="Scratch Project" class="project-image" id="project1">
+                <img src="images/projectp5js.png" alt="P5JS Project" class="project-image" id="project2">
+                <img src="images/projectpython.png" alt="Python Project" class="project-image" id="project3">
+                <img src="images/projecteod.png" alt="Elements of Design Project" class="project-image" id="project4">
+                <img src="images/projectbook.png" alt="Book Project" class="project-image" id="project5">
+                <img src="images/projectflexhub.png" alt="Flexhub Project" class="project-image" id="project6">
+                <!--<div class="project-title" id="project-title">Scratch Project - Parallel Parking</div>-->
+            </div>
+            <div class="thumbnail-container">
+                <img src="images/projectscratchtn.png" alt="Scratch Thumbnail" class="thumbnail" onclick="openModal('project-scratch.html','80%','70%')">
+                <img src="images/projectp5jstn.png" alt="P5JS Thumbnail" class="thumbnail" onclick="openModal('project-p5js.html','55%','80%')">
+                <img src="images/projectpythontn.png" alt="Python Thumbnail" class="thumbnail" onclick="openModal('project-python.html','90%','75%')">
+                <img src="images/projecteodtn.png" alt="EOD Thumbnail" class="thumbnail" onclick="openModal('project-eod.html','60%','70%')">
+                <img src="images/projectbooktn.png" alt="Book Thumbnail" class="thumbnail" onclick="openModal('project-book.html','45%','70%')">
+                <img src="images/projectflexhubtn.png" alt="Flexhub Thumbnail" class="thumbnail" onclick="openCustomWindow('https://flexhub.work', '1200', '800')">
+            </div>
+        </section>
+        <div id="modal" class="modal">
+            <div id="modalContent" class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <iframe id="modalIframe" src="" frameborder="0"></iframe>
+            </div>
+        </div>
+        <!-- My-art section-->
+        <section id="my-art">
+            <h2>My Art</h2>
+            <div class="art-gallery">
+                <script src="script/myart.js"></script>
+            </div>
+        
+            <div id="overlay" class="overlay">
+                <span class="overlay-close" onclick="closeOverlay()">&times;</span>
+                <div class="overlay-content">
+                    <img id="overlayImage" src="" alt="">
+                    <div class="overlay-text">
+                        <h3 id="overlayName"></h3>
+                        <p id="overlayDescription"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Lets Talk section-->
+        <section id="lets-talk">
+            <h2>Let's Talk</h2>
+            <div class="contact-container">
+                <!-- Left Column with Two Accordions -->
+                <div class="contact-left">
+                    <div class="accordion">
+                        <!-- Contact Information Accordion (Open by Default) -->
+                        <div class="accordion-item active">
+                            <button>Contact Information <span>-</span></button>
+                            <div class="accordion-content" style="display: block;margin-bottom: 45px;">
+                                <p><strong>Name:</strong> Sonia Wadhwani</p>
+                                <p><strong>Email:</strong> 
+                                    <a href="mailto:sonia.wadhwani@flame.edu.in">sonia.wadhwani@flame.edu.in</a>
+                                </p>
+                            </div>
+                        </div>
+        
+                        <!-- Social Media Accordion (Open by Default) -->
+                        <div class="accordion-item active">
+                            <button>Social Media <span>-</span></button>
+                            <div class="accordion-content contact-links" style="display: block;">
+                                <a href="https://www.instagram.com/soniawadhwani_/" target="_blank">
+                                    <img src="images/insta.png" alt="Instagram"> Instagram
+                                </a>
+                                <a href="https://www.behance.net/soniawadhwani" target="_blank">
+                                    <img src="images/behance.png" alt="Behance"> Behance
+                                </a>
+                                <a href="https://www.linkedin.com/in/soniawadhwani/" target="_blank">
+                                    <img src="images/linkedin.png" alt="LinkedIn"> LinkedIn
+                                </a>
+                                <a href="https://in.pinterest.com/soniawadhwani_/" target="_blank">
+                                    <img src="images/pinterest.png" alt="Pinterest"> Pinterest
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Right Column with Map Accordion -->
+                <div class="contact-right">
+                    <div class="accordion">
+                        <div class="accordion-item active">
+                            <button>Location <span>-</span></button>
+                            <div class="accordion-content" style="display: block;">
+                                <div class="map-container">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3774.3318833900234!2d73.72916350000001!3d18.5233129!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bc338f698dd1:0x26bb10488cf7fe3c!2sFLAME+University!5e0!3m2!1sen!2sin!4v1668517741216!16s%2Fg%2F11bw7s1qz1?entry=ttu&g_ep=EgoyMDI0MTExMS4wIKXMDSoASAFQAw%3D%3D" allowfullscreen="" loading="lazy"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer-->
+        <section id="footer">
+            <footer>
+                 <p style="margin-right: 20px; text-align: center;"><center>&copy; Sonia Wadhwani 2024</center></p>
+            </footer>
+        </section>
+        </body>
+
+        <!-- Scripts for different sections these are at the bottom as they manipulate the elements created above-->
+        <script src="script/homeanimatedtext.js"></script>
+        <script src="script/projects.js"></script>
+        <script src="script/myart.js"></script>
+
+    </body>
+
+    </html>

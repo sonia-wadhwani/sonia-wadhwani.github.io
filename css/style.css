@@ -1,0 +1,765 @@
+/* Global Styles */
+body {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    margin: 0;
+    font-family: 'Raleway';
+    display: flex;
+    flex-direction: column;
+    scroll-behavior: smooth;
+    background-color: #EFD5C3;
+}
+
+
+/* Main Content Container */
+main {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    height: 115vh;
+    margin: 0 auto;
+    padding-top: 70px; /* Match the header height */
+    box-sizing: border-box;
+    /* Remove the fixed height to allow natural scrolling */
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    padding-top: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background-color: #EFD5C3;
+    z-index: 1000;
+    box-sizing: border-box;
+    /*box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);*/
+}
+
+/* Navigation Styles */
+nav {
+    display: flex;
+    gap: 15px;
+    flex-wrap: nowrap; /* Prevents wrapping */
+}
+
+/* Style for Navigation Links */
+nav a {
+    text-decoration: none;
+    color: black;
+    font-family: 'Georgia';
+    cursor: pointer;
+}
+
+header a {
+    text-decoration: none;
+    color: black;
+    font-family: 'Raleway';
+    margin: 0 15px;
+    cursor: pointer;
+}
+
+.logo {
+    width: 120px;
+    height: 60px;
+    padding-left: 20px;
+}
+
+/* Main Content Sections */
+
+.left-section {
+    flex: 1;
+    padding: 20px 40px;
+    overflow: hidden;
+}
+
+.right-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.right-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center center;
+}
+/* Typography Styles */
+.large-text-l1 {
+    font-family: 'Georgia';
+    line-height: 0.9;
+    margin-bottom: 5px;
+    display: inline-block;
+    overflow: hidden;
+    font-size: calc(5.5vw);
+    margin-top: 120px;
+}
+
+.large-text-l2 {
+    font-family: 'Georgia';
+    line-height: 0.9;
+    margin-bottom: 5px;
+    display: inline-block;
+    overflow: hidden;
+    font-size: calc(5.5vw);
+    margin-top: 12px;
+}
+
+.body-text-l3 {
+    font-family: 'Raleway';
+    line-height: 0.9;
+    margin-bottom: 5px;
+    display: inline-block;
+    overflow: hidden;
+    font-size: calc(1.75vw);
+    margin-top: 5px;
+    line-height: 1.5;
+}
+
+.about-me, #skills, #projects, #my-art {
+    width: 100vw; /* Ensure content doesn’t overflow viewport */
+    box-sizing: border-box;
+}
+
+/* Section Styles */
+/* About Me Section */
+#about-me {
+    padding: 50px 0px ;
+    padding-top: 0px;
+    background-color: #839791;
+    text-align: center;
+    width: 100%;
+    margin-left: 0 0;
+}
+
+#about-me h2 {
+    color: #EFD5C3;
+    font-size: 5em;
+    font-family: 'Raleway';
+    margin-bottom: 50px;
+    margin-left: 10%; /* Aligns with About Me title */
+    text-align: left; /* Align text to the left */
+    padding-bottom: 0px;
+}
+/* Timeline Section */
+/* Timeline */
+.timeline {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    height: 5px;
+    background-color: #EFD5C3;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    padding-top: 0px;
+    margin-top: 10px;
+}
+
+
+.timeline-title {
+    padding-bottom: 0px;
+    padding-top: 0px;
+    font-size: 2em;
+    margin-bottom: 40px;
+    color: #EFD5C3;
+    font-family: 'Raleway';
+}
+
+.milestone {
+    position: absolute;
+    top: -7px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #000;
+}
+
+.milestone-1 {
+    left: 10%;
+}
+
+.milestone-2 {
+    left: 50%;
+}
+
+.milestone-3 {
+    left: 90%;
+}
+
+.milestone-text {
+    position: absolute;
+    font-size: 0.9em;
+    color: #EFD5C3;
+    text-align: center;
+    transform: translateX(-50%);
+    margin-top: 20px;
+}
+
+.milestone-1-text {
+    left: 10%;
+}
+
+.milestone-2-text {
+    left: 50%;
+}
+
+.milestone-3-text {
+    left: 90%;
+}
+
+
+/* Skills Section */
+#skills {
+    padding: 40px 0px;
+    background-color: #839791;
+    text-align: center;
+    width: 100vw;
+    margin-bottom: 10px;
+}
+
+#skills h2 {
+    padding-bottom: 0px;
+    padding-top: 0px;
+    font-size: 2em;
+    margin-bottom: 60px;
+    color: #EFD5C3;
+    font-family: 'Raleway';
+    width: 100vw;
+}
+
+.skill-item {
+    font-size: 1.5em;
+    color: #EFD5C3;
+    margin: 0 0;
+    font-family: 'Raleway';
+}
+
+/* Animation */
+.skill-animation {
+    position: relative;
+    width: 80vw;
+    height: 30vh;
+    background-color: rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.skill-circle {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: black;
+    font-family: 'Raleway';
+    font-size: 1em;
+    text-align: center;
+    transition: transform 1s ease-in-out;
+}
+
+/* Circle colors and sizes*/
+.circle-1 { background-color: #E5D9F2; width: 90px; height: 90px; top: 15%; left: 20%; animation: moveCircles 5s infinite;}
+.circle-2 { background-color: #A594F9; width: 120px; height: 120px; top: 30%; left: 30%; animation: moveCircles 7s infinite;}
+.circle-3 { background-color: #FF90BC; width: 100px; height: 100px; top: 30%; left: 40%; animation: moveCircles 3s infinite;}
+.circle-4 { background-color: #EEC759; width: 130px; height: 130px; top: 10%; left: 70%; animation: moveCircles 6s infinite;}
+.circle-5 { background-color: #a1d6b2; width: 110px; height: 110px; top: 25%; left: 85%; animation: moveCircles 6s infinite;}
+.circle-6 { background-color: #dd614a; width: 110px; height: 110px; top: 2%; left: 2%; animation: moveCircles 5s infinite;}
+.circle-7 { background-color: #ffcf81; width: 110px; height: 110px; top: 15%; left: 30%; animation: moveCircles 9s infinite;}
+.circle-8 { background-color: #F6FDC3; width: 150px; height: 150px; top: 5%; left: 50%; animation: moveCircles 8s infinite; }
+.circle-9 { background-color: #CBFFA9; width: 80px; height: 80px; top: 40%; left: 10%; animation: moveCircles 5s infinite;}
+.circle-10 { background-color: #FDCEDF; width: 110px; height: 110px; top: 25%; left: 70%; animation: moveCircles 4s infinite;}       
+
+/* Projects Section */
+#projects {
+    padding: 50px 20px; /* Reduced padding */
+    background-color: #EFD5C3;
+    text-align: center;
+}
+
+
+#projects h2 {
+    color: #001011;
+    font-size: 5em;
+    font-family: 'Raleway';
+    margin-bottom: 30px;
+    margin-top: 20px;
+    margin-left: 10%; /* Aligns with About Me title */
+    text-align: left; /* Align text to the left */
+    padding-bottom: 0px;
+}
+
+.project-box {
+    position: relative;
+    width: 55%;
+    height: 68vh;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 0px;
+}
+
+.project-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensures the image scales to fit without cropping */
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.project-title {
+    position: absolute;
+    bottom: 50px; /* Adjusted from 20px to move it up slightly */
+    left: 150px;
+    font-size: 1.5em;
+    color: white;
+    font-family: 'Raleway';
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px 20px;
+    border-radius: 5px;
+    
+}
+
+/* Thumbnails below the project */
+
+.thumbnail-container {
+    width: 55%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 10px auto;
+    margin-bottom: 40px;
+    margin-top: 40px;
+
+}
+
+.thumbnail {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.3s;
+}
+
+.thumbnail.active {
+    border-color: #839791;
+}
+
+
+
+
+/* Animating skills */
+@keyframes moveCircles {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    25% {
+        transform: translate(100%, 0);
+    }
+
+    50% {
+        transform: translate(100%, 100%);
+    }
+
+    75% {
+        transform: translate(0, 100%);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+/* Modal Dialog used in MyArt */
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    position: relative;
+    width: 75vw; /* Default to 75% of the viewport width */
+    height: 75vh; /* Default to 75% of the viewport height */
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    /*box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);*/
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+/* My Art Section */
+
+#my-art {
+    padding: 50px 0px;
+    background-color: #839791;
+    text-align: center;
+}
+
+#my-art h2 {
+    color: #EFD5C3;
+    font-size: 5em;
+    font-family: 'Raleway';
+    margin-bottom: 30px;
+    margin-top: 20px;
+    margin-left: 10%; /* Aligns with About Me title */
+    text-align: left; /* Align text to the left */
+}
+
+.art-gallery {
+    column-count: 4; /* Set number of columns */
+    column-gap: 15px; /* Space between columns */
+    width: 55%;
+    margin: 0 auto;
+}
+
+.art-item {
+    break-inside: avoid; /* Prevent images from breaking across columns */
+    margin-bottom: 15px; /* Space between rows */
+}
+.art-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+
+.art-item img:hover {
+    transform: scale(1.05);
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+}
+
+.overlay-content {
+    position: relative;
+    max-width: 80%;
+    max-height: 80%;
+    text-align: center;
+}
+
+.overlay img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 70%;
+    border-radius: 8px;
+}
+
+.overlay-text {
+    background-color: #EFD5C3;
+    color: #000;
+    font-family: 'Raleway';
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.overlay-close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+}
+
+
+
+
+/* Lets Talk Section */
+#lets-talk {
+    padding: 40px;
+    background-color: #EFD5C3;
+    
+}
+
+#lets-talk h2 {
+    color: #001011;
+    font-size: 5em;
+    font-family: 'Raleway';
+    margin-bottom: 50px;
+    margin-top: 30px;
+    margin-left: 10%; /* Aligns with About Me title */
+    text-align: left; /* Align text to the left */
+}
+
+.contact-container {
+    display: flex;
+    gap: 20px; /* Adjust gap as needed */
+    width: 60%;
+    margin: 0 auto;
+}
+
+.contact-left, .contact-right {
+    width: 50%;
+    display: flex;
+    justify-content: center; /* Centers the accordion within each column */
+}
+
+.accordion {
+    width: 90%; /* Adjust width as needed to control accordion size */
+    max-width: 500px;
+}
+
+.accordion-item {
+    background-color: #839791;
+    color: white;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.accordion-item button {
+    width: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    padding: 15px;
+    text-align: left;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-family: 'Raleway';
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordion-item button:hover {
+    background-color: #71897E;
+}
+
+.accordion-content {
+    padding: 15px;
+    background-color: #FFFFFF;
+    color: black;
+}
+
+.contact-links a {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    font-family: 'Raleway';
+    color: #839791;
+
+}
+
+.contact-links a:hover {
+    color: #71897E;
+}
+
+.contact-links img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.map-container {
+    margin-top: 15px;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 250px;
+    border: 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+/* Footer Section*/
+
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px;
+    background-color: #F5F5F5;
+    font-family: 'Raleway';
+}
+
+footer p {
+    margin: 0;
+}
+
+footer a {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+}
+footer img {
+    width: 24px;
+    height: 24px;
+    margin: 0 5px;
+}
+/* For tablet-sized screens */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .right-section,
+    .left-section {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .right-section img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .body-text-l3 {
+        font-size: calc(3vw);
+    }
+
+    #about-me h2 {
+        text-align: center; /* Align text to the center */
+        margin-left: 0px;
+
+    }
+
+    #project h2 {
+        text-align: center; /* Align text to the center */
+        margin-left: 0px;
+    }
+
+    #my-art h2 {
+        text-align: center; /* Align text to the center */
+        margin-left: 0px;
+    }
+
+    #lets-talk h2 {
+        text-align: center; /* Align text to the center */
+        margin-left: 0px;
+    }
+
+    .contact-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-left, .contact-right {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .project-box {
+        width: 70%;
+        height: 40vh;
+    } 
+
+    .thumbnail-container {
+        width: 40%;
+    }
+    .thumbnail {
+        width: 40px; /* Even smaller thumbnails */
+        height: 40px;
+    }
+
+}
+
+/* For very small screens (phones) */
+@media (max-width: 480px) {
+
+    .main{
+        height: 120vh;
+    }
+    .left-section{
+        margin-bottom: 50px;
+    }
+    .logo {
+        width: 90px;
+        height: 45px;
+    }
+
+    header {
+        flex-direction: column;
+    }
+
+    header nav {
+        margin-top: 10px;
+    }
+
+    .project-box {
+        width: 70%;
+        height: 30vh;
+    }       
+    .thumbnail-container {
+        width: 40%;
+    }
+        
+    .thumbnail {
+        width: 40px; /* Even smaller thumbnails */
+        height: 40px;
+    }
+    .accordion-item button {
+        font-size: 1em; /* Make accordion button text smaller */
+        padding: 10px;  /* Adjust padding for better fit */
+    }
+
+    .accordion-content {
+        font-size: 0.9em; /* Slightly reduce content font size */
+    }
+
+    /* Map iframe adjustments */
+    .map-container iframe {
+        height: 200px; /* Make map height smaller for small screens */
+    }
+
+    /* Additional spacing adjustments */
+    .contact-container {
+        padding: 10px;
+    }
+
+
+    
+}
