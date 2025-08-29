@@ -1,0 +1,45 @@
+       /* Set the background color for the body and font style */
+       body {
+        background-color: #839791; /* Set the background color */
+        margin: 0;
+        font-family: 'Georgia';
+        display: flex;
+        height: 100vh;
+        overflow: visible;
+        vertical-align: top;
+    }
+
+    /* Left side styling - PDF section */
+    .left-side {
+        flex: 50%; /* This section takes up 60% of the screen width */
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 10px;
+        background-color: #839791; /* Light greenish background for the left side */
+    }
+
+    /* PDF Embed styling */
+    .pdf-embed {
+        width: 100%;
+        height: 100vh; /* Takes full height of the viewport */
+        border: none; /* Remove any borders */
+    }
+
+    /* Right side styling - Video section */
+    .right-side {
+        flex: 50%; /* This section takes up 40% of the screen width */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #839791; /* Light background for the video section */
+        padding: 5; /* Remove padding */
+        margin: 5; /* Remove margin */
+    }
+
+    /* Video styling */
+    .video {
+        width: 100%; /* Take up 100% of the right section's width */
+        height: 100vh; /* Take up 100% of the available height */
+        object-fit: contain; /* Maintain aspect ratio */
+    }

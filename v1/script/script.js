@@ -14,27 +14,76 @@ document.addEventListener("DOMContentLoaded", function () {
         isMobile = window.innerWidth <= 600;
     
         if (isMobile) {
-            // For mobile, make the images smaller to fit
+            // For mobile, show one image at a time
             imagesPerView = 1;
-            const imageWidth = containerWidth - spacing; // No right margin for mobile
-            const imageHeight = containerHeight * 0.9; // Make images fit the height while maintaining the aspect ratio
+            const imageWidth = containerWidth; // Full width of the container
+            const imageHeight = containerHeight; // Full height of the viewport
+    
             images.forEach(img => {
                 img.style.width = `${imageWidth}px`;
-                img.style.height = `${imageHeight}px`;
+                img.style.height = `${imageHeight}px`; // Fill the screen vertically as well
+                img.style.marginRight = "0"; // No margin between images on mobile
             });
+    
+            // Remove vertical scrollbar
+            document.body.style.overflow = "hidden"; 
+    
         } else {
-            // For desktop/tablet, continue using the 3-image view
+            // For desktop/tablet, show three images with spacing
             imagesPerView = 3;
             const imageWidth = (containerWidth - spacing * (imagesPerView - 1)) / imagesPerView;
+    
             images.forEach(img => {
                 img.style.width = `${imageWidth}px`;
-                img.style.marginRight = `${spacing}px`;
+                img.style.height = "auto"; // Maintain aspect ratio
+                img.style.marginRight = `${spacing}px`; // Gap between images
             });
         }
     
         // Reset the track to start from the original images
         resetCarousel();
     }
+    
+    // Handle scroll events (down and up)
+    window.addEventListener("wheel", (event) => {
+        if (isMobile) {
+            clearTimeout(scrollTimeout);
+    
+            // Debounce scroll to allow only one action at a time
+            scrollTimeout = setTimeout(() => {
+                if (event.deltaY > 0) {
+                    shiftImages("down"); // Scroll down on mobile (next image)
+                } else {
+                    shiftImages("up"); // Scroll up on mobile (previous image)
+                }
+            }, 150); // Delay of 150ms to wait for the scroll movement to settle
+        } else {
+            // Existing code for desktop scrolling
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                if (event.deltaY > 0) {
+                    shiftImages("down");
+                } else {
+                    shiftImages("up");
+                }
+            }, 150); // Delay of 150ms to wait for the scroll movement to settle
+        }
+    });
+    
+    // Handle touch swipe on mobile
+    let startY;
+    window.addEventListener("touchstart", (event) => {
+        startY = event.touches[0].clientY;
+    });
+    
+    window.addEventListener("touchend", (event) => {
+        let endY = event.changedTouches[0].clientY;
+        if (startY > endY) {
+            shiftImages("down");
+        } else {
+            shiftImages("up");
+        }
+    });
 
     // Reset carousel by removing clones and repositioning the track
     function resetCarousel() {
