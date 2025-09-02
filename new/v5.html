@@ -3,73 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scrollable Rectangles</title>
+    <title>Projects</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Apply the Inter font and set a dark background */
+        /* Apply the Inter font and set the new background color */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0d1117;
-            color: #ffffff;
+            background-color: #EFD5C3;
+            color: #2b2b2b; /* Adjusted for better contrast on the new background */
             overflow-x: hidden;
         }
 
         /* Custom CSS to define the height of each card and the hover effect */
         .card-section {
-            height: 25vh; /* This makes the rectangles smaller */
+            height: 25vh; /* The height of the rectangles has been decreased */
             transition: transform 0.5s ease-in-out;
             transform-origin: center center;
         }
 
         .card-section:hover {
-            transform: scale(1.05); /* Slightly scales the card up on hover */
+            transform: scale(1.15); /* Slightly scales the card up on hover */
         }
     </style>
 </head>
 <body class="overflow-y-scroll">
     <!-- Header Section -->
-    <header class="text-center w-full py-16 px-4 sm:px-8 md:px-16 space-y-4">
-        <h1 class="text-5xl sm:text-6xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-600">
-            Welcome to the Demo
+    <header class="w-full py-16 px-4 sm:px-8 md:px-16 space-y-4">
+        <h1 class="text-left text-5xl sm:text-6xl md:text-7xl font-extrabold text-[#839791]">
+            Projects
         </h1>
-        <p class="mt-4 text-base sm:text-lg md:text-xl text-gray-300 max-w-4xl mx-auto">
-            This is a simple example of a vertically scrolling page with interactive, expanding cards. Scroll down to see the content.
-        </p>
     </header>
     
     <!-- Main Content Area with Rectangles -->
     <div class="flex flex-col items-center py-8 px-4 sm:px-8 md:px-16 space-y-8">
         <!-- First Rectangle -->
-        <div class="card-section w-full max-w-5xl bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl shadow-2xl p-8 flex items-center justify-center text-center">
-            <h2 class="text-3xl sm:text-4xl font-bold">Concept & Design</h2>
+        <div class="card-section w-full max-w-5xl bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl shadow-2xl flex items-center justify-center text-center overflow-hidden border-2 border-[#839791]">
+            <img src="https://images.unsplash.com/photo-1549880338-65ddcdfd017b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzU5NTl8MHwxfHNlYXJjaHwxfHxtb3VudGFpbiUyMGxhbmRzY2FwZXxlbnwwfDB8fHwxNzAyNDAxMjI2fDA&ixlib=rb-4.0.3&q=80&w=1080" alt="Mountain landscape" class="w-full h-full object-cover rounded-xl transition-transform duration-500">
         </div>
 
         <!-- Second Rectangle -->
-        <div class="card-section w-full max-w-5xl bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl shadow-2xl p-8 flex items-center justify-center text-center">
-            <h2 class="text-3xl sm:text-4xl font-bold">Interactive Experience</h2>
+        <div class="card-section w-full max-w-5xl bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl shadow-2xl flex items-center justify-center text-center overflow-hidden border-2 border-[#839791]">
+            <img src="https://images.unsplash.com/photo-1502422036579-246e4c25f48b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzU5NTl8MHwxfHxmb3Jlc3QlMjBwYXRofGVufDB8MHx8fDE3MDI0MDEyMjd8MA&ixlib=rb-4.0.3&q=80&w=1080" alt="Forest path" class="w-full h-full object-cover rounded-xl transition-transform duration-500">
         </div>
 
         <!-- Third Rectangle -->
-        <div class="card-section w-full max-w-5xl bg-gradient-to-br from-teal-500 to-cyan-600 rounded-xl shadow-2xl p-8 flex items-center justify-center text-center">
-            <h2 class="text-3xl sm:text-4xl font-bold">Responsive Development</h2>
+        <div class="card-section w-full max-w-5xl bg-gradient-to-br from-teal-500 to-cyan-600 rounded-xl shadow-2xl flex items-center justify-center text-center overflow-hidden border-2 border-[#839791]">
+            <img src="https://images.unsplash.com/photo-1506905963172-88686d67b2e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzU5NTl8MHwxfHxhbG0lMjBsYWtlfGVufDB8fHwxNzAyNDAxMjI5fDA&ixlib=rb-4.0.3&q=80&w=1080" alt="Calm lake" class="w-full h-full object-cover rounded-xl transition-transform duration-500">
         </div>
 
         <!-- Fourth Rectangle -->
-        <div class="card-section w-full max-w-5xl bg-gradient-to-br from-yellow-500 to-orange-600 rounded-xl shadow-2xl p-8 flex items-center justify-center text-center">
-            <h2 class="text-3xl sm:text-4xl font-bold">Modern Web Standards</h2>
+        <div class="card-section w-full max-w-5xl bg-gradient-to-br from-yellow-500 to-orange-600 rounded-xl shadow-2xl flex items-center justify-center text-center overflow-hidden border-2 border-[#839791]">
+            <img src="https://images.unsplash.com/photo-1519782806211-1a3b53f63854?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzU5NTl8MHwxfHxjaXR5c2NhcGUlMjBhdCUyMG5pZ2h0fGVufDB8MHx8fDE3MDI0MDEyMzF8MA&ixlib=rb-4.0.3&q=80&w=1080" alt="Cityscape at night" class="w-full h-full object-cover rounded-xl transition-transform duration-500">
         </div>
 
         <!-- Fifth Rectangle -->
-        <div class="card-section w-full max-w-5xl bg-gradient-to-br from-red-500 to-pink-500 rounded-xl shadow-2xl p-8 flex items-center justify-center text-center">
-            <h2 class="text-3xl sm:text-4xl font-bold">Clean Code Philosophy</h2>
+        <div class="card-section w-full max-w-5xl bg-gradient-to-br from-red-500 to-pink-500 rounded-xl shadow-2xl flex items-center justify-center text-center overflow-hidden border-2 border-[#839791]">
+            <img src="https://images.unsplash.com/photo-1502691873114-110034a78077?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzU5NTl8MHwxfHxkZXNlcnQlMjBsYW5kc2NhcGV8ZW58MHwwfHx8MTcwMjQwMTIzMnww&ixlib=rb-4.0.3&q=80&w=1080" alt="Desert landscape" class="w-full h-full object-cover rounded-xl transition-transform duration-500">
         </div>
 
         <!-- Sixth Rectangle -->
-        <div class="card-section w-full max-w-5xl bg-gradient-to-br from-green-500 to-blue-500 rounded-xl shadow-2xl p-8 flex items-center justify-center text-center">
-            <h2 class="text-3xl sm:text-4xl font-bold">User-Centric Approach</h2>
+        <div class="card-section w-full max-w-5xl bg-gradient-to-br from-green-500 to-blue-500 rounded-xl shadow-2xl flex items-center justify-center text-center overflow-hidden border-2 border-[#839791]">
+            <img src="https://images.unsplash.com/photo-1547492102-7632669e46a5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNzU5NTl8MHwxfHNlYXJjaHwxfHxjb2FzdGFsJTIwc2NlbmV8ZW58MHwwfHx8MTcwMjQwMTIzNHww&ixlib=rb-4.0.3&q=80&w=1080" alt="Coastal scene" class="w-full h-full object-cover rounded-xl transition-transform duration-500">
         </div>
     </div>
 </body>
