@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scrollable Rectangles</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow-y: scroll;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100vw;
+    }
+
+    .rectangle {
+      width: 90vw;
+      height: calc(100vh / 2.5); /* Exactly 2.5 visible at once */
+      margin: 10px 0;
+      background: #888;
+      border-radius: 20px;
+      transition: transform 0.4s ease, height 0.4s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+    }
+
+    .rectangle:nth-child(odd) {
+      background: #4a90e2;
+    }
+
+    .rectangle:nth-child(even) {
+      background: #e94a63;
+    }
+
+    /* Hover expansion */
+    .rectangle:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="rectangle">Rectangle 1</div>
+    <div class="rectangle">Rectangle 2</div>
+    <div class="rectangle">Rectangle 3</div>
+    <div class="rectangle">Rectangle 4</div>
+    <div class="rectangle">Rectangle 5</div>
+    <div class="rectangle">Rectangle 6</div>
+  </div>
+
+  <script>
+    // Optional: Smooth scrolling effect on mousewheel
+    document.documentElement.style.scrollBehavior = "smooth";
+  </script>
+</body>
+</html>
