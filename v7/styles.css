@@ -1,0 +1,70 @@
+/* Reset & base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f8f5f0;          /* warm paper-like neutral */
+  color: #222;
+  font-family: system-ui, -apple-system, sans-serif;   /* fallback until we load Geist/Spline */
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* SVG – make it wide + centered + responsive */
+.drawing {
+  display: block;
+  width: 90vw;                  /* takes most of viewport width */
+  max-width: 1600px;            /* cap it so ultra-wide screens don't stretch too far */
+  height: auto;
+  margin: 8vh auto 0;           /* some top breathing room, centered horizontally */
+  opacity: 0.9;                 /* subtle presence */
+}
+
+/* Name – top-left, subtle */
+h1 {
+  position: absolute;
+  top: 4vh;
+  left: 4vw;
+  font-size: 2.1rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  /* We'll switch to Geist later */
+}
+
+/* Statement – bottom-left */
+.statement {
+  position: absolute;
+  bottom: 6vh;
+  left: 4vw;
+  font-size: 1.1rem;
+  max-width: 40ch;
+  line-height: 1.45;
+  letter-spacing: 0.04em;
+  opacity: 0;                   /* starts hidden, we'll fade in via JS */
+  /* We'll use Spline Sans here later */
+}
+
+/* Enter – bottom-center */
+.enter-wrapper {
+  position: absolute;
+  bottom: 6vh;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.enter {
+  display: inline-block;
+  font-size: 1.4rem;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  color: #222;
+  opacity: 0;                   /* starts hidden */
+  transition: opacity 1.2s ease;
+}
+
+/* For now we ignore hover etc. – keep ultra-minimal */
