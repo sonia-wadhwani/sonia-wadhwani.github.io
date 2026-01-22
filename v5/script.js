@@ -1,30 +1,42 @@
-document.addEventListener("DOMContentLoaded", () => {
+// We use window.onload to ensure the SVG is fully rendered before we measure it
+window.onload = function() {
     
-    // 1. Select ALL path elements with the class 'draw-path'
-    // (We changed querySelector to querySelectorAll)
     const paths = document.querySelectorAll('.draw-path');
     
-    // 2. Iterate through EVERY path found
+    // 1. SETUP: Hide lines instantly
     paths.forEach(path => {
+        // Get length and add 1 pixel to be safe against rounding errors
+        const length = Math.ceil(path.getTotalLength()) + 1;
         
-        // Calculate the length of this specific line
-        const length = path.getTotalLength();
-        
-        // Set up the starting positions so the line is hidden
-        // We use 'px' units here to ensure wider browser compatibility
+        // Hide the line by pushing the dash offset all the way back
         path.style.strokeDasharray = length + 'px';
         path.style.strokeDashoffset = length + 'px';
         
-        // Force reflow for this path
-        path.getBoundingClientRect();
+        // CRITICAL: Disable transition so the "hiding" is instant
+        path.style.transition = 'none';
+        
+        // Force the browser to calculate this change immediately
+        path.getBoundingClientRect(); 
     });
-    
-    // 3. Trigger the animation after a brief pause
+
+    // 2. ACTION: Start drawing after a short delay
     setTimeout(() => {
-        // We loop through them again to trigger the draw
-        paths.forEach(path => {
-             path.style.strokeDashoffset = '0px';
+        
+        paths.forEach((path, index) => {
+            
+            // Stagger: Wait longer for outer lines (200ms between each)
+            const delay = index * 200; 
+            
+            setTimeout(() => {
+                // Slower animation: 12 seconds
+                // 'ease-in-out' makes it start slow, speed up, end slow
+                path.style.transition = 'stroke-dashoffset 12s ease-in-out';
+                
+                // Go to 0 to reveal the line
+                path.style.strokeDashoffset = '0px';
+                
+            }, delay);
         });
-    }, 500); // 500ms delay before drawing starts
-    
-});
+        
+    }, 500); // Wait 0.5s after load before doing anything
+};
