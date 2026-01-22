@@ -1,56 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Threshold</title>
+document.addEventListener("DOMContentLoaded", () => {
     
-    <link rel="stylesheet" href="styles.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400&display=swap" rel="stylesheet">
+    // 1. Select the path element we want to animate
+    const path = document.querySelector('.draw-path');
     
-    <link href="https://cdn.jsdelivr.net/npm/geist@1.0.0/dist/fonts/geist-sans/style.css" rel="stylesheet">
-
-</head>
-<body>
-
-    <div class="ui-layer top-left">
-        <span class="designer-name">Sonia Wadhwani</span>
-    </div>
-
-    <main class="visual-container">
-        <svg 
-            viewBox="0 0 1000 1000" 
-            preserveAspectRatio="xMidYMid meet" 
-            xmlns="http://www.w3.org/2000/svg"
-        >
-            <path 
-                class="draw-path" 
-                d="M500,500 
-                   C550,450 600,550 650,500 
-                   S750,400 700,300 
-                   S500,200 400,300 
-                   S200,500 300,600 
-                   S500,800 600,700
-                   S800,500 700,400" 
-                fill="none" 
-                stroke="black" 
-                stroke-width="1.5"
-            />
-        </svg>
-    </main>
-
-    <div class="ui-layer bottom-left">
-        <p class="manifesto-text">Mapping the unseen architectures of tomorrow.</p>
-    </div>
-
-    <div class="ui-layer bottom-center">
-        <a href="#enter" class="enter-link">enter</a>
-    </div>
-
-    <script src="script.js"></script>
-
-</body>
-</html>
+    // 2. Calculate the exact length of the line
+    const length = path.getTotalLength();
+    
+    // 3. Set up the starting positions
+    // This creates a dash that is exactly the length of the line
+    path.style.strokeDasharray = length;
+    
+    // This pushes the dash completely out of view (hiding the line)
+    path.style.strokeDashoffset = length;
+    
+    // 4. Force a browser reflow 
+    // (This ensures the browser acknowledges the hidden state before animating)
+    path.getBoundingClientRect();
+    
+    // 5. Trigger the animation
+    // We use a tiny delay (100ms) to ensure the page is ready
+    setTimeout(() => {
+        // Resetting the offset to 0 makes the dash "slide" back into view
+        path.style.strokeDashoffset = '0';
+    }, 500); // 500ms delay before drawing starts
+    
+});
