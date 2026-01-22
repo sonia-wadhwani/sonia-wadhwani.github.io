@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Threshold</title>
+    
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400&display=swap" rel="stylesheet">
+    
+    <link href="https://cdn.jsdelivr.net/npm/geist@1.0.0/dist/fonts/geist-sans/style.css" rel="stylesheet">
+
+</head>
+<body>
+
+    <div class="ui-layer top-left">
+        <span class="designer-name">Sonia Wadhwani</span>
+    </div>
+
+    <main class="visual-container">
+        <svg 
+            viewBox="0 0 1000 1000" 
+            preserveAspectRatio="xMidYMid meet" 
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path 
+                class="draw-path" 
+                d="M500,500 
+                   C550,450 600,550 650,500 
+                   S750,400 700,300 
+                   S500,200 400,300 
+                   S200,500 300,600 
+                   S500,800 600,700
+                   S800,500 700,400" 
+                fill="none" 
+                stroke="black" 
+                stroke-width="1.5"
+            />
+        </svg>
+    </main>
+
+    <div class="ui-layer bottom-left">
+        <p class="manifesto-text">Mapping the unseen architectures of tomorrow.</p>
+    </div>
+
+    <div class="ui-layer bottom-center">
+        <a href="#enter" class="enter-link">enter</a>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
