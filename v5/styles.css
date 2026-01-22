@@ -1,0 +1,110 @@
+/* 1. RESET & CORE SETUP */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* Soft neutral, warm paper-like background */
+    background-color: #F5F4F0; 
+    color: #1A1A1A; /* Soft black, not pure black */
+    
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden; /* Prevents scrolling */
+    
+    /* Center the main visual */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Default Font - Geist Sans (used for UI) */
+    font-family: 'Geist Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* 2. THE MAIN VISUAL CONTAINER */
+.visual-container {
+    width: 80vmin; /* Responsive square size based on viewport minimum */
+    height: 80vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1; /* Sits below UI */
+}
+
+svg {
+    width: 100%;
+    height: 100%;
+    /* We will use CSS to ensure strokes are clean */
+    stroke-linecap: round; 
+    stroke-linejoin: round;
+}
+
+/* 3. UI LAYOUT & POSITIONING */
+.ui-layer {
+    position: absolute;
+    z-index: 10; /* Sits above visual */
+    padding: 2rem;
+}
+
+.top-left {
+    top: 0;
+    left: 0;
+}
+
+.bottom-left {
+    bottom: 0;
+    left: 0;
+}
+
+.bottom-center {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* 4. TYPOGRAPHY RULES */
+
+/* Designer Name - Geist, Small, Uppercase/Clean */
+.designer-name {
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    opacity: 0.8;
+}
+
+/* Manifesto Sentence - Spline Sans, Delicate */
+.manifesto-text {
+    font-family: 'Spline Sans', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 300; /* Light weight */
+    color: #4A4A4A;
+}
+
+/* Enter Link - Geist, Small interaction */
+.enter-link {
+    text-decoration: none;
+    color: inherit;
+    font-size: 0.9rem;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease;
+    cursor: pointer;
+}
+
+.enter-link:hover {
+    border-bottom: 1px solid #1A1A1A;
+}
+
+/* 5. ANIMATION CLASS */
+/* This class will be controlled by JS later */
+.draw-path {
+    stroke: #222; /* Dark graphite color for the line */
+    stroke-width: 1.2px; /* Thin, delicate lines */
+    fill: none;
+    
+    /* This creates the logic for the "drawing" effect */
+    /* We will set the dasharray values in JS, but we put the transition here */
+    /* ease-in-out makes it start slow, speed up, then slow down */
+    transition: stroke-dashoffset 2.5s ease-in-out;
+}
