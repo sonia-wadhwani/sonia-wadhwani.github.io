@@ -19,3 +19,40 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+/* Header - top left */
+header {
+    position: absolute;
+    top: 60px;
+    left: 60px;
+    z-index: 10;
+}
+
+header h1 {
+    font-family: 'Geist', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: #2A2A2A;
+}
+
+/* Main - center SVG */
+main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px;
+}
+
+.contour-container {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+}
+
+#contour-art {
+    width: 100%;
+    height: auto;
+    display: block;
+}
