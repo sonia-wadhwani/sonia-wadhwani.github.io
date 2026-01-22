@@ -99,12 +99,11 @@ svg {
 /* 5. ANIMATION CLASS */
 /* This class will be controlled by JS later */
 .draw-path {
-    stroke: #222; /* Dark graphite color for the line */
-    stroke-width: 1.2px; /* Thin, delicate lines */
+   .draw-path {
+    stroke: #2A2A2A;
+    stroke-width: 0.8px; 
     fill: none;
-    
-    /* This creates the logic for the "drawing" effect */
-    /* We will set the dasharray values in JS, but we put the transition here */
-    /* ease-in-out makes it start slow, speed up, then slow down */
-    transition: stroke-dashoffset 2.5s ease-in-out;
+    stroke-linecap: round;
+    /* IMPORTANT: Do NOT put 'transition' here. JS handles it. */
+}
 }
