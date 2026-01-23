@@ -36,26 +36,29 @@ header h1 {
     color: #2A2A2A;
 }
 
-/* Main - center SVG */
+/* Main - right edge aligned SVG */
 main {
     flex: 1;
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 100px;
+    justify-content: flex-end;
+    padding: 0;
+    margin: 0;
 }
 
 .contour-container {
-    width: 100%;
-    max-width: 650px;
+    width: 550px;
     height: auto;
-    align-content: right;
+    margin: 0;
+    padding: 0;
 }
 
 #contour-svg {
     width: 100%;
     height: auto;
     display: block;
+    margin: 0;
+    padding: 0;
 }
 
 /* Footer - bottom */
@@ -100,4 +103,58 @@ footer {
 
 .enter-indicator svg {
     opacity: 0.6;
+}
+
+/* Responsive sizing for different screens */
+@media (max-width: 1400px) {
+    .contour-container {
+        width: 480px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .contour-container {
+        width: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    main {
+        justify-content: center;
+        padding: 0 40px;
+    }
+    .contour-container {
+        width: 100%;
+        max-width: 350px;
+    }
+    header {
+        top: 40px;
+        left: 40px;
+    }
+    footer {
+        bottom: 40px;
+        left: 40px;
+        right: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contour-container {
+        max-width: 280px;
+    }
+    header {
+        top: 30px;
+        left: 30px;
+    }
+    header h1 {
+        font-size: 20px;
+    }
+    footer {
+        bottom: 30px;
+        left: 30px;
+        right: 30px;
+    }
+    .tagline {
+        font-size: 16px;
+    }
 }
