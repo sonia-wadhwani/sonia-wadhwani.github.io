@@ -82,13 +82,17 @@ h1 {
   }
 }
 
-/* Stagger the start times for outward progression (calm, continuous) */
-.lines .contour:nth-child(1) { animation-delay: 0.2s; }
-.lines .contour:nth-child(2) { animation-delay: 1.4s; }
-.lines .contour:nth-child(3) { animation-delay: 2.6s; }
-.lines .contour:nth-child(4) { animation-delay: 3.8s; }
-.lines .contour:nth-child(5) { animation-delay: 5.0s; }
-.lines .contour:nth-child(6) { animation-delay: 6.2s; }
+/* Draw from center outward – inner paths first, outer last */
+.lines .contour:nth-child(1)  { animation-delay: 0.3s;  animation-duration: 4s; }   /* seed */
+.lines .contour:nth-child(2)  { animation-delay: 1.0s;  animation-duration: 5s; }
+.lines .contour:nth-child(3)  { animation-delay: 1.8s;  animation-duration: 6s; }
+.lines .contour:nth-child(4)  { animation-delay: 2.8s;  animation-duration: 7s; }
+.lines .contour:nth-child(5)  { animation-delay: 4.0s;  animation-duration: 8s; }
+.lines .contour:nth-child(6)  { animation-delay: 5.5s;  animation-duration: 9s; }
+.lines .contour:nth-child(7)  { animation-delay: 7.0s;  animation-duration: 10s; }
+.lines .contour:nth-child(8)  { animation-delay: 8.5s;  animation-duration: 11s; }
+.lines .contour:nth-child(9)  { animation-delay: 10s;   animation-duration: 12s; }
+.lines .contour:nth-child(10) { animation-delay: 11.5s; animation-duration: 13s; }
 
 /* Make SVG start fully visible but lines hidden until animation */
 .drawing {

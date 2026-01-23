@@ -1,158 +1,92 @@
 <svg class="drawing" viewBox="0 0 2000 1000" preserveAspectRatio="xMidYMid meet">
-  <g class="lines">
+    <g class="lines" transform="translate(1000,500)">
 
-    <!-- ~20 nested contours with increasing jaggedness toward center -->
-    <!-- Outer most (widest, gentler waves) -->
-    <path class="contour" stroke="#222" stroke-width="1.1"
-      d="M100,500 
-         C250,420 400,480 550,500 
-         C700,520 850,460 1000,500 
-         C1150,540 1300,480 1450,500 
-         C1600,520 1750,460 1900,500 
-         C1750,540 1600,480 1450,500 
-         C1300,460 1150,520 1000,500 
-         C850,480 700,540 550,500 
-         C400,460 250,520 100,500 Z"/>
+        <!-- Central starting "seed" lines – short jags radiating out -->
+        <path class="contour" stroke="#555" stroke-width="0.6"
+            d="M0,0 L-15,-25 M0,0 L15,-25 M0,0 L-20,0 M0,0 L20,0 M0,0 L-15,25 M0,0 L15,25"/>
 
-    <!-- Layer 2 -->
-    <path class="contour" stroke="#333" stroke-width="1.05"
-      d="M200,510 
-         C320,450 440,510 560,490 
-         C680,470 800,530 920,510 
-         C1040,490 1160,550 1280,510 
-         C1400,470 1520,530 1640,510 
-         C1520,550 1400,490 1280,510 
-         C1160,530 1040,470 920,510 
-         C800,490 680,550 560,490 
-         C440,510 320,450 200,510 Z"/>
+        <!-- Layer 1 – tight inner contours, jagged waves -->
+        <path class="contour" stroke="#666" stroke-width="0.7"
+            d="M0,0 
+            Q -40,-60 -80,-30 
+            Q -120,-80 -160,-40 
+            Q -200,-90 -240,-50 
+            Q -280,-100 -320,-60 
+            L -360,-80"/>
 
-    <!-- Layer 3 – start adding more wiggles -->
-    <path class="contour" stroke="#444" stroke-width="1.0"
-      d="M300,520 
-         Q420,460 500,520 
-         Q580,580 660,520 
-         Q740,460 820,520 
-         Q900,580 980,520 
-         Q1060,460 1140,520 
-         Q1220,580 1300,520 
-         Q1380,460 1460,520 
-         Q1540,580 1620,520 
-         C1540,460 1460,520 1380,520 
-         C1300,580 1220,520 1140,520 
-         C1060,460 980,520 900,520 
-         C820,580 740,520 660,520 
-         C580,460 500,520 420,520 
-         C340,580 300,520 300,520 Z"/>
+        <path class="contour" stroke="#777" stroke-width="0.7"
+            d="M0,0 
+            Q 40,-60 80,-30 
+            Q 120,-80 160,-40 
+            Q 200,-90 240,-50 
+            Q 280,-100 320,-60 
+            L 360,-80"/>
 
-    <!-- Layer 4 – more frequent small jags -->
-    <path class="contour" stroke="#555" stroke-width="0.95"
-      d="M400,530 
-         Q480,480 540,540 
-         Q600,600 660,540 
-         Q720,480 780,540 
-         Q840,600 900,540 
-         Q960,480 1020,540 
-         Q1080,600 1140,540 
-         Q1200,480 1260,540 
-         Q1320,600 1380,540 
-         Q1440,480 1500,540 
-         C1440,600 1380,540 1320,540 
-         C1260,480 1200,540 1140,540 
-         C1080,600 1020,540 960,540 
-         C900,480 840,540 780,540 
-         C720,600 660,540 600,540 
-         C540,480 480,540 420,540 Z"/>
+        <!-- Layer 2 – wider, more pronounced mountain ridges -->
+        <path class="contour" stroke="#777" stroke-width="0.8"
+            d="M0,0 
+            Q -90,-120 -180,-70 
+            Q -270,-140 -360,-90 
+            Q -450,-160 -540,-110 
+            Q -630,-180 -720,-130 
+            L -800,-150"/>
 
-    <!-- Layer 5 – even more jagged, smaller amplitude changes -->
-    <path class="contour" stroke="#666" stroke-width="0.9"
-      d="M500,540 
-         Q560,500 600,550 
-         Q640,600 680,550 
-         Q720,500 760,550 
-         Q800,600 840,550 
-         Q880,500 920,550 
-         Q960,600 1000,550 
-         Q1040,500 1080,550 
-         Q1120,600 1160,550 
-         Q1200,500 1240,550 
-         Q1280,600 1320,550 
-         C1280,500 1240,550 1200,550 
-         C1160,600 1120,550 1080,550 
-         C1040,500 1000,550 960,550 
-         C920,600 880,550 840,550 
-         C800,500 760,550 720,550 
-         C680,600 640,550 600,550 Z"/>
+        <path class="contour" stroke="#888" stroke-width="0.8"
+            d="M0,0 
+            Q 90,-120 180,-70 
+            Q 270,-140 360,-90 
+            Q 450,-160 540,-110 
+            Q 630,-180 720,-130 
+            L 800,-150"/>
 
-    <!-- Layers 6–10: progressively tighter + more chaotic jags near center -->
-    <path class="contour" stroke="#777" stroke-width="0.85"
-      d="M600,550 
-         Q650,520 680,570 
-         Q710,620 740,570 
-         Q770,520 800,570 
-         Q830,620 860,570 
-         Q890,520 920,570 
-         Q950,620 980,570 
-         Q1010,520 1040,570 
-         Q1070,620 1100,570 
-         C1070,520 1040,570 1010,570 
-         C980,620 950,570 920,570 
-         C890,520 860,570 830,570 
-         C800,620 770,570 740,570 
-         C710,520 680,570 650,570 Z"/>
+        <!-- Layer 3 – even wider, stronger jags like sharp ridges -->
+        <path class="contour" stroke="#888" stroke-width="0.9"
+            d="M0,0 
+            Q -150,-180 -300,-120 
+            Q -450,-220 -600,-160 
+            Q -750,-260 -900,-200 
+            Q -1050,-300 -1200,-240 
+            L -1300,-260"/>
 
-    <path class="contour" stroke="#888" stroke-width="0.8"
-      d="M680,560 
-         Q720,530 740,580 
-         Q760,630 780,580 
-         Q800,530 820,580 
-         Q840,630 860,580 
-         Q880,530 900,580 
-         Q920,630 940,580 
-         C920,530 900,580 880,580 
-         C860,630 840,580 820,580 
-         C800,530 780,580 760,580 
-         C740,630 720,580 700,580 Z"/>
+        <path class="contour" stroke="#999" stroke-width="0.9"
+            d="M0,0 
+            Q 150,-180 300,-120 
+            Q 450,-220 600,-160 
+            Q 750,-260 900,-200 
+            Q 1050,-300 1200,-240 
+            L 1300,-260"/>
 
-    <path class="contour" stroke="#999" stroke-width="0.75"
-      d="M750,570 
-         Q780,550 800,590 
-         Q820,630 840,590 
-         Q860,550 880,590 
-         Q900,630 920,590 
-         C900,550 880,590 860,590 
-         C840,630 820,590 800,590 
-         C780,550 760,590 750,590 Z"/>
+        <!-- Layer 4 – outermost, gentler but still jagged waves -->
+        <path class="contour" stroke="#aaa" stroke-width="1.0"
+            d="M0,0 
+            Q -220,-240 -440,-180 
+            Q -660,-280 -880,-220 
+            Q -1100,-320 -1320,-260 
+            Q -1540,-360 -1760,-300 
+            L -1900,-320"/>
 
-    <path class="contour" stroke="#aaa" stroke-width="0.7"
-      d="M800,580 
-         Q820,560 840,600 
-         Q860,640 880,600 
-         Q900,560 920,600 
-         C900,560 880,600 860,600 
-         C840,640 820,600 810,600 Z"/>
+        <path class="contour" stroke="#bbb" stroke-width="1.0"
+            d="M0,0 
+            Q 220,-240 440,-180 
+            Q 660,-280 880,-220 
+            Q 1100,-320 1320,-260 
+            Q 1540,-360 1760,-300 
+            L 1900,-320"/>
 
-    <path class="contour" stroke="#bbb" stroke-width="0.65"
-      d="M830,590 
-         Q850,570 870,610 
-         Q890,650 910,610 
-         C890,570 870,610 850,610 Z"/>
+        <!-- Diagonal arms to create the star-like / irregular mountain feel -->
+        <path class="contour" stroke="#999" stroke-width="0.85"
+            d="M0,0 
+            Q -180,120 -360,80 
+            Q -540,160 -720,120 
+            Q -900,200 -1080,160 
+            L -1200,180"/>
 
-    <path class="contour" stroke="#ccc" stroke-width="0.6"
-      d="M860,600 
-         Q880,580 900,620 
-         Q920,660 940,620 Z"/>
+        <path class="contour" stroke="#aaa" stroke-width="0.9"
+            d="M0,0 
+            Q 180,120 360,80 
+            Q 540,160 720,120 
+            Q 900,200 1080,160 
+            L 1200,180"/>
 
-    <!-- Central small closed contours + tiny peak details -->
-    <path class="contour" stroke="#ddd" stroke-width="0.55"
-      d="M900,610 Q920,590 940,620 Q960,650 940,630 Z"/>
-
-    <path class="contour" stroke="#eee" stroke-width="0.5"
-      d="M920,620 Q930,610 940,630 Q950,640 940,635 Z"/>
-
-    <!-- Very center "seed" with tiny radiating jags -->
-    <path class="contour" stroke="#f0f0f0" stroke-width="0.45"
-      d="M930,625 L925,620 M930,625 L935,620 
-         M930,625 L930,615 M930,625 L930,635"/>
-
-  </g>
+    </g>
 </svg>
