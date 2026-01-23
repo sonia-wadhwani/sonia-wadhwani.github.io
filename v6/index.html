@@ -28,6 +28,7 @@
         /* Landing Section */
         .landing-section {
             width: 100vw;
+            height: 100vh;
             overflow: hidden;
             display: flex;
             flex-direction: column;
@@ -66,14 +67,17 @@
 
         .contour-container {
             width: 550px;
-            height: auto;
+            height: 100vh;
             margin: 0;
             padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         #contour-svg {
             width: 100%;
-            height: auto;
+            height: 100%;
             display: block;
         }
 
@@ -107,6 +111,7 @@
             left: 50%;
             transform: translateX(-50%);
             animation: pulse 2s ease-in-out infinite;
+            cursor: pointer;
         }
 
         .enter-indicator span {
@@ -223,7 +228,7 @@
 
         /* Responsive */
         @media (max-width: 1400px) {
-            .contour-container { width: 480px; }
+            .contour-container { width: 720px; }
         }
 
         @media (max-width: 1024px) {
@@ -238,7 +243,7 @@
             }
             .contour-container {
                 width: 100%;
-                max-width: 350px;
+                max-width: 500px;
                 margin: 0 auto;
             }
             header {
@@ -288,7 +293,72 @@
 
         <main>
             <div class="contour-container">
-                <object id="contour-svg" data="contour-art.svg" type="image/svg+xml"></object>
+                <svg id="contour-svg" viewBox="0 0 600 800" xmlns="http://www.w3.org/2000/svg">
+                    <style>
+                        @keyframes draw {
+                            to {
+                                stroke-dashoffset: 0;
+                            }
+                        }
+                        
+                        ellipse {
+                            stroke-dasharray: 1000;
+                            stroke-dashoffset: 1000;
+                            animation: draw 1.5s ease-out forwards;
+                        }
+                        
+                        /* Stagger animation delays for each ring */
+                        ellipse:nth-child(1) { animation-delay: 0s; }
+                        ellipse:nth-child(2) { animation-delay: 0.08s; }
+                        ellipse:nth-child(3) { animation-delay: 0.16s; }
+                        ellipse:nth-child(4) { animation-delay: 0.24s; }
+                        ellipse:nth-child(5) { animation-delay: 0.32s; }
+                        ellipse:nth-child(6) { animation-delay: 0.4s; }
+                        ellipse:nth-child(7) { animation-delay: 0.48s; }
+                        ellipse:nth-child(8) { animation-delay: 0.56s; }
+                        ellipse:nth-child(9) { animation-delay: 0.64s; }
+                        ellipse:nth-child(10) { animation-delay: 0.72s; }
+                        ellipse:nth-child(11) { animation-delay: 0.8s; }
+                        ellipse:nth-child(12) { animation-delay: 0.88s; }
+                        ellipse:nth-child(13) { animation-delay: 0.96s; }
+                        ellipse:nth-child(14) { animation-delay: 1.04s; }
+                        ellipse:nth-child(15) { animation-delay: 1.12s; }
+                        ellipse:nth-child(16) { animation-delay: 1.2s; }
+                        ellipse:nth-child(17) { animation-delay: 1.28s; }
+                        ellipse:nth-child(18) { animation-delay: 1.36s; }
+                    </style>
+                    
+                    <!-- Radial topographical contour lines - peak center at right edge (600, 400) -->
+                    
+                    <!-- Outermost contour rings (lowest elevation) -->
+                    <ellipse cx="600" cy="400" rx="380" ry="420" stroke="#2A2A2A" stroke-width="0.8" fill="none" opacity="0.25"/>
+                    <ellipse cx="600" cy="400" rx="350" ry="390" stroke="#2A2A2A" stroke-width="0.8" fill="none" opacity="0.3"/>
+                    <ellipse cx="600" cy="400" rx="320" ry="360" stroke="#2A2A2A" stroke-width="0.8" fill="none" opacity="0.35"/>
+                    
+                    <!-- Mid-elevation rings -->
+                    <ellipse cx="600" cy="400" rx="290" ry="330" stroke="#2A2A2A" stroke-width="0.8" fill="none" opacity="0.4"/>
+                    <ellipse cx="600" cy="400" rx="260" ry="300" stroke="#2A2A2A" stroke-width="0.8" fill="none" opacity="0.45"/>
+                    <ellipse cx="600" cy="400" rx="230" ry="270" stroke="#2A2A2A" stroke-width="0.8" fill="none" opacity="0.5"/>
+                    <ellipse cx="600" cy="400" rx="200" ry="240" stroke="#2A2A2A" stroke-width="0.8" fill="none" opacity="0.55"/>
+                    
+                    <!-- Higher elevation rings -->
+                    <ellipse cx="600" cy="400" rx="170" ry="210" stroke="#2A2A2A" stroke-width="0.8" fill="none" opacity="0.6"/>
+                    <ellipse cx="600" cy="400" rx="145" ry="180" stroke="#2A2A2A" stroke-width="0.8" fill="none" opacity="0.65"/>
+                    <ellipse cx="600" cy="400" rx="120" ry="155" stroke="#2A2A2A" stroke-width="0.8" fill="none" opacity="0.7"/>
+                    <ellipse cx="600" cy="400" rx="100" ry="130" stroke="#2A2A2A" stroke-width="0.8" fill="none" opacity="0.75"/>
+                    
+                    <!-- Near peak rings -->
+                    <ellipse cx="600" cy="400" rx="80" ry="105" stroke="#2A2A2A" stroke-width="0.8" fill="none" opacity="0.8"/>
+                    <ellipse cx="600" cy="400" rx="65" ry="85" stroke="#2A2A2A" stroke-width="0.8" fill="none" opacity="0.85"/>
+                    <ellipse cx="600" cy="400" rx="50" ry="68" stroke="#2A2A2A" stroke-width="0.8" fill="none" opacity="0.9"/>
+                    <ellipse cx="600" cy="400" rx="38" ry="52" stroke="#2A2A2A" stroke-width="0.8" fill="none" opacity="0.92"/>
+                    
+                    <!-- Peak summit rings -->
+                    <ellipse cx="600" cy="400" rx="28" ry="40" stroke="#2A2A2A" stroke-width="0.8" fill="none" opacity="0.94"/>
+                    <ellipse cx="600" cy="400" rx="20" ry="30" stroke="#2A2A2A" stroke-width="0.8" fill="none" opacity="0.96"/>
+                    <ellipse cx="600" cy="400" rx="12" ry="20" stroke="#2A2A2A" stroke-width="0.8" fill="none" opacity="0.98"/>
+                    <ellipse cx="600" cy="400" rx="6" ry="12" stroke="#2A2A2A" stroke-width="0.8" fill="none" opacity="1"/>
+                </svg>
             </div>
         </main>
 
@@ -347,33 +417,6 @@
         document.getElementById('nameLink').addEventListener('click', () => {
             window.location.href = 'about.html'; // Change to your about page URL
             // Or for single page: create an about section and scroll to it
-        });
-
-        // Animate SVG paths on load
-        const svgObject = document.getElementById('contour-svg');
-        
-        svgObject.addEventListener('load', () => {
-            const svgDoc = svgObject.contentDocument;
-            const paths = svgDoc.querySelectorAll('path, polyline, line, circle, ellipse, polygon');
-            
-            paths.forEach((path, index) => {
-                const length = path.getTotalLength();
-                
-                path.style.stroke = '#2A2A2A';
-                path.style.strokeWidth = '0.8';
-                path.style.fill = 'none';
-                path.style.strokeLinecap = 'round';
-                path.style.strokeLinejoin = 'round';
-                path.style.strokeDasharray = length;
-                path.style.strokeDashoffset = length;
-                
-                const delay = index * 80;
-                
-                setTimeout(() => {
-                    path.style.transition = 'stroke-dashoffset 1.8s ease-out';
-                    path.style.strokeDashoffset = '0';
-                }, delay);
-            });
         });
     </script>
 </body>
