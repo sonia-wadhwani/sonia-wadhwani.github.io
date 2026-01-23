@@ -4,30 +4,376 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sonia Wadhwani</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Geist:wght@400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Spline+Sans:wght@400&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Geist', sans-serif;
+            background-color: #F5F1E8;
+            color: #2A2A2A;
+            overflow-x: hidden;
+        }
+
+        /* Landing Section */
+        .landing-section {
+            width: 100vw;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        header {
+            position: absolute;
+            top: 60px;
+            left: 60px;
+            z-index: 10;
+        }
+
+        header h1 {
+            font-family: 'Geist', sans-serif;
+            font-size: 24px;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            color: #2A2A2A;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        header h1:hover {
+            opacity: 0.6;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 0;
+            margin: 0;
+        }
+
+        .contour-container {
+            width: 550px;
+            height: auto;
+            margin: 0;
+            padding: 0;
+        }
+
+        #contour-svg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 60px;
+            left: 60px;
+            right: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .tagline {
+            font-family: 'Spline Sans', sans-serif;
+            font-size: 18px;
+            font-weight: 400;
+            letter-spacing: 0.01em;
+            line-height: 1.4;
+            color: #2A2A2A;
+            max-width: 400px;
+        }
+
+        .enter-indicator {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .enter-indicator span {
+            font-family: 'Geist', sans-serif;
+            font-size: 14px;
+            letter-spacing: 0.05em;
+            text-transform: lowercase;
+            color: #2A2A2A;
+        }
+
+        .enter-indicator svg {
+            opacity: 0.6;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(4px); }
+        }
+
+        /* Projects Section */
+        .projects-section {
+            min-height: 100vh;
+            padding: 80px 60px;
+            background-color: #F5F1E8;
+        }
+
+        .projects-section h2 {
+            font-family: 'Geist', sans-serif;
+            font-size: 48px;
+            font-weight: 400;
+            margin-bottom: 60px;
+            letter-spacing: 0.02em;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(42, 42, 42, 0.1);
+            border-radius: 8px;
+            padding: 40px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(42, 42, 42, 0.1);
+        }
+
+        .project-card h3 {
+            font-family: 'Geist', sans-serif;
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 16px;
+        }
+
+        .project-card p {
+            font-family: 'Spline Sans', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #4A4A4A;
+        }
+
+        /* About Section */
+        .about-section {
+            min-height: 100vh;
+            padding: 80px 60px;
+            background-color: #F5F1E8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-content {
+            max-width: 800px;
+        }
+
+        .about-content h2 {
+            font-family: 'Geist', sans-serif;
+            font-size: 48px;
+            font-weight: 400;
+            margin-bottom: 40px;
+            letter-spacing: 0.02em;
+        }
+
+        .about-content p {
+            font-family: 'Spline Sans', sans-serif;
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 24px;
+            color: #2A2A2A;
+        }
+
+        .back-link {
+            font-family: 'Geist', sans-serif;
+            font-size: 16px;
+            color: #2A2A2A;
+            text-decoration: none;
+            margin-top: 40px;
+            display: inline-block;
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+
+        .back-link:hover {
+            opacity: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 1400px) {
+            .contour-container { width: 480px; }
+        }
+
+        @media (max-width: 1024px) {
+            .contour-container { width: 400px; }
+            .projects-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            main {
+                justify-content: center;
+                padding: 0 40px;
+            }
+            .contour-container {
+                width: 100%;
+                max-width: 350px;
+            }
+            header {
+                top: 40px;
+                left: 40px;
+            }
+            header h1 {
+                font-size: 20px;
+            }
+            footer {
+                bottom: 40px;
+                left: 40px;
+                right: 40px;
+            }
+            .tagline {
+                font-size: 16px;
+            }
+            .projects-section, .about-section {
+                padding: 60px 40px;
+            }
+            .projects-section h2, .about-content h2 {
+                font-size: 36px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contour-container { max-width: 280px; }
+            header {
+                top: 30px;
+                left: 30px;
+            }
+            footer {
+                bottom: 30px;
+                left: 30px;
+                right: 30px;
+            }
+        }
+    </style>
 </head>
 <body>
     
-    <header>
-        <h1>Sonia Wadhwani</h1>
-    </header>
+    <!-- Landing Section -->
+    <div class="landing-section" id="landing">
+        <header>
+            <h1 id="nameLink">Sonia Wadhwani</h1>
+        </header>
 
-    <main>
-        <div class="contour-container">
-            <object id="contour-svg" data="contour-art.svg" type="image/svg+xml"></object>
+        <main>
+            <div class="contour-container">
+                <object id="contour-svg" data="contour-art.svg" type="image/svg+xml"></object>
+            </div>
+        </main>
+
+        <footer>
+            <p class="tagline">Mapping the unseen architectures of tomorrow.</p>
+            <div class="enter-indicator">
+                <span>enter</span>
+                <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
+                    <path d="M6 8L0 0H12L6 8Z" fill="currentColor"/>
+                </svg>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Projects Section -->
+    <div class="projects-section" id="projects">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>Project One</h3>
+                <p>An exploration of spatial dynamics and user interaction patterns in digital environments.</p>
+            </div>
+            <div class="project-card">
+                <h3>Project Two</h3>
+                <p>Redefining visual communication through generative systems and algorithmic design.</p>
+            </div>
+            <div class="project-card">
+                <h3>Project Three</h3>
+                <p>Interactive installations that bridge physical and digital experiences.</p>
+            </div>
+            <div class="project-card">
+                <h3>Project Four</h3>
+                <p>Typography as architecture: constructing meaning through letterforms and space.</p>
+            </div>
         </div>
-    </main>
+    </div>
 
-    <footer>
-        <p class="tagline">Mapping the unseen architectures of tomorrow.</p>
-        <div class="enter-indicator">
-            <span>enter</span>
-            <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
-                <path d="M6 8L0 0H12L6 8Z" fill="currentColor"/>
-            </svg>
-        </div>
-    </footer>
+    <script>
+        // Smooth scroll to projects on wheel/touch
+        let isScrolling = false;
+        
+        window.addEventListener('wheel', (e) => {
+            if (!isScrolling && e.deltaY > 0 && window.scrollY === 0) {
+                isScrolling = true;
+                document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+                setTimeout(() => { isScrolling = false; }, 1000);
+            }
+        });
 
-    <script src="script.js"></script>
+        // Click enter indicator to scroll
+        document.querySelector('.enter-indicator').addEventListener('click', () => {
+            document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Name link to about (you can change this to a separate page later)
+        document.getElementById('nameLink').addEventListener('click', () => {
+            window.location.href = 'about.html'; // Change to your about page URL
+            // Or for single page: create an about section and scroll to it
+        });
+
+        // Animate SVG paths on load
+        const svgObject = document.getElementById('contour-svg');
+        
+        svgObject.addEventListener('load', () => {
+            const svgDoc = svgObject.contentDocument;
+            const paths = svgDoc.querySelectorAll('path, polyline, line, circle, ellipse, polygon');
+            
+            paths.forEach((path, index) => {
+                const length = path.getTotalLength();
+                
+                path.style.stroke = '#2A2A2A';
+                path.style.strokeWidth = '0.8';
+                path.style.fill = 'none';
+                path.style.strokeLinecap = 'round';
+                path.style.strokeLinejoin = 'round';
+                path.style.strokeDasharray = length;
+                path.style.strokeDashoffset = length;
+                
+                const delay = index * 80;
+                
+                setTimeout(() => {
+                    path.style.transition = 'stroke-dashoffset 1.8s ease-out';
+                    path.style.strokeDashoffset = '0';
+                }, delay);
+            });
+        });
+    </script>
 </body>
 </html>
